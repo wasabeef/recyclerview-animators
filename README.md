@@ -1,6 +1,9 @@
 RecyclerViewAnimators
 ======================
 
+RecyclerViewAnimators is an Open Source Android library that allows developers to easily create RecyclerView with animations.
+Please feel free to use this.
+
 # Demo
 
 ![](art/demo.gif)
