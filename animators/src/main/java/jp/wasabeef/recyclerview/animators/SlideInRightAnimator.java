@@ -15,6 +15,7 @@ package jp.wasabeef.recyclerview.animators;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 
@@ -40,7 +41,8 @@ public class SlideInRightAnimator extends BaseItemAnimator {
         ViewCompat.animate(holder.itemView)
                 .translationX(0)
                 .setDuration(getAddDuration())
-                .setListener(new DefaultAddVpaListener(holder)).start();
+                .setListener(new DefaultAddVpaListener(holder))
+                .start();
         mAddAnimations.add(holder);
     }
 }
