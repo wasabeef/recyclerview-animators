@@ -14,10 +14,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
-import jp.wasabeef.recyclerview.animators.FadeAnimator;
-import jp.wasabeef.recyclerview.animators.FlipXAnimator;
-import jp.wasabeef.recyclerview.animators.FlipYAnimator;
-import jp.wasabeef.recyclerview.animators.ScaleAnimator;
+import jp.wasabeef.recyclerview.animators.FadeInAnimator;
+import jp.wasabeef.recyclerview.animators.FlipBottomInXAnimator;
+import jp.wasabeef.recyclerview.animators.FlipLeftInYAnimator;
+import jp.wasabeef.recyclerview.animators.FlipRightInYAnimator;
+import jp.wasabeef.recyclerview.animators.FlipTopInXAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 import jp.wasabeef.recyclerview.animators.SlideBottomAnimator;
 import jp.wasabeef.recyclerview.animators.SlideLeftAnimator;
 import jp.wasabeef.recyclerview.animators.SlideRightAnimator;
@@ -30,10 +32,12 @@ import jp.wasabeef.recyclerview.animators.SlideTopAnimator;
 public class MainActivity extends ActionBarActivity {
 
     enum Type {
-        Fade("Fade", new FadeAnimator()),
-        Scale("Scale", new ScaleAnimator()),
-        FlipX("FlipX", new FlipXAnimator()),
-        FlipY("FlipY", new FlipYAnimator()),
+        FadeIn("FadeIn", new FadeInAnimator()),
+        ScaleIn("ScaleIn", new ScaleInAnimator()),
+        FlipTopInX("FlipTopInX", new FlipTopInXAnimator()),
+        FlipBottomInX("FlipBottomInX", new FlipBottomInXAnimator()),
+        FlipLeftInY("FlipLefIntY", new FlipLeftInYAnimator()),
+        FlipRightInY("FlipRightInY", new FlipRightInYAnimator()),
         SlideLeft("SlideLeft", new SlideLeftAnimator()),
         SlideRight("SlideRight", new SlideRightAnimator()),
         SlideTop("SlideTop", new SlideTopAnimator()),
@@ -74,7 +78,7 @@ public class MainActivity extends ActionBarActivity {
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setItemAnimator(new FadeAnimator());
+        recyclerView.setItemAnimator(new FadeInAnimator());
         final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
         recyclerView.setAdapter(adapter);
 
@@ -89,6 +93,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 recyclerView.setItemAnimator(Type.values()[position].getAnimator());
+                recyclerView.getItemAnimator().setAddDuration(1000);
+                recyclerView.getItemAnimator().setRemoveDuration(1000);
             }
 
             @Override

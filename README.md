@@ -50,13 +50,14 @@ You can change the durations.
 ### Animator
 
 #### Scale
-`ScaleAnimator`
+`ScaleInAnimator`
 
 #### Fade
-`FadeAnimator`
+`FadeInAnimator`
 
 #### Flip
-`FlipXAnimator`, `FlipYAnimator`
+`FlipTopInXAnimator`, `FlipBottomInXAnimator`
+`FlipLeftInYAnimator`, `FlipRightInYAnimator`
 
 #### Slide
 `SlideLeftAnimator`, `SlideRightAnimator`  
