@@ -1,6 +1,8 @@
 RecyclerViewAnimators
 ======================
 
+[![Build Status](https://travis-ci.org/wasabeef/RecyclerViewAnimators.svg)](https://travis-ci.org/wasabeef/RecyclerViewAnimators)
+
 RecyclerViewAnimators is an Android library that allows developers to easily create RecyclerView with animations.
 Please feel free to use this.
 
