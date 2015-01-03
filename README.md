@@ -54,7 +54,7 @@ You can change the durations.
 `ScaleInAnimator`
 
 #### Fade
-`FadeInAnimator`
+`FadeInAnimator`, `FadeInDownAnimator`, `FadeInUpAnimator`
 
 #### Flip
 `FlipInTopXAnimator`, `FlipInBottomXAnimator`  
