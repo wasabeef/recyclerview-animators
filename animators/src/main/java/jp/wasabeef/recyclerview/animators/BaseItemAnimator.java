@@ -1,5 +1,6 @@
 package jp.wasabeef.recyclerview.animators;
 /*
+ * Copyright (C) 2015 Wasabeef
  * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,10 +14,6 @@ package jp.wasabeef.recyclerview.animators;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * This code is cloned from DefaultItemAnimator provided by support library
- *
- * @author Wasabeef
  *
  */
 import android.support.v4.view.ViewCompat;
