@@ -15,15 +15,15 @@ import java.util.Arrays;
 
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
-import jp.wasabeef.recyclerview.animators.FlipBottomInXAnimator;
-import jp.wasabeef.recyclerview.animators.FlipLeftInYAnimator;
-import jp.wasabeef.recyclerview.animators.FlipRightInYAnimator;
-import jp.wasabeef.recyclerview.animators.FlipTopInXAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInLeftYAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInRightYAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
-import jp.wasabeef.recyclerview.animators.SlideBottomAnimator;
-import jp.wasabeef.recyclerview.animators.SlideLeftAnimator;
-import jp.wasabeef.recyclerview.animators.SlideRightAnimator;
-import jp.wasabeef.recyclerview.animators.SlideTopAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInBottomAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInTopAnimator;
 
 
 /**
@@ -34,14 +34,14 @@ public class MainActivity extends ActionBarActivity {
     enum Type {
         FadeIn("FadeIn", new FadeInAnimator()),
         ScaleIn("ScaleIn", new ScaleInAnimator()),
-        FlipTopInX("FlipTopInX", new FlipTopInXAnimator()),
-        FlipBottomInX("FlipBottomInX", new FlipBottomInXAnimator()),
-        FlipLeftInY("FlipLefIntY", new FlipLeftInYAnimator()),
-        FlipRightInY("FlipRightInY", new FlipRightInYAnimator()),
-        SlideLeft("SlideLeft", new SlideLeftAnimator()),
-        SlideRight("SlideRight", new SlideRightAnimator()),
-        SlideTop("SlideTop", new SlideTopAnimator()),
-        SlideBottom("SlideBottom", new SlideBottomAnimator());
+        FlipInTopX("FlipInTopX", new FlipInTopXAnimator()),
+        FlipInBottomX("FlipInBottomX", new FlipInBottomXAnimator()),
+        FlipInLeftY("FlipInLefY", new FlipInLeftYAnimator()),
+        FlipInRightY("FlipInRightY", new FlipInRightYAnimator()),
+        SlideInLeft("SlideInLeft", new SlideInLeftAnimator()),
+        SlideInRight("SlideInRight", new SlideInRightAnimator()),
+        SlideInTop("SlideInTop", new SlideInTopAnimator()),
+        SlideInBottom("SlideInBottom", new SlideInBottomAnimator());
 
         private String mTitle;
         private BaseItemAnimator mAnimator;

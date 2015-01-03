@@ -18,13 +18,17 @@ package jp.wasabeef.recyclerview.animators;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 
-public class SlideBottomAnimator extends BaseItemAnimator {
+public class FlipInLeftYAnimator extends BaseItemAnimator {
+
+    @Override
+    protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
+        ViewCompat.setPivotY(holder.itemView, holder.itemView.getWidth() / 2);
+    }
 
     @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
-                .translationY(holder.itemView.getHeight())
-                .alpha(0)
+                .rotationY(90)
                 .setDuration(getRemoveDuration())
                 .setListener(new DefaultRemoveVpaListener(holder))
                 .start();
@@ -33,18 +37,17 @@ public class SlideBottomAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        ViewCompat.setTranslationY(holder.itemView, holder.itemView.getHeight());
-        ViewCompat.setAlpha(holder.itemView, 0);
+        ViewCompat.setRotationY(holder.itemView, 90);
+        ViewCompat.setPivotY(holder.itemView, holder.itemView.getWidth() / 2);
+
     }
 
     @Override
     protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
-                .translationY(0)
-                .alpha(1)
+                .rotationY(0)
                 .setDuration(getAddDuration())
-                .setListener(new DefaultAddVpaListener(holder))
-                .start();
+                .setListener(new DefaultAddVpaListener(holder)).start();
         mAddAnimations.add(holder);
     }
 }

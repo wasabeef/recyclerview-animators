@@ -56,12 +56,12 @@ You can change the durations.
 `FadeInAnimator`
 
 #### Flip
-`FlipTopInXAnimator`, `FlipBottomInXAnimator`  
-`FlipLeftInYAnimator`, `FlipRightInYAnimator`
+`FlipInTopXAnimator`, `FlipInBottomXAnimator`
+`FlipInLeftYAnimator`, `FlipInRightYAnimator`
 
 #### Slide
-`SlideLeftAnimator`, `SlideRightAnimator`  
-`SlideTopAnimator`, `SlideBottomAnimator`
+`SlideInLeftAnimator`, `SlideInRightAnimator`
+`SlideInTopAnimator`, `SlideInBottomAnimator`
 
 License
 -------

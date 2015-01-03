@@ -18,7 +18,7 @@ package jp.wasabeef.recyclerview.animators;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 
-public class FlipTopInXAnimator extends BaseItemAnimator {
+public class FlipInTopXAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
