@@ -3,41 +3,42 @@ RecyclerViewAnimators
 
 # Demo
 
-![](aaaa.gif)
+**Comming Soon**
 
-# Usage
+# How do I use it?
 
 ## Step 1
 
 #### Gradle
 ```groovy
 dependencies {
-        compile 'jp.wasabeef:recyclerview-animators:{Current Version}'
+        compile 'jp.wasabeef.recyclerview:animators:{Current Version}'
 }
 ```
 
 ## Step 2
 
-Just like play animators.
+Just like play RecyclerView Animations.
 
 ```java
     RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.list);
-    mRecyclerView.setItemAnimator(new **************(mRecyclerView));
+    mRecyclerView.setItemAnimator(new FlipYAnimator());
 ```
 
-### Effects
+### Animator
 
 #### Scale
-`Scale`
+`ScaleAnimator`
 
 #### Fade
-`Fade`
+`FadeAnimator`
 
 #### Flip
-`FlipX`, `FlipY`
+`FlipXAnimator`, `FlipYAnimator`
 
 #### Slide
-`SlideLeft`, `SlideRight`, `SlideTop`, `SlideBottom`
+`SlideLeftAnimator`, `SlideRightAnimator`  
+`SlideTopAnimator`, `SlideBottomAnimator`
 
 License
 -------
