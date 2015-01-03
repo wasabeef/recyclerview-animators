@@ -2,9 +2,9 @@ RecyclerViewAnimators
 ======================
 
 [![Build Status](https://travis-ci.org/wasabeef/RecyclerViewAnimators.svg)](https://travis-ci.org/wasabeef/RecyclerViewAnimators)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/jp.wasabeef.recyclerview/animators/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/jp.wasabeef.recyclerview/animators/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview)
 
-RecyclerViewAnimators is an Android library that allows developers to easily create RecyclerView with animations.
+RecyclerViewAnimators is an Android library that allows developers to easily create RecyclerView with animations.  
 Please feel free to use this.
 
 # Demo
@@ -54,14 +54,15 @@ You can change the durations.
 `ScaleInAnimator`
 
 #### Fade
-`FadeInAnimator`, `FadeInDownAnimator`, `FadeInUpAnimator`
+`FadeInAnimator`, `FadeInDownAnimator`, `FadeInUpAnimator`  
+`FadeInLeftAnimator`, `FadeInRightAnimator`
 
 #### Flip
 `FlipInTopXAnimator`, `FlipInBottomXAnimator`  
 `FlipInLeftYAnimator`, `FlipInRightYAnimator`
 
 #### Slide
-`SlideInLeftAnimator`, `SlideInRightAnimator`, `OvershootInLeftAnimator`, `OvershootInRightAnimator`
+`SlideInLeftAnimator`, `SlideInRightAnimator`, `OvershootInLeftAnimator`, `OvershootInRightAnimator`  
 `SlideInUpAnimator`, `SlideInDownAnimator`
 
 License
@@ -80,4 +81,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-

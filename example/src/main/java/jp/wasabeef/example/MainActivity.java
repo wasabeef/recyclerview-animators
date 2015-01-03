@@ -16,6 +16,8 @@ import java.util.Arrays;
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInUpAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInLeftYAnimator;
@@ -39,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
         FadeIn("FadeIn", new FadeInAnimator()),
         FadeInDown("FadeInDown", new FadeInDownAnimator()),
         FadeInUp("FadeInUp", new FadeInUpAnimator()),
+        FadeInLeft("FadeInLeft", new FadeInLeftAnimator()),
+        FadeInRight("FadeInRight", new FadeInRightAnimator()),
         ScaleIn("ScaleIn", new ScaleInAnimator()),
         FlipInTopX("FlipInTopX", new FlipInTopXAnimator()),
         FlipInBottomX("FlipInBottomX", new FlipInBottomXAnimator()),
