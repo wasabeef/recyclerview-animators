@@ -3,7 +3,7 @@ RecyclerViewAnimators
 
 # Demo
 
-**Comming Soon**
+![](art/demo.gif)
 
 # Status
 
