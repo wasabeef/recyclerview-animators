@@ -16,6 +16,7 @@ package jp.wasabeef.recyclerview.animators;
  * limitations under the License.
  *
  */
+
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -253,13 +254,13 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
 
             @Override
             public void onAnimationCancel(View view) {
-                clearAnimation(view);
+                reset(view);
             }
 
             @Override
             public void onAnimationEnd(View view) {
                 animation.setListener(null);
-                clearAnimation(view);
+                reset(view);
                 dispatchMoveFinished(holder);
                 mMoveAnimations.remove(holder);
                 dispatchFinishedWhenDone();
@@ -312,7 +313,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
                 @Override
                 public void onAnimationEnd(View view) {
                     oldViewAnim.setListener(null);
-                    clearAnimation(view);
+                    reset(view);
                     dispatchChangeFinished(changeInfo.oldHolder, true);
                     mChangeAnimations.remove(changeInfo.oldHolder);
                     dispatchFinishedWhenDone();
@@ -332,7 +333,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
                 @Override
                 public void onAnimationEnd(View view) {
                     newViewAnimation.setListener(null);
-                    clearAnimation(newView);
+                    reset(newView);
                     dispatchChangeFinished(changeInfo.newHolder, false);
                     mChangeAnimations.remove(changeInfo.newHolder);
                     dispatchFinishedWhenDone();
@@ -361,14 +362,14 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         } else {
             return false;
         }
-        clearAnimation(item.itemView);
+        reset(item.itemView);
         dispatchChangeFinished(item, oldItem);
         return true;
     }
 
     @Override
     public void endAnimation(RecyclerView.ViewHolder item) {
-        clearAnimation(item.itemView);
+        reset(item.itemView);
         dispatchFinishedWhenDone();
     }
 
@@ -404,7 +405,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         for (int i = count - 1; i >= 0; i--) {
             MoveInfo item = mPendingMoves.get(i);
             View view = item.holder.itemView;
-            clearAnimation(view);
+            reset(view);
             dispatchMoveFinished(item.holder);
             mPendingMoves.remove(i);
         }
@@ -418,7 +419,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         for (int i = count - 1; i >= 0; i--) {
             RecyclerView.ViewHolder item = mPendingAdditions.get(i);
             View view = item.itemView;
-            clearAnimation(view);
+            reset(view);
             dispatchAddFinished(item);
             mPendingAdditions.remove(i);
         }
@@ -439,7 +440,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
                 MoveInfo moveInfo = moves.get(j);
                 RecyclerView.ViewHolder item = moveInfo.holder;
                 View view = item.itemView;
-                clearAnimation(view);
+                reset(view);
                 dispatchMoveFinished(moveInfo.holder);
                 moves.remove(j);
                 if (moves.isEmpty()) {
@@ -454,7 +455,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
             for (int j = count - 1; j >= 0; j--) {
                 RecyclerView.ViewHolder item = additions.get(j);
                 View view = item.itemView;
-                clearAnimation(view);
+                reset(view);
                 dispatchAddFinished(item);
                 additions.remove(j);
                 if (additions.isEmpty()) {
@@ -484,11 +485,11 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
 
     void cancelAll(List<RecyclerView.ViewHolder> viewHolders) {
         for (int i = viewHolders.size() - 1; i >= 0; i--) {
-            clearAnimation(viewHolders.get(i).itemView);
+            reset(viewHolders.get(i).itemView);
         }
     }
 
-    void clearAnimation(View v) {
+    void reset(View v) {
         ViewCompat.setAlpha(v, 1);
         ViewCompat.setScaleY(v, 1);
         ViewCompat.setScaleX(v, 1);
@@ -496,6 +497,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         ViewCompat.setTranslationX(v, 0);
         ViewCompat.setRotationY(v, 0);
         ViewCompat.setRotationX(v, 0);
+        ViewCompat.animate(v).setInterpolator(null);
     }
 
     private static class VpaListenerAdapter implements ViewPropertyAnimatorListener {
