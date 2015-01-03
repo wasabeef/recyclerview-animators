@@ -29,11 +29,22 @@ dependencies {
 
 ## Step 2
 
-Just like play RecyclerView Animations.
+Just like play RecyclerView animations.
 
 ```java
     RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.list);
     mRecyclerView.setItemAnimator(new FlipYAnimator());
+```
+
+## Advanced Step 3
+
+You can change the durations.
+
+```java
+    mRecyclerView.getItemAnimator().setAddDuration(1000);
+    mRecyclerView.getItemAnimator().setRemoveDuration(1000);
+    mRecyclerView.getItemAnimator().setMoveDuration(1000);
+    mRecyclerView.getItemAnimator().setChangeDuration(1000);
 ```
 
 ### Animator
