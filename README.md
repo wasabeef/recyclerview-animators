@@ -5,6 +5,12 @@ RecyclerViewAnimators
 
 **Comming Soon**
 
+# Status
+
+Release Version: N/A
+Pre-Release Version: N/A
+Snapshot Version: N/A
+
 # How do I use it?
 
 ## Step 1
