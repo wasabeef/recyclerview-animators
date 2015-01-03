@@ -38,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
         ScaleIn("ScaleIn", new ScaleInAnimator()),
         FlipInTopX("FlipInTopX", new FlipInTopXAnimator()),
         FlipInBottomX("FlipInBottomX", new FlipInBottomXAnimator()),
-        FlipInLeftY("FlipInLefY", new FlipInLeftYAnimator()),
+        FlipInLeftY("FlipInLeftY", new FlipInLeftYAnimator()),
         FlipInRightY("FlipInRightY", new FlipInRightYAnimator()),
         SlideInLeft("SlideInLeft", new SlideInLeftAnimator()),
         SlideInRight("SlideInRight", new SlideInRightAnimator()),
