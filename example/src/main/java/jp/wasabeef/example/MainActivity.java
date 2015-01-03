@@ -19,6 +19,8 @@ import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInLeftYAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInRightYAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator;
+import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.OvershootInRightAnimator;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInBottomAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
@@ -41,7 +43,9 @@ public class MainActivity extends ActionBarActivity {
         SlideInLeft("SlideInLeft", new SlideInLeftAnimator()),
         SlideInRight("SlideInRight", new SlideInRightAnimator()),
         SlideInTop("SlideInTop", new SlideInTopAnimator()),
-        SlideInBottom("SlideInBottom", new SlideInBottomAnimator());
+        SlideInBottom("SlideInBottom", new SlideInBottomAnimator()),
+        OvershootInRight("OvershootInRight", new OvershootInRightAnimator()),
+        OvershootInLeft("OvershootInLeft", new OvershootInLeftAnimator());
 
         private String mTitle;
         private BaseItemAnimator mAnimator;
@@ -93,8 +97,8 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 recyclerView.setItemAnimator(Type.values()[position].getAnimator());
-                recyclerView.getItemAnimator().setAddDuration(1000);
-                recyclerView.getItemAnimator().setRemoveDuration(1000);
+                recyclerView.getItemAnimator().setAddDuration(300);
+                recyclerView.getItemAnimator().setRemoveDuration(300);
             }
 
             @Override

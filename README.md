@@ -61,7 +61,7 @@ You can change the durations.
 `FlipInLeftYAnimator`, `FlipInRightYAnimator`
 
 #### Slide
-`SlideInLeftAnimator`, `SlideInRightAnimator`  
+`SlideInLeftAnimator`, `SlideInRightAnimator`, `OvershootInLeftAnimator`, `OvershootInRightAnimator`
 `SlideInTopAnimator`, `SlideInBottomAnimator`
 
 License
