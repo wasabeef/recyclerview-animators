@@ -22,10 +22,10 @@ import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator;
 import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.OvershootInRightAnimator;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
-import jp.wasabeef.recyclerview.animators.SlideInBottomAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInDownAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
-import jp.wasabeef.recyclerview.animators.SlideInTopAnimator;
 
 
 /**
@@ -42,8 +42,8 @@ public class MainActivity extends ActionBarActivity {
         FlipInRightY("FlipInRightY", new FlipInRightYAnimator()),
         SlideInLeft("SlideInLeft", new SlideInLeftAnimator()),
         SlideInRight("SlideInRight", new SlideInRightAnimator()),
-        SlideInTop("SlideInTop", new SlideInTopAnimator()),
-        SlideInBottom("SlideInBottom", new SlideInBottomAnimator()),
+        SlideInDown("SlideInDown", new SlideInDownAnimator()),
+        SlideInUp("SlideInUp", new SlideInUpAnimator()),
         OvershootInRight("OvershootInRight", new OvershootInRightAnimator()),
         OvershootInLeft("OvershootInLeft", new OvershootInLeftAnimator());
 

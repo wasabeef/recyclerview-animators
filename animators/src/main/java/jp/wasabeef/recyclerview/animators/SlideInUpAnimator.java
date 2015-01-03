@@ -19,12 +19,12 @@ package jp.wasabeef.recyclerview.animators;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 
-public class SlideInTopAnimator extends BaseItemAnimator {
+public class SlideInUpAnimator extends BaseItemAnimator {
 
     @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
-                .translationY(0)
+                .translationY(holder.itemView.getHeight())
                 .alpha(0)
                 .setDuration(getRemoveDuration())
                 .setListener(new DefaultRemoveVpaListener(holder))
@@ -34,7 +34,7 @@ public class SlideInTopAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        ViewCompat.setTranslationY(holder.itemView, -holder.itemView.getHeight());
+        ViewCompat.setTranslationY(holder.itemView, holder.itemView.getHeight());
         ViewCompat.setAlpha(holder.itemView, 0);
     }
 

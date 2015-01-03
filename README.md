@@ -62,7 +62,7 @@ You can change the durations.
 
 #### Slide
 `SlideInLeftAnimator`, `SlideInRightAnimator`, `OvershootInLeftAnimator`, `OvershootInRightAnimator`
-`SlideInTopAnimator`, `SlideInBottomAnimator`
+`SlideInUpAnimator`, `SlideInDownAnimator`
 
 License
 -------
