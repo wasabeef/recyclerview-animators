@@ -34,7 +34,7 @@ Just like play RecyclerView animations.
 
 ```java
     RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.list);
-    mRecyclerView.setItemAnimator(new FlipYAnimator());
+    mRecyclerView.setItemAnimator(new SlideInLeftAnimator());
 ```
 
 ## Advanced Step 3
