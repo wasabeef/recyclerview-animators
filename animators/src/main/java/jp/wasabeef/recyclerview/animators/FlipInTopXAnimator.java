@@ -39,7 +39,6 @@ public class FlipInTopXAnimator extends BaseItemAnimator {
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
         ViewCompat.setRotationX(holder.itemView, 90);
-        ViewCompat.setPivotX(holder.itemView, holder.itemView.getHeight() / 2);
     }
 
     @Override

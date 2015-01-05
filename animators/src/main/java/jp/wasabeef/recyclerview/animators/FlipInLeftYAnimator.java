@@ -39,8 +39,6 @@ public class FlipInLeftYAnimator extends BaseItemAnimator {
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
         ViewCompat.setRotationY(holder.itemView, 90);
-        ViewCompat.setPivotY(holder.itemView, holder.itemView.getWidth() / 2);
-
     }
 
     @Override
