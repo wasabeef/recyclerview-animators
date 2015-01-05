@@ -1,9 +1,9 @@
-RecyclerViewAnimators
+RecyclerView Animators
 ======================
 
 [![Download](https://api.bintray.com/packages/wasabeef/maven/recyclerview-animators/images/download.svg)](https://bintray.com/wasabeef/maven/recyclerview-animators/_latestVersion)
 
-RecyclerViewAnimators is an Android library that allows developers to easily create RecyclerView with animations.  
+RecyclerView Animators is an Android library that allows developers to easily create RecyclerView with animations.  
 Please feel free to use this.
 
 # Demo ([Play Store Demo](https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview))
