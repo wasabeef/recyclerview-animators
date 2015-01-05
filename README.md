@@ -50,6 +50,9 @@ You can change the durations.
 
 ### Animator
 
+### Cool
+`LandingAnimator`
+
 #### Scale
 `ScaleInAnimator`
 

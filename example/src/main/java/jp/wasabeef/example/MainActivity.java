@@ -23,6 +23,7 @@ import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInLeftYAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInRightYAnimator;
 import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator;
+import jp.wasabeef.recyclerview.animators.LandingAnimator;
 import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.OvershootInRightAnimator;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
@@ -43,6 +44,7 @@ public class MainActivity extends ActionBarActivity {
         FadeInUp("FadeInUp", new FadeInUpAnimator()),
         FadeInLeft("FadeInLeft", new FadeInLeftAnimator()),
         FadeInRight("FadeInRight", new FadeInRightAnimator()),
+        Landing("Landing", new LandingAnimator()),
         ScaleIn("ScaleIn", new ScaleInAnimator()),
         FlipInTopX("FlipInTopX", new FlipInTopXAnimator()),
         FlipInBottomX("FlipInBottomX", new FlipInBottomXAnimator()),
