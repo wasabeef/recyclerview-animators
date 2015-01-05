@@ -54,7 +54,9 @@ You can change the durations.
 `LandingAnimator`
 
 #### Scale
-`ScaleInAnimator`
+`ScaleInAnimator`, `ScaleInTopAnimator`, `ScaleInBottomAnimator`  
+`ScaleInLeftAnimator`, `ScaleInRightAnimator`
+
 
 #### Fade
 `FadeInAnimator`, `FadeInDownAnimator`, `FadeInUpAnimator`  

@@ -27,6 +27,10 @@ import jp.wasabeef.recyclerview.animators.LandingAnimator;
 import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.OvershootInRightAnimator;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInBottomAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInRightAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInTopAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
@@ -46,6 +50,10 @@ public class MainActivity extends ActionBarActivity {
         FadeInRight("FadeInRight", new FadeInRightAnimator()),
         Landing("Landing", new LandingAnimator()),
         ScaleIn("ScaleIn", new ScaleInAnimator()),
+        ScaleInTop("ScaleInTop", new ScaleInTopAnimator()),
+        ScaleInBottom("ScaleInBottom", new ScaleInBottomAnimator()),
+        ScaleInLeft("ScaleInLeft", new ScaleInLeftAnimator()),
+        ScaleInRight("ScaleInRight", new ScaleInRightAnimator()),
         FlipInTopX("FlipInTopX", new FlipInTopXAnimator()),
         FlipInBottomX("FlipInBottomX", new FlipInBottomXAnimator()),
         FlipInLeftY("FlipInLeftY", new FlipInLeftYAnimator()),
@@ -120,14 +128,14 @@ public class MainActivity extends ActionBarActivity {
         findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.add("newly added item", 3);
+                adapter.add("newly added item", 1);
             }
         });
 
         findViewById(R.id.del).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.remove(3);
+                adapter.remove(1);
             }
         });
     }
