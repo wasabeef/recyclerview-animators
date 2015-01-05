@@ -1,4 +1,4 @@
-package jp.wasabeef.example;
+package jp.wasabeef.example.recyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;

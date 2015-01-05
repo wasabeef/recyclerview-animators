@@ -1,4 +1,4 @@
-package jp.wasabeef.example;
+package jp.wasabeef.example.recyclerview;
 
 
 import com.squareup.picasso.Picasso;
