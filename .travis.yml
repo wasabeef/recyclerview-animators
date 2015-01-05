@@ -35,4 +35,4 @@ android:
      - 'android-sdk-license-.+'
 
 script:
-  ./gradlew clean buildDebug
+  ./gradlew clean assembleDebug
