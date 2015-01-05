@@ -495,6 +495,8 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         ViewCompat.setRotation(v, 0);
         ViewCompat.setRotationY(v, 0);
         ViewCompat.setRotationX(v, 0);
+        v.setPivotX(v.getMeasuredWidth() / 2);
+        v.setPivotY(v.getMeasuredHeight() / 2);
         ViewCompat.animate(v).setInterpolator(null);
     }
 
@@ -533,6 +535,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
 
         @Override
         public void onAnimationEnd(View view) {
+            reset(view);
             dispatchAddFinished(mViewHolder);
             mAddAnimations.remove(mViewHolder);
             dispatchFinishedWhenDone();
@@ -545,6 +548,11 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
 
         public DefaultRemoveVpaListener(final RecyclerView.ViewHolder holder) {
             mViewHolder = holder;
+        }
+
+        @Override
+        public void onAnimationCancel(View view) {
+            reset(view);
         }
 
         @Override

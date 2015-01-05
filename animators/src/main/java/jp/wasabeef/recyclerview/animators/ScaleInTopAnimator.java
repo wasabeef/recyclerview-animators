@@ -39,7 +39,6 @@ public class ScaleInTopAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        holder.itemView.setPivotX(holder.itemView.getWidth() / 2);
         holder.itemView.setPivotY(0);
         ViewCompat.setScaleX(holder.itemView, 0);
         ViewCompat.setScaleY(holder.itemView, 0);

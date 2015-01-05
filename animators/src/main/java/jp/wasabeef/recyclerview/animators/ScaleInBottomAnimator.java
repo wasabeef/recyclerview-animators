@@ -23,7 +23,6 @@ public class ScaleInBottomAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
-        holder.itemView.setPivotX(holder.itemView.getWidth() / 2);
         holder.itemView.setPivotY(holder.itemView.getHeight());
     }
 
@@ -39,7 +38,6 @@ public class ScaleInBottomAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        holder.itemView.setPivotX(holder.itemView.getWidth() / 2);
         holder.itemView.setPivotY(holder.itemView.getHeight());
         ViewCompat.setScaleX(holder.itemView, 0);
         ViewCompat.setScaleY(holder.itemView, 0);
