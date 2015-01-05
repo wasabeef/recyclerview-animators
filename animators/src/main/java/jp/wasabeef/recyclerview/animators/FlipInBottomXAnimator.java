@@ -22,11 +22,6 @@ import android.support.v7.widget.RecyclerView;
 public class FlipInBottomXAnimator extends BaseItemAnimator {
 
     @Override
-    protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
-        ViewCompat.setPivotX(holder.itemView, holder.itemView.getHeight() / 2);
-    }
-
-    @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
                 .rotationX(-90)

@@ -22,11 +22,6 @@ import android.support.v7.widget.RecyclerView;
 public class FlipInLeftYAnimator extends BaseItemAnimator {
 
     @Override
-    protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
-        ViewCompat.setPivotY(holder.itemView, holder.itemView.getWidth() / 2);
-    }
-
-    @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
                 .rotationY(90)

@@ -183,11 +183,9 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
     protected abstract void animateAddImpl(final RecyclerView.ViewHolder holder);
 
     protected void preAnimateRemove(final RecyclerView.ViewHolder holder) {
-        ViewCompat.animate(holder.itemView).cancel();
     }
 
     protected void preAnimateAdd(final RecyclerView.ViewHolder holder) {
-        ViewCompat.animate(holder.itemView).cancel();
     }
 
     @Override
