@@ -15,4 +15,5 @@ android {
 dependencies {
     compile project(':animators')
     compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.squareup.picasso:picasso:+'
 }
