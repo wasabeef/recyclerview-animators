@@ -24,7 +24,6 @@ android {
         debug {
             debuggable true
             zipAlignEnabled true
-            applicationIdSuffix ".debug"
         }
         release {
             debuggable false
