@@ -33,8 +33,14 @@ android {
     }
 }
 
+repositories{
+    jcenter()
+}
+
 dependencies {
-    compile project(':animators')
+//    compile project(':animators')
+    compile 'jp.wasabeef:recyclerview-animators:1.0.0'
+    compile 'com.android.support:appcompat-v7:+'
     compile 'com.android.support:recyclerview-v7:+'
     compile 'com.squareup.picasso:picasso:+'
 }

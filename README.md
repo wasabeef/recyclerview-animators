@@ -14,12 +14,6 @@ Please feel free to use this.
 
 <a href="https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
 
-# Status
-
-  - ***Release Version:* N/A**
-  - ***Pre-Release Version:* N/A**
-  - ***Snapshot Version:* N/A**
-
 # How do I use it?
 
 ## Step 1
@@ -27,10 +21,11 @@ Please feel free to use this.
 #### Gradle
 ```groovy
 repositories {
-  jcenter()
+    jcenter()
 }
+
 dependencies {
-        compile 'jp.wasabeef:recyclerview-animators:1.0.0@aar'
+    compile 'jp.wasabeef:recyclerview-animators:1.0.0'
 }
 ```
 
