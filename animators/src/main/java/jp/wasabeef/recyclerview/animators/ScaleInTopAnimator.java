@@ -22,6 +22,12 @@ import android.support.v7.widget.RecyclerView;
 public class ScaleInTopAnimator extends BaseItemAnimator {
 
     @Override
+    protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
+        holder.itemView.setPivotX(holder.itemView.getWidth() / 2);
+        holder.itemView.setPivotY(0);
+    }
+
+    @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
                 .scaleX(0).scaleY(0)

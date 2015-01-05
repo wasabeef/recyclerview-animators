@@ -22,6 +22,11 @@ import android.support.v7.widget.RecyclerView;
 public class ScaleInLeftAnimator extends BaseItemAnimator {
 
     @Override
+    protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
+        holder.itemView.setPivotX(0);
+    }
+
+    @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
                 .scaleX(0).scaleY(0)
