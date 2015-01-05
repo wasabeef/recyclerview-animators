@@ -7,9 +7,11 @@ RecyclerViewAnimators
 RecyclerViewAnimators is an Android library that allows developers to easily create RecyclerView with animations.  
 Please feel free to use this.
 
-# Demo
+# Demo ([Play Store Demo](https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview))
 
 ![](art/demo.gif)
+
+<a href="https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
 
 # Status
 
