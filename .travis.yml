@@ -35,4 +35,4 @@ android:
      - 'android-sdk-license-.+'
 
 script:
-  ./gradlew clean assembleDebug
+  ./gradlew clean :animator:build
