@@ -69,17 +69,9 @@ publishing {
     }
 }
 
-def getBintrayUserProperty() {
-    return hasProperty('bintrayUser') ? bintrayUser : ""
-}
-
-def getBintrayApiKeyProperty() {
-    return hasProperty('bintrayApiKey') ? bintrayApiKey : ""
-}
-
 bintray {
-    user = bintrayUserProperty
-    key = bintrayApiKeyProperty
+    user = bintrayUser
+    key = bintrayApiKey
     publications = ['mavenJava']
 
     dryRun = false
