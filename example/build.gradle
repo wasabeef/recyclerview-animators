@@ -13,10 +13,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(WASABEEF_KEYSTORE)
-            keyAlias WASABEEF_KEYALIAS
-            storePassword WASABEEF_KEYSTOREPASSWORD
-            keyPassword WASABEEF_KEYALIASPASSWORD
+            storeFile file(keyStoreProperty)
+            keyAlias keyAliasProperty
+            storePassword keyStorePasswordProperty
+            keyPassword keyAliasPasswordProperty
         }
     }
 
@@ -33,8 +33,20 @@ android {
     }
 }
 
-repositories{
-    jcenter()
+def getKeyStoreProperty() {
+    return hasProperty('WASABEEF_KEYSTORE') ? WASABEEF_KEYSTORE : ""
+}
+
+def getKeyAliasProperty() {
+    return hasProperty('WASABEEF_KEYALIAS') ? WASABEEF_KEYALIAS : ""
+}
+
+def getKeyStorePasswordProperty() {
+    return hasProperty('WASABEEF_KEYSTOREPASSWORD') ? WASABEEF_KEYSTOREPASSWORD : ""
+}
+
+def getKeyAliasPasswordProperty() {
+    return hasProperty('WASABEEF_KEYALIASPASSWORD') ? WASABEEF_KEYALIASPASSWORD : ""
 }
 
 dependencies {

@@ -69,9 +69,17 @@ publishing {
     }
 }
 
+def getBintrayUserProperty() {
+    return hasProperty('bintrayUser') ? bintrayUser : ""
+}
+
+def getBintrayApiKeyProperty() {
+    return hasProperty('bintrayApiKey') ? bintrayApiKey : ""
+}
+
 bintray {
-    user = bintrayUser
-    key = bintrayApiKey
+    user = bintrayUserProperty
+    key = bintrayApiKeyProperty
     publications = ['mavenJava']
 
     dryRun = false
@@ -84,6 +92,7 @@ bintray {
 
         version {
             name = VERSION_NAME
+            vcsTag = VERSION_NAME
         }
     }
 }
