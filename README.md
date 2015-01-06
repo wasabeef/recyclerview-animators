@@ -29,7 +29,6 @@ dependencies {
 
 ## Step 2
 
-Just like play RecyclerView animations.  
 set RecyclerView ItemAnimator.
 
 ```java
