@@ -1,6 +1,6 @@
 RecyclerView Animators
 ======================
-[![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-recyclerview--animators-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1327)
 [![Build Status](https://travis-ci.org/wasabeef/recyclerview-animators.svg?branch=master)](https://travis-ci.org/wasabeef/recyclerview-animators)
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Download](https://api.bintray.com/packages/wasabeef/maven/recyclerview-animators/images/download.svg)](https://bintray.com/wasabeef/maven/recyclerview-animators/_latestVersion)
