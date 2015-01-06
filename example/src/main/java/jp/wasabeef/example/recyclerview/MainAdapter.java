@@ -45,13 +45,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     public void remove(int position) {
-        mDataSet.remove(position);
-        notifyItemRemoved(position);
+        if (position < mDataSet.size()) {
+            mDataSet.remove(position);
+            notifyItemRemoved(position);
+        }
     }
 
     public void add(String text, int position) {
-        mDataSet.add(position, text);
-        notifyItemInserted(position);
+        if (position <= mDataSet.size()) {
+            mDataSet.add(position, text);
+            notifyItemInserted(position);
+        }
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
