@@ -1,16 +1,19 @@
 RecyclerView Animators
 ======================
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-recyclerview--animators-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1327)
 [![Build Status](https://travis-ci.org/wasabeef/recyclerview-animators.svg?branch=master)](https://travis-ci.org/wasabeef/recyclerview-animators)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-recyclerview--animators-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1327)
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Download](https://api.bintray.com/packages/wasabeef/maven/recyclerview-animators/images/download.svg)](https://bintray.com/wasabeef/maven/recyclerview-animators/_latestVersion)
 
 RecyclerView Animators is an Android library that allows developers to easily create RecyclerView with animations.
 Please feel free to use this.
 
-# Demo ([Play Store Demo](https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview))
+# Demo
 
 ![](art/demo.gif) ![](art/demo2.gif)  
+
+# Samples
+
 <a href="https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
 
 # How do I use it?
@@ -48,7 +51,7 @@ You can change the durations.
     mRecyclerView.getItemAnimator().setChangeDuration(1000);
 ```
 
-### Animator
+## Animators
 
 ### Cool
 `LandingAnimator`
@@ -69,6 +72,21 @@ You can change the durations.
 #### Slide
 `SlideInLeftAnimator`, `SlideInRightAnimator`, `OvershootInLeftAnimator`, `OvershootInRightAnimator`  
 `SlideInUpAnimator`, `SlideInDownAnimator`
+
+Developed By
+-------
+Daichi Furiya (Wasabeef) - <dadadada.chop@gmail.com>
+
+<a href="https://twitter.com/wasabeef_jp">
+<img alt="Follow me on Twitter"
+src="https://raw.githubusercontent.com/wasabeef/wasabeef.github.io/master/art/twitter.png" width="75"/>
+</a>
+
+Credits
+-------
+
+* Inspired by `AndroidViewAnimations` in [daimajia](https://github.com/daimajia).
+
 
 License
 -------
