@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compile 'jp.wasabeef:recyclerview-animators:1.0.0'
+    compile 'jp.wasabeef:recyclerview-animators:1.0.1'
 }
 ```
 
