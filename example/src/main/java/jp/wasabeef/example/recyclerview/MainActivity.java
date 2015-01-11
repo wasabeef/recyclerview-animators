@@ -43,42 +43,36 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 public class MainActivity extends ActionBarActivity {
 
     enum Type {
-        FadeIn("FadeIn", new FadeInAnimator()),
-        FadeInDown("FadeInDown", new FadeInDownAnimator()),
-        FadeInUp("FadeInUp", new FadeInUpAnimator()),
-        FadeInLeft("FadeInLeft", new FadeInLeftAnimator()),
-        FadeInRight("FadeInRight", new FadeInRightAnimator()),
-        Landing("Landing", new LandingAnimator()),
-        ScaleIn("ScaleIn", new ScaleInAnimator()),
-        ScaleInTop("ScaleInTop", new ScaleInTopAnimator()),
-        ScaleInBottom("ScaleInBottom", new ScaleInBottomAnimator()),
-        ScaleInLeft("ScaleInLeft", new ScaleInLeftAnimator()),
-        ScaleInRight("ScaleInRight", new ScaleInRightAnimator()),
-        FlipInTopX("FlipInTopX", new FlipInTopXAnimator()),
-        FlipInBottomX("FlipInBottomX", new FlipInBottomXAnimator()),
-        FlipInLeftY("FlipInLeftY", new FlipInLeftYAnimator()),
-        FlipInRightY("FlipInRightY", new FlipInRightYAnimator()),
-        SlideInLeft("SlideInLeft", new SlideInLeftAnimator()),
-        SlideInRight("SlideInRight", new SlideInRightAnimator()),
-        SlideInDown("SlideInDown", new SlideInDownAnimator()),
-        SlideInUp("SlideInUp", new SlideInUpAnimator()),
-        OvershootInRight("OvershootInRight", new OvershootInRightAnimator()),
-        OvershootInLeft("OvershootInLeft", new OvershootInLeftAnimator());
+        FadeIn(new FadeInAnimator()),
+        FadeInDown(new FadeInDownAnimator()),
+        FadeInUp(new FadeInUpAnimator()),
+        FadeInLeft(new FadeInLeftAnimator()),
+        FadeInRight(new FadeInRightAnimator()),
+        Landing(new LandingAnimator()),
+        ScaleIn(new ScaleInAnimator()),
+        ScaleInTop(new ScaleInTopAnimator()),
+        ScaleInBottom(new ScaleInBottomAnimator()),
+        ScaleInLeft(new ScaleInLeftAnimator()),
+        ScaleInRight(new ScaleInRightAnimator()),
+        FlipInTopX(new FlipInTopXAnimator()),
+        FlipInBottomX(new FlipInBottomXAnimator()),
+        FlipInLeftY(new FlipInLeftYAnimator()),
+        FlipInRightY(new FlipInRightYAnimator()),
+        SlideInLeft(new SlideInLeftAnimator()),
+        SlideInRight(new SlideInRightAnimator()),
+        SlideInDown(new SlideInDownAnimator()),
+        SlideInUp(new SlideInUpAnimator()),
+        OvershootInRight(new OvershootInRightAnimator()),
+        OvershootInLeft(new OvershootInLeftAnimator());
 
-        private String mTitle;
         private BaseItemAnimator mAnimator;
 
-        Type(String title, BaseItemAnimator animator) {
-            mTitle = title;
+        Type(BaseItemAnimator animator) {
             mAnimator = animator;
         }
 
         public BaseItemAnimator getAnimator() {
             return mAnimator;
-        }
-
-        public String getTitle() {
-            return mTitle;
         }
     }
 
@@ -108,7 +102,7 @@ public class MainActivity extends ActionBarActivity {
         ArrayAdapter<String> spinnerAdapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         for (Type type : Type.values()) {
-            spinnerAdapter.add(type.getTitle());
+            spinnerAdapter.add(type.name());
         }
         spinner.setAdapter(spinnerAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
