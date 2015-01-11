@@ -35,7 +35,7 @@ dependencies {
 
 ## Step 2
 
-set RecyclerView ItemAnimator.
+Set RecyclerView ItemAnimator.
 
 ```java
     RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.list);
