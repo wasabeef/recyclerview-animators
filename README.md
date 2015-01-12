@@ -8,6 +8,7 @@ RecyclerView Animators
 [![Download](https://api.bintray.com/packages/wasabeef/maven/recyclerview-animators/images/download.svg)](https://bintray.com/wasabeef/maven/recyclerview-animators/_latestVersion)
 
 RecyclerView Animators is an Android library that allows developers to easily create RecyclerView with animations.
+
 Please feel free to use this.
 
 # Demo
@@ -35,7 +36,7 @@ dependencies {
 
 ## Step 2
 
-set RecyclerView ItemAnimator.
+Set RecyclerView ItemAnimator.
 
 ```java
     RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.list);
