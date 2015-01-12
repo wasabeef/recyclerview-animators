@@ -29,6 +29,11 @@ publishing {
                 license.appendNode('name', POM_LICENCE_NAME)
                 license.appendNode('url', POM_LICENCE_URL)
                 license.appendNode('distribution', POM_LICENCE_DIST)
+
+                def developer = root.appendNode('developers').appendNode('developer')
+                developer.appendNode('id', POM_DEVELOPER_ID)
+                developer.appendNode('name', POM_DEVELOPER_NAME)
+                developer.appendNode('email', POM_DEVELOPER_EMAIL)
             }
         }
     }
