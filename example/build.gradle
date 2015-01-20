@@ -51,7 +51,7 @@ def getKeyAliasPasswordProperty() {
 
 dependencies {
 //    compile project(':animators')
-    compile 'jp.wasabeef:recyclerview-animators:1.0.1'
+    compile 'jp.wasabeef:recyclerview-animators:1.0.2'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.3'
     compile 'com.squareup.picasso:picasso:2.4.0'
