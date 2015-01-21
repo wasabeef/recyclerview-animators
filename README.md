@@ -82,7 +82,7 @@ Daichi Furiya (Wasabeef) - <dadadada.chop@gmail.com>
 
 <a href="https://twitter.com/wasabeef_jp">
 <img alt="Follow me on Twitter"
-src="https://raw.githubusercontent.com/wasabeef/wasabeef.github.io/master/art/twitter.png" width="75"/>
+src="https://raw.githubusercontent.com/wasabeef/art/master/twitter.png" width="75"/>
 </a>
 
 Thanks
