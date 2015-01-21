@@ -23,6 +23,8 @@ Please feel free to use this.
 
 ## Step 1
 
+Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&a=recyclerview-animators&v=LATEST) or grab via Gradle:
+
 #### Gradle
 ```groovy
 repositories {

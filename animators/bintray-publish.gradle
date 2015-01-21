@@ -7,8 +7,8 @@ publishing {
             groupId GROUP
             version VERSION_NAME
             artifactId ARTIFACT_ID
-//            artifact "build/outputs/aar/animators-release.aar"
-            artifact androidJar
+            artifact "build/outputs/aar/animators-release.aar"
+//            artifact androidJar
             artifact androidJavadocsJar
             artifact androidSourcesJar
             pom.withXml {
