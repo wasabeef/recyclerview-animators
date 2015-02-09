@@ -11,6 +11,11 @@ RecyclerView Animators is an Android library that allows developers to easily cr
 
 Please feel free to use this.
 
+# Features
+
+* Animate addition and removal of ItemAnimators
+* Appearance animations for items in `RecyclerView.Adapter`
+
 # Demo
 
 ![](art/demo.gif) ![](art/demo2.gif)  
@@ -21,7 +26,7 @@ Please feel free to use this.
 
 # How do I use it?
 
-## Step 1
+## Setup
 
 Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&a=recyclerview-animators&v=LATEST) or grab via Gradle:
 
@@ -32,51 +37,97 @@ repositories {
 }
 
 dependencies {
-    compile 'jp.wasabeef:recyclerview-animators:1.0.3@aar'
+    compile 'jp.wasabeef:recyclerview-animators:1.0.4@aar'
 }
 ```
 
-## Step 2
+## ItemAnimator
+### Step 1
 
 Set RecyclerView ItemAnimator.
 
 ```java
-    RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.list);
-    mRecyclerView.setItemAnimator(new SlideInLeftAnimator());
+    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+    recyclerView.setItemAnimator(new SlideInLeftAnimator());
 ```
 
-## Advanced Step 3
+### Advanced Step 2
 
 You can change the durations.
 
 ```java
-    mRecyclerView.getItemAnimator().setAddDuration(1000);
-    mRecyclerView.getItemAnimator().setRemoveDuration(1000);
-    mRecyclerView.getItemAnimator().setMoveDuration(1000);
-    mRecyclerView.getItemAnimator().setChangeDuration(1000);
+    recyclerView.getItemAnimator().setAddDuration(1000);
+    recyclerView.getItemAnimator().setRemoveDuration(1000);
+    recyclerView.getItemAnimator().setMoveDuration(1000);
+    recyclerView.getItemAnimator().setChangeDuration(1000);
 ```
 
-## Animators
+### Animators
 
-### Cool
+#### Cool
 `LandingAnimator`
 
-#### Scale
+##### Scale
 `ScaleInAnimator`, `ScaleInTopAnimator`, `ScaleInBottomAnimator`  
 `ScaleInLeftAnimator`, `ScaleInRightAnimator`
 
 
-#### Fade
+##### Fade
 `FadeInAnimator`, `FadeInDownAnimator`, `FadeInUpAnimator`  
 `FadeInLeftAnimator`, `FadeInRightAnimator`
 
-#### Flip
+##### Flip
 `FlipInTopXAnimator`, `FlipInBottomXAnimator`  
 `FlipInLeftYAnimator`, `FlipInRightYAnimator`
 
-#### Slide
+##### Slide
 `SlideInLeftAnimator`, `SlideInRightAnimator`, `OvershootInLeftAnimator`, `OvershootInRightAnimator`  
 `SlideInUpAnimator`, `SlideInDownAnimator`
+
+## RecyclerView.Adapter
+### Step 1
+
+Set RecyclerView ItemAnimator.
+
+```java
+    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+    MyAdapter adapter = new MyAdapter();
+    recyclerView.setAdapter(new AlphaInAnimationAdapter(adapter));
+    
+```
+
+### Advanced Step 2
+
+You can change the durations.
+
+```java
+    MyAdapter adapter = new MyAdapter();
+    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+    alphaAdapter.setDuration(1000);
+    recyclerView.setAdapter(alphaAdapter);
+```
+
+### Advanced Step 3
+
+You can Multiple Animations
+
+```java
+    MyAdapter adapter = new MyAdapter();
+    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+    recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
+```
+
+### Adapters
+
+#### Alpha
+`AlphaInAnimationAdapter`
+
+#### Scale
+`ScaleInAnimationAdapter`
+
+#### Slide
+`SlideInBottomAnimationAdapter`  
+`SlideInRightAnimationAdapter`, `SlideInLeftAnimationAdapter`
 
 Developed By
 -------
