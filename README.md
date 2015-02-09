@@ -13,7 +13,7 @@ Please feel free to use this.
 
 # Features
 
-* Animate addition and removal of ItemAnimators
+* Animate addition and removal of `ItemAnimator`
 * Appearance animations for items in `RecyclerView.Adapter`
 
 # Demo
