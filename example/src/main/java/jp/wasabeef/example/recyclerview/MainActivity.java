@@ -122,14 +122,24 @@ public class MainActivity extends ActionBarActivity {
         findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.add("newly added item", 1);
+                if(adapter.getItemCount() > 1) {
+                    adapter.add("newly added item", 1);
+                } else {
+                    adapter.add("newly added item", 0);
+                }
+
             }
         });
 
         findViewById(R.id.del).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.remove(1);
+                if (adapter.getItemCount() > 1) {
+                    adapter.remove(1);
+                } else {
+                    adapter.remove(0);
+                }
+
             }
         });
     }
