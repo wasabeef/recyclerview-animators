@@ -1,4 +1,4 @@
-RecyclerView Animators
+AHRecyclerView Animators
 ======================
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wasabeef/recyclerview-animators?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
 
@@ -18,7 +18,11 @@ Please feel free to use this.
 
 # Demo
 
-![](art/demo.gif) ![](art/demo2.gif)  
+### [ItemAnimator](#ItemAnimator)  
+![](art/demo.gif) ![](art/demo2.gif)
+
+### [Adapters](#Adapters)
+![](art/demo3.gif)
 
 # Samples
 
@@ -93,7 +97,7 @@ Set RecyclerView ItemAnimator.
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
     MyAdapter adapter = new MyAdapter();
     recyclerView.setAdapter(new AlphaInAnimationAdapter(adapter));
-    
+
 ```
 
 ### Advanced Step 2
