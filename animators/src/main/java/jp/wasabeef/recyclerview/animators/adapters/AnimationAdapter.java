@@ -53,6 +53,11 @@ public abstract class AnimationAdapter
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return mAdapter.getItemViewType(position);
+    }
+
+    @Override
     public int getItemCount() {
         return mAdapter.getItemCount();
     }
