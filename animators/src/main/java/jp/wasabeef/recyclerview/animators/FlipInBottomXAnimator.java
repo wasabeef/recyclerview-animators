@@ -33,6 +33,7 @@ public class FlipInBottomXAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
         ViewCompat.setRotationX(holder.itemView, -90);
     }
 

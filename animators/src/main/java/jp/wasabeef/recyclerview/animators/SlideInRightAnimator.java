@@ -33,6 +33,7 @@ public class SlideInRightAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
         ViewCompat.setTranslationX(holder.itemView, holder.itemView.getRootView().getWidth());
     }
 

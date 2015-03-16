@@ -23,7 +23,8 @@ public class ScaleInLeftAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
-        holder.itemView.setPivotX(0);
+        super.preAnimateRemove(holder);
+        ViewCompat.setPivotX(holder.itemView, 0);
     }
 
     @Override
@@ -38,7 +39,8 @@ public class ScaleInLeftAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        holder.itemView.setPivotX(0);
+        super.preAnimateAdd(holder);
+        ViewCompat.setPivotX(holder.itemView, 0);
         ViewCompat.setScaleX(holder.itemView, 0);
         ViewCompat.setScaleY(holder.itemView, 0);
     }

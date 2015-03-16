@@ -34,6 +34,7 @@ public class FadeInDownAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
         ViewCompat.setTranslationY(holder.itemView, -holder.itemView.getHeight() * .25f);
         ViewCompat.setAlpha(holder.itemView, 0);
     }

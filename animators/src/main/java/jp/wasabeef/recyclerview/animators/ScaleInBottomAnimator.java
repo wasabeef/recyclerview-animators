@@ -23,6 +23,9 @@ public class ScaleInBottomAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateRemove(RecyclerView.ViewHolder holder) {
+        super.preAnimateRemove(holder);
+        // @TODO https://code.google.com/p/android/issues/detail?id=80863
+//        ViewCompat.setPivotY(holder.itemView, holder.itemView.getHeight());
         holder.itemView.setPivotY(holder.itemView.getHeight());
     }
 
@@ -38,6 +41,9 @@ public class ScaleInBottomAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
+        // @TODO https://code.google.com/p/android/issues/detail?id=80863
+//        ViewCompat.setPivotY(holder.itemView, holder.itemView.getHeight());
         holder.itemView.setPivotY(holder.itemView.getHeight());
         ViewCompat.setScaleX(holder.itemView, 0);
         ViewCompat.setScaleY(holder.itemView, 0);

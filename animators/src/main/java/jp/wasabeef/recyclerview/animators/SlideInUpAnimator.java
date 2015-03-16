@@ -34,6 +34,7 @@ public class SlideInUpAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
         ViewCompat.setTranslationY(holder.itemView, holder.itemView.getHeight());
         ViewCompat.setAlpha(holder.itemView, 0);
     }

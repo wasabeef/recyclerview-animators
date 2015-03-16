@@ -34,6 +34,7 @@ public class FadeInRightAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
         ViewCompat.setTranslationX(holder.itemView,
                 holder.itemView.getRootView().getWidth() * .25f);
         ViewCompat.setAlpha(holder.itemView, 0);

@@ -33,6 +33,7 @@ public class FadeInAnimator extends BaseItemAnimator {
 
     @Override
     protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
+        super.preAnimateAdd(holder);
         ViewCompat.setAlpha(holder.itemView, 0);
     }
 
