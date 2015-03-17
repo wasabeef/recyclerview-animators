@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.lang.Override;
+
 import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
 
 /**
@@ -66,4 +68,9 @@ public abstract class AnimationAdapter
     }
 
     protected abstract Animator[] getAnimators(View view);
+
+    @Override
+    public int getItemViewType(int position){
+        return mAdapter.getItemViewType(position);
+    }
 }
