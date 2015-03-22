@@ -1,6 +1,16 @@
 Change Log
 ==========
 
+Version 1.1.2 *(2015-03-23)*
+----------------------------
+
+Supports multiple viewTypes.
+
+Version 1.1.1 *(2015-03-17)*
+----------------------------
+
+Improved reliability and speed.
+
 Version 1.1.0 *(2015-01-21)*
 ----------------------------
 
