@@ -133,7 +133,7 @@ You can Multiple Animations
 `SlideInBottomAnimationAdapter`  
 `SlideInRightAnimationAdapter`, `SlideInLeftAnimationAdapter`
 
-Applications using RichEditor for Android
+Applications using RecyclerView Animators
 ---
 
 Please [ping](dadadada.chop@gmail.com) me or send a pull request if you would like to be added here.
