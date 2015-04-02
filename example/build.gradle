@@ -13,10 +13,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(WASABEEF_KEYSTORE)
-            keyAlias WASABEEF_KEYALIAS
-            storePassword WASABEEF_KEYSTOREPASSWORD
-            keyPassword WASABEEF_KEYALIASPASSWORD
+            storeFile file(keyStoreProperty)
+            keyAlias keyAliasProperty
+            storePassword keyStorePasswordProperty
+            keyPassword keyAliasPasswordProperty
         }
     }
 
