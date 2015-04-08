@@ -102,7 +102,7 @@ Set RecyclerView ItemAnimator.
 
 ### Advanced Step 2
 
-You can change the durations.
+Change the durations.
 
 ```java
     MyAdapter adapter = new MyAdapter();
@@ -113,7 +113,29 @@ You can change the durations.
 
 ### Advanced Step 3
 
-You can Multiple Animations
+Change the interpolator.
+
+```java
+    MyAdapter adapter = new MyAdapter();
+    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+    alphaAdapter.setInterpolator(new OvershootInterpolator());
+    recyclerView.setAdapter(alphaAdapter);
+```
+
+### Advanced Step 4
+
+Disable the first scroll mode.
+
+```java
+    MyAdapter adapter = new MyAdapter();
+    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+    scaleAdapter.setFirstOnly(false);
+    recyclerView.setAdapter(alphaAdapter);
+```
+
+### Advanced Step 5
+
+Multiple Animations
 
 ```java
     MyAdapter adapter = new MyAdapter();

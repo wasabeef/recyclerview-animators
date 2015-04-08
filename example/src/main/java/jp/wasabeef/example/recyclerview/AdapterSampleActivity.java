@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.OvershootInterpolator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,11 +33,14 @@ public class AdapterSampleActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adapter_sample);
 
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new FadeInAnimator());
-        final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
+        MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-        recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
+        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+//        scaleAdapter.setFirstOnly(false);
+//        scaleAdapter.setInterpolator(new OvershootInterpolator());
+        recyclerView.setAdapter(scaleAdapter);
     }
 }
