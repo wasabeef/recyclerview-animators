@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.1.3 *(2015-04-08)*
+----------------------------
+
+Support Interpolator in AnimationAdapter.
+
 Version 1.1.2 *(2015-03-23)*
 ----------------------------
 
