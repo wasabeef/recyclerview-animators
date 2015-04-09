@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
+import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 
 public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
 
@@ -106,7 +107,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         }
         // First, remove stuff
         for (ViewHolder holder : mPendingRemovals) {
-            animateRemoveImpl(holder);
+            doAnimateRemove(holder);
         }
         mPendingRemovals.clear();
         // Next, move stuff
@@ -165,7 +166,7 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
             Runnable adder = new Runnable() {
                 public void run() {
                     for (ViewHolder holder : additions) {
-                        animateAddImpl(holder);
+                        doAnimateAdd(holder);
                     }
                     additions.clear();
                     mAdditionsList.remove(additions);
@@ -184,16 +185,55 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         }
     }
 
+    protected void preAnimateRemoveImpl(final RecyclerView.ViewHolder holder) {
+    }
+
+    protected void preAnimateAddImpl(final RecyclerView.ViewHolder holder) {
+    }
+
     protected abstract void animateRemoveImpl(final RecyclerView.ViewHolder holder);
 
     protected abstract void animateAddImpl(final RecyclerView.ViewHolder holder);
 
-    protected void preAnimateRemove(final RecyclerView.ViewHolder holder) {
+    private void preAnimateRemove(final RecyclerView.ViewHolder holder) {
         ViewHelper.clear(holder.itemView);
+
+        if (holder instanceof AnimateViewHolder) {
+            ((AnimateViewHolder) holder).preAnimateRemoveImpl();
+        } else {
+            preAnimateRemoveImpl(holder);
+        }
     }
 
-    protected void preAnimateAdd(final RecyclerView.ViewHolder holder) {
+    private void preAnimateAdd(final RecyclerView.ViewHolder holder) {
         ViewHelper.clear(holder.itemView);
+
+        if (holder instanceof AnimateViewHolder) {
+            ((AnimateViewHolder) holder).preAnimateAddImpl();
+        } else {
+            preAnimateAddImpl(holder);
+        }
+    }
+
+    private void doAnimateRemove(final RecyclerView.ViewHolder holder) {
+        if (holder instanceof AnimateViewHolder) {
+            ((AnimateViewHolder) holder)
+                    .animateRemoveImpl(new DefaultRemoveVpaListener(holder));
+        } else {
+            animateRemoveImpl(holder);
+        }
+
+        mRemoveAnimations.add(holder);
+    }
+
+    private void doAnimateAdd(final RecyclerView.ViewHolder holder) {
+        if (holder instanceof AnimateViewHolder) {
+            ((AnimateViewHolder) holder).animateAddImpl(new DefaultAddVpaListener(holder));
+        } else {
+            animateAddImpl(holder);
+        }
+
+        mAddAnimations.add(holder);
     }
 
     @Override
