@@ -28,12 +28,10 @@ public class FadeInAnimator extends BaseItemAnimator {
                 .setDuration(getRemoveDuration())
                 .setListener(new DefaultRemoveVpaListener(holder))
                 .start();
-        mRemoveAnimations.add(holder);
     }
 
     @Override
-    protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        super.preAnimateAdd(holder);
+    protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
         ViewCompat.setAlpha(holder.itemView, 0);
     }
 
@@ -43,6 +41,5 @@ public class FadeInAnimator extends BaseItemAnimator {
                 .alpha(1)
                 .setDuration(getAddDuration())
                 .setListener(new DefaultAddVpaListener(holder)).start();
-        mAddAnimations.add(holder);
     }
 }

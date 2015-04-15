@@ -66,6 +66,46 @@ You can change the durations.
     recyclerView.getItemAnimator().setChangeDuration(1000);
 ```
 
+### Advanced Step 3
+
+By extending AnimateViewHolder, you can override preset animation.   
+So, custom animation can be set depeding on view holder.
+
+```java
+   static class MyViewHolder extends AnimateViewHolder {
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override
+        public void animateRemoveImpl(ViewPropertyAnimatorListener listener) {
+            ViewCompat.animate(itemView)
+                    .translationY(-itemView.getHeight() * 0.3f)
+                    .alpha(0)
+                    .setDuration(300)
+                    .setListener(listener)
+                    .start();
+        }
+
+        @Override
+        public void preAnimateAddImpl() {
+            ViewCompat.setTranslationY(itemView, -itemView.getHeight() * 0.3f);
+            ViewCompat.setAlpha(itemView, 0);
+        }
+
+        @Override
+        public void animateAddImpl(ViewPropertyAnimatorListener listener) {
+            ViewCompat.animate(itemView)
+                    .translationY(0)
+                    .alpha(1)
+                    .setDuration(300)
+                    .setListener(listener)
+                    .start();
+        }
+    }
+```
+
 ### Animators
 
 #### Cool

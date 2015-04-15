@@ -29,11 +29,10 @@ public class LandingAnimator extends BaseItemAnimator {
                 .setDuration(getRemoveDuration())
                 .setListener(new DefaultRemoveVpaListener(holder))
                 .start();
-        mRemoveAnimations.add(holder);
     }
 
-    protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        super.preAnimateAdd(holder);
+    @Override
+    protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
         ViewCompat.setAlpha(holder.itemView, 0);
         ViewCompat.setScaleX(holder.itemView, 1.5f);
         ViewCompat.setScaleY(holder.itemView, 1.5f);
@@ -47,6 +46,5 @@ public class LandingAnimator extends BaseItemAnimator {
                 .setDuration(getAddDuration())
                 .setListener(new DefaultAddVpaListener(holder))
                 .start();
-        mAddAnimations.add(holder);
     }
 }

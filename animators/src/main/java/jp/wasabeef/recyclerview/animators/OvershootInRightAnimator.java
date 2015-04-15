@@ -29,12 +29,10 @@ public class OvershootInRightAnimator extends BaseItemAnimator {
                 .setDuration(getRemoveDuration())
                 .setListener(new DefaultRemoveVpaListener(holder))
                 .start();
-        mRemoveAnimations.add(holder);
     }
 
     @Override
-    protected void preAnimateAdd(RecyclerView.ViewHolder holder) {
-        super.preAnimateAdd(holder);
+    protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
         ViewCompat.setTranslationX(holder.itemView, holder.itemView.getRootView().getWidth());
     }
 
@@ -46,6 +44,5 @@ public class OvershootInRightAnimator extends BaseItemAnimator {
                 .setListener(new DefaultAddVpaListener(holder))
                 .setInterpolator(new OvershootInterpolator())
                 .start();
-        mAddAnimations.add(holder);
     }
 }
