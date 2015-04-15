@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.2.0 *(2015-04-15)*
+----------------------------
+
+Support Multiple animators for ViewHolders.
+
 Version 1.1.3 *(2015-04-08)*
 ----------------------------
 
