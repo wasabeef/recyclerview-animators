@@ -1,14 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
-    </style>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
 
-    <style name="PopupMenu" parent="Base.ThemeOverlay.AppCompat">
-        <item name="android:background">@color/material_blue_grey_800</item>
-         <!--<color name="base_actionbar">#e51c23</color> -->
     </style>
-
 </resources>

@@ -1,7 +1,7 @@
 package jp.wasabeef.example.recyclerview;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -40,7 +40,7 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 /**
  * Created by Wasabeef on 2015/01/03.
  */
-public class AnimatorSampleActivity extends ActionBarActivity {
+public class AnimatorSampleActivity extends AppCompatActivity {
 
     enum Type {
         FadeIn(new FadeInAnimator()),

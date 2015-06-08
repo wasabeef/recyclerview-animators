@@ -1,10 +1,9 @@
 package jp.wasabeef.example.recyclerview;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.animation.OvershootInterpolator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +16,7 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 /**
  * Created by Wasabeef on 2015/01/03.
  */
-public class AdapterSampleActivity extends ActionBarActivity {
+public class AdapterSampleActivity extends AppCompatActivity {
 
     private static String[] data = new String[]{
             "Apple", "Ball", "Camera", "Day", "Egg", "Foo", "Google", "Hello", "Iron", "Japan",
