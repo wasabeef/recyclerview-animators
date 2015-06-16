@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        enabledGrid = !isChecked;
+                        enabledGrid = isChecked;
                     }
                 });
 

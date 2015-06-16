@@ -95,10 +95,10 @@ public class AnimatorSampleActivity extends AppCompatActivity {
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
 
-        if (getIntent().getBooleanExtra("GRID", false)) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        } else {
+        if (getIntent().getBooleanExtra("GRID", true)) {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        } else {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
 
         recyclerView.setItemAnimator(new FadeInAnimator());
