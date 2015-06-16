@@ -23,7 +23,7 @@ Please feel free to use this.
 ![](art/demo4.gif)
 
 ### Adapters
-![](art/demo3.gif)
+![](art/demo3.gif) ![](art/demo5.gif)
 
 # Samples
 
