@@ -20,6 +20,7 @@ Please feel free to use this.
 
 ### ItemAnimator
 ![](art/demo.gif) ![](art/demo2.gif)
+![](art/demo4.gif)
 
 ### Adapters
 ![](art/demo3.gif)
