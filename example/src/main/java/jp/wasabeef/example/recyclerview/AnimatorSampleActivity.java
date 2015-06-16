@@ -2,6 +2,7 @@ package jp.wasabeef.example.recyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -93,7 +94,13 @@ public class AnimatorSampleActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        if (getIntent().getBooleanExtra("GRID", false)) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        } else {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        }
+
         recyclerView.setItemAnimator(new FadeInAnimator());
         final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
         recyclerView.setAdapter(adapter);

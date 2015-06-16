@@ -16,4 +16,11 @@
         android:layout_height="wrap_content"
         android:text="Adapter Sample Activity"/>
 
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Set to Grid"/>
+
 </LinearLayout>
