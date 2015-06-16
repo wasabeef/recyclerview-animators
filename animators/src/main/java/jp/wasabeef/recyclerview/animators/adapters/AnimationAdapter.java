@@ -85,4 +85,8 @@ public abstract class AnimationAdapter
     public int getItemViewType(int position) {
         return mAdapter.getItemViewType(position);
     }
+
+    public RecyclerView.Adapter<RecyclerView.ViewHolder> getWrappedAdapter() {
+        return mAdapter;
+    }
 }
