@@ -19,8 +19,7 @@ Please feel free to use this.
 # Demo
 
 ### ItemAnimator
-![](art/demo.gif) ![](art/demo2.gif)
-![](art/demo4.gif)
+<img src="art/demo.gif" width="32%"> <img src="art/demo2.gif" width="32%"> <img src="art/demo4.gif" width="32%">
 
 ### Adapters
 ![](art/demo3.gif) ![](art/demo5.gif)
