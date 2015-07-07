@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.2.1 *(2015-07-07)*
+----------------------------
+
+Update AnimationAdapter to allow grabbing the wrappedAdapter.
+
 Version 1.2.0 *(2015-04-15)*
 ----------------------------
 

@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    compile 'jp.wasabeef:recyclerview-animators:1.2.0@aar'
+    compile 'jp.wasabeef:recyclerview-animators:1.2.1@aar'
 }
 ```
 
