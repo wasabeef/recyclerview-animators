@@ -36,7 +36,7 @@ Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&
 #### Gradle
 ```groovy
 dependencies {
-    compile 'jp.wasabeef:recyclerview-animators:1.2.1'
+    compile 'jp.wasabeef:recyclerview-animators:1.2.2'
 }
 ```
 
