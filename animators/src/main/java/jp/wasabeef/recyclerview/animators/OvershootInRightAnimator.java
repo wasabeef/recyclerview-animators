@@ -22,7 +22,17 @@ import android.view.animation.OvershootInterpolator;
 
 public class OvershootInRightAnimator extends BaseItemAnimator {
 
-    @Override
+  private final float mTension;
+
+  public OvershootInRightAnimator() {
+    mTension = 2.0f;
+  }
+
+  public OvershootInRightAnimator(float mTension) {
+    this.mTension = mTension;
+  }
+
+  @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)
                 .translationX(holder.itemView.getRootView().getWidth())
@@ -42,7 +52,7 @@ public class OvershootInRightAnimator extends BaseItemAnimator {
                 .translationX(0)
                 .setDuration(getAddDuration())
                 .setListener(new DefaultAddVpaListener(holder))
-                .setInterpolator(new OvershootInterpolator())
+                .setInterpolator(new OvershootInterpolator(mTension))
                 .start();
     }
 }

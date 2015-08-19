@@ -22,6 +22,16 @@ import android.view.animation.OvershootInterpolator;
 
 public class OvershootInLeftAnimator extends BaseItemAnimator {
 
+  private final float mTension;
+
+  public OvershootInLeftAnimator() {
+    mTension = 2.0f;
+  }
+
+  public OvershootInLeftAnimator(float mTension) {
+    this.mTension = mTension;
+  }
+
     @Override
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         ViewCompat.animate(holder.itemView)

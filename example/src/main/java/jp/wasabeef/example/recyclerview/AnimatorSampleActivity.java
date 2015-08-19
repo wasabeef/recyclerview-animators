@@ -63,8 +63,8 @@ public class AnimatorSampleActivity extends AppCompatActivity {
         SlideInRight(new SlideInRightAnimator()),
         SlideInDown(new SlideInDownAnimator()),
         SlideInUp(new SlideInUpAnimator()),
-        OvershootInRight(new OvershootInRightAnimator()),
-        OvershootInLeft(new OvershootInLeftAnimator());
+        OvershootInRight(new OvershootInRightAnimator(1.0f)),
+        OvershootInLeft(new OvershootInLeftAnimator(1.0f));
 
         private BaseItemAnimator mAnimator;
 
