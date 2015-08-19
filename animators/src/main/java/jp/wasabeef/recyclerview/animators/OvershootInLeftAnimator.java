@@ -32,28 +32,25 @@ public class OvershootInLeftAnimator extends BaseItemAnimator {
     this.mTension = mTension;
   }
 
-    @Override
-    protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
-        ViewCompat.animate(holder.itemView)
-                .translationX(-holder.itemView.getRootView().getWidth())
-                .setDuration(getRemoveDuration())
-                .setListener(new DefaultRemoveVpaListener(holder))
-                .start();
-    }
+  @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
+    ViewCompat.animate(holder.itemView)
+        .translationX(-holder.itemView.getRootView().getWidth())
+        .setDuration(getRemoveDuration())
+        .setListener(new DefaultRemoveVpaListener(holder))
+        .start();
+  }
 
-    @Override
-    protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
-        ViewCompat.setTranslationX(holder.itemView, -holder.itemView.getRootView().getWidth());
-    }
+  @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
+    ViewCompat.setTranslationX(holder.itemView, -holder.itemView.getRootView().getWidth());
+  }
 
-    @Override
-    protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
-        ViewCompat.animate(holder.itemView)
-                .translationX(0)
-                .setDuration(getAddDuration())
-                .setListener(new DefaultAddVpaListener(holder))
-                .setInterpolator(new OvershootInterpolator())
-                .start();
-    }
+  @Override protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
+    ViewCompat.animate(holder.itemView)
+        .translationX(0)
+        .setDuration(getAddDuration())
+        .setListener(new DefaultAddVpaListener(holder))
+        .setInterpolator(new OvershootInterpolator())
+        .start();
+  }
 }
 

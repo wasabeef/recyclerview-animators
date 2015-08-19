@@ -21,25 +21,23 @@ import android.support.v7.widget.RecyclerView;
 
 public class FlipInBottomXAnimator extends BaseItemAnimator {
 
-    @Override
-    protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
-        ViewCompat.animate(holder.itemView)
-                .rotationX(-90)
-                .setDuration(getRemoveDuration())
-                .setListener(new DefaultRemoveVpaListener(holder))
-                .start();
-    }
+  @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
+    ViewCompat.animate(holder.itemView)
+        .rotationX(-90)
+        .setDuration(getRemoveDuration())
+        .setListener(new DefaultRemoveVpaListener(holder))
+        .start();
+  }
 
-    @Override
-    protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
-        ViewCompat.setRotationX(holder.itemView, -90);
-    }
+  @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
+    ViewCompat.setRotationX(holder.itemView, -90);
+  }
 
-    @Override
-    protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
-        ViewCompat.animate(holder.itemView)
-                .rotationX(0)
-                .setDuration(getAddDuration())
-                .setListener(new DefaultAddVpaListener(holder)).start();
-    }
+  @Override protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
+    ViewCompat.animate(holder.itemView)
+        .rotationX(0)
+        .setDuration(getAddDuration())
+        .setListener(new DefaultAddVpaListener(holder))
+        .start();
+  }
 }

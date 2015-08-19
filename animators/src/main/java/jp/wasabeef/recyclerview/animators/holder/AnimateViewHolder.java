@@ -6,17 +6,17 @@ import android.view.View;
 
 public abstract class AnimateViewHolder extends RecyclerView.ViewHolder {
 
-    public AnimateViewHolder(View itemView) {
-        super(itemView);
-    }
+  public AnimateViewHolder(View itemView) {
+    super(itemView);
+  }
 
-    public void preAnimateAddImpl() {
-    }
+  public void preAnimateAddImpl() {
+  }
 
-    public void preAnimateRemoveImpl() {
-    }
+  public void preAnimateRemoveImpl() {
+  }
 
-    public abstract void animateAddImpl(ViewPropertyAnimatorListener listener);
+  public abstract void animateAddImpl(ViewPropertyAnimatorListener listener);
 
-    public abstract void animateRemoveImpl(ViewPropertyAnimatorListener listener);
+  public abstract void animateRemoveImpl(ViewPropertyAnimatorListener listener);
 }

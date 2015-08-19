@@ -12,38 +12,33 @@ import android.widget.CompoundButton;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private boolean enabledGrid = false;
+  private boolean enabledGrid = false;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  @Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        findViewById(R.id.btn_animator_sample).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, AnimatorSampleActivity.class);
-                i.putExtra("GRID", enabledGrid);
-                startActivity(i);
-            }
+    findViewById(R.id.btn_animator_sample).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent i = new Intent(MainActivity.this, AnimatorSampleActivity.class);
+        i.putExtra("GRID", enabledGrid);
+        startActivity(i);
+      }
+    });
+
+    findViewById(R.id.btn_adapter_sample).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent i = new Intent(MainActivity.this, AdapterSampleActivity.class);
+        i.putExtra("GRID", enabledGrid);
+        startActivity(i);
+      }
+    });
+
+    ((SwitchCompat) findViewById(R.id.grid)).setOnCheckedChangeListener(
+        new CompoundButton.OnCheckedChangeListener() {
+          @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            enabledGrid = isChecked;
+          }
         });
-
-        findViewById(R.id.btn_adapter_sample).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, AdapterSampleActivity.class);
-                i.putExtra("GRID", enabledGrid);
-                startActivity(i);
-            }
-        });
-
-        ((SwitchCompat) findViewById(R.id.grid)).setOnCheckedChangeListener(
-                new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        enabledGrid = isChecked;
-                    }
-                });
-
-    }
+  }
 }
