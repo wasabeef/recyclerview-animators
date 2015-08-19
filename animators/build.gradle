@@ -13,8 +13,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile "com.android.support:appcompat-v7:${SUPPORT_PACKAGE_VERSION}"
+    compile "com.android.support:recyclerview-v7:${SUPPORT_PACKAGE_VERSION}"
 }
 
 android.libraryVariants.all { variant ->
