@@ -111,7 +111,8 @@ public class AnimatorSampleActivity extends AppCompatActivity {
     }
     spinner.setAdapter(spinnerAdapter);
     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+      @Override
+      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         recyclerView.setItemAnimator(Type.values()[position].getAnimator());
       }
 

@@ -1,38 +1,39 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion COMPILE_SDK_VERSION as int
-    buildToolsVersion BUILD_TOOLS_VERSION
+  compileSdkVersion COMPILE_SDK_VERSION as int
+  buildToolsVersion BUILD_TOOLS_VERSION
 
-    defaultConfig {
-        minSdkVersion MIN_SDK_VERSION as int
-        targetSdkVersion TARGET_SDK_VERSION as int
-        versionCode VERSION_CODE as int
-        versionName VERSION_NAME
-    }
+  defaultConfig {
+    minSdkVersion MIN_SDK_VERSION as int
+    targetSdkVersion TARGET_SDK_VERSION as int
+    versionCode VERSION_CODE as int
+    versionName VERSION_NAME
+  }
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:${SUPPORT_PACKAGE_VERSION}"
-    compile "com.android.support:recyclerview-v7:${SUPPORT_PACKAGE_VERSION}"
+  compile "com.android.support:appcompat-v7:${SUPPORT_PACKAGE_VERSION}"
+  compile "com.android.support:recyclerview-v7:${SUPPORT_PACKAGE_VERSION}"
 }
 
 android.libraryVariants.all { variant ->
-    if (variant.buildType.isDebuggable()) {
-        return; // Skip debug builds.
-    }
-    task("javadoc${variant.name.capitalize()}", type: Javadoc) {
-        description "Generates Javadoc for $variant.name."
-        source = variant.javaCompile.source
-        ext.androidJar = System.getenv("ANDROID_HOME") + "/platforms/${android.compileSdkVersion}/android.jar"
-        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
-    }
+  if (variant.buildType.isDebuggable()) {
+    return; // Skip debug builds.
+  }
+  task("javadoc${variant.name.capitalize()}", type: Javadoc) {
+    description "Generates Javadoc for $variant.name."
+    source = variant.javaCompile.source
+    ext.androidJar =
+        System.getenv("ANDROID_HOME") + "/platforms/${android.compileSdkVersion}/android.jar"
+    classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+  }
 
-    task("bundleJavadoc${variant.name.capitalize()}", type: Jar) {
-        description "Bundles Javadoc into zip for $variant.name."
-        classifier = "javadoc"
-        from tasks["javadoc${variant.name.capitalize()}"]
-    }
+  task("bundleJavadoc${variant.name.capitalize()}", type: Jar) {
+    description "Bundles Javadoc into zip for $variant.name."
+    classifier = "javadoc"
+    from tasks["javadoc${variant.name.capitalize()}"]
+  }
 }
 
 apply from: 'android-artifacts.gradle'

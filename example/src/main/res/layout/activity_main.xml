@@ -1,26 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_centerInParent="true"
-    android:orientation="vertical">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_centerInParent="true"
+  android:orientation="vertical"
+  >
 
-    <Button
-        android:id="@+id/btn_animator_sample"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Animator Sample Activity"/>
+  <Button
+    android:id="@+id/btn_animator_sample"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Animator Sample Activity"
+    />
 
-    <Button
-        android:id="@+id/btn_adapter_sample"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adapter Sample Activity"/>
+  <Button
+    android:id="@+id/btn_adapter_sample"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Adapter Sample Activity"
+    />
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/grid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Set to Grid"/>
+  <android.support.v7.widget.SwitchCompat
+    android:id="@+id/grid"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:text="Set to Grid"
+    />
 
 </LinearLayout>

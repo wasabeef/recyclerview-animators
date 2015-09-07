@@ -1,25 +1,25 @@
 task androidJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-    classpath += files(ext.androidJar)
+  source = android.sourceSets.main.java.srcDirs
+  ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+  classpath += files(ext.androidJar)
 }
 
 task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    classifier = 'javadoc'
-    from androidJavadocs.destinationDir
+  classifier = 'javadoc'
+  from androidJavadocs.destinationDir
 }
 
 task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.sourceFiles
+  classifier = 'sources'
+  from android.sourceSets.main.java.sourceFiles
 }
 
 task androidJar(type: Jar) {
-    from 'build/intermediates/classes/release'
+  from 'build/intermediates/classes/release'
 }
 
 artifacts {
-    archives androidSourcesJar
-    archives androidJavadocsJar
-    archives androidJar
+  archives androidSourcesJar
+  archives androidJavadocsJar
+  archives androidJar
 }
