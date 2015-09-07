@@ -96,7 +96,10 @@ public class AnimatorSampleActivity extends AppCompatActivity {
       recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    recyclerView.setItemAnimator(new FadeInAnimator());
+    recyclerView.setItemAnimator(new SlideInLeftAnimator());
+    recyclerView.getItemAnimator().setAddDuration(300);
+    recyclerView.getItemAnimator().setRemoveDuration(300);
+
     final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
     recyclerView.setAdapter(adapter);
 
@@ -108,11 +111,8 @@ public class AnimatorSampleActivity extends AppCompatActivity {
     }
     spinner.setAdapter(spinnerAdapter);
     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+      @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         recyclerView.setItemAnimator(Type.values()[position].getAnimator());
-        recyclerView.getItemAnimator().setAddDuration(300);
-        recyclerView.getItemAnimator().setRemoveDuration(300);
       }
 
       @Override public void onNothingSelected(AdapterView<?> parent) {
