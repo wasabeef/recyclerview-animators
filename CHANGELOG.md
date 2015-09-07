@@ -1,6 +1,16 @@
 Change Log
 ==========
 
+Version 1.2.3 *(2015-09-07)*
+----------------------------
+
+Update support library.
+
+Version 1.2.2 *(2015-08-19)*
+----------------------------
+
+Add tension in OvershootAnimators.
+
 Version 1.2.1 *(2015-07-07)*
 ----------------------------
 
