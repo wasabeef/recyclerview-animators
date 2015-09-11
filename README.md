@@ -1,5 +1,9 @@
 RecyclerView Animators
 ======================
+<p align="center">
+  <img src="art/logo.jpg" width="80%">
+</p>
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wasabeef/recyclerview-animators?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-recyclerview--animators-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1327)
@@ -8,9 +12,6 @@ RecyclerView Animators
 
 RecyclerView Animators is an Android library that allows developers to easily create RecyclerView with animations.
 
-<p align="center">
-  <img src="art/logo.jpg" width="80%">
-</p>
 Please feel free to use this.
 
 # Features
