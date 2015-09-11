@@ -23,12 +23,12 @@ import android.view.animation.LinearInterpolator;
 
 public class SlideInDownAnimator extends BaseItemAnimator {
 
-  public SlideInDownAnimator(){
+  public SlideInDownAnimator() {
 
   }
 
   public SlideInDownAnimator(Interpolator interpolator) {
-      mInterpolator = interpolator;
+    mInterpolator = interpolator;
   }
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {

@@ -23,12 +23,12 @@ import android.view.animation.LinearInterpolator;
 
 public class SlideInLeftAnimator extends BaseItemAnimator {
 
-  public SlideInLeftAnimator(){
+  public SlideInLeftAnimator() {
 
   }
 
-  public SlideInLeftAnimator(Interpolator interpolator){
-      mInterpolator = interpolator;
+  public SlideInLeftAnimator(Interpolator interpolator) {
+    mInterpolator = interpolator;
   }
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {

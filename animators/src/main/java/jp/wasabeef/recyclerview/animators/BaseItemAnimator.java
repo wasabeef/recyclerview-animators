@@ -24,7 +24,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.view.animation.Interpolator;
-
 import java.util.ArrayList;
 import java.util.List;
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;

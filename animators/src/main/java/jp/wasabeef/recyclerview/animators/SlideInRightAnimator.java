@@ -28,7 +28,7 @@ public class SlideInRightAnimator extends BaseItemAnimator {
   }
 
   public SlideInRightAnimator(Interpolator interpolator) {
-      mInterpolator = interpolator;
+    mInterpolator = interpolator;
   }
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
