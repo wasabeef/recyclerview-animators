@@ -19,7 +19,6 @@ package jp.wasabeef.recyclerview.animators;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
 
 public class SlideInRightAnimator extends BaseItemAnimator {
 
@@ -35,7 +34,7 @@ public class SlideInRightAnimator extends BaseItemAnimator {
     ViewCompat.animate(holder.itemView)
         .translationX(holder.itemView.getRootView().getWidth())
         .setDuration(getRemoveDuration())
-        .setInterpolator(mInterpolator == null ? new LinearInterpolator() : mInterpolator)
+        .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
         .start();
   }
@@ -48,7 +47,7 @@ public class SlideInRightAnimator extends BaseItemAnimator {
     ViewCompat.animate(holder.itemView)
         .translationX(0)
         .setDuration(getAddDuration())
-        .setInterpolator(mInterpolator == null ? new LinearInterpolator() : mInterpolator)
+        .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
         .start();
   }

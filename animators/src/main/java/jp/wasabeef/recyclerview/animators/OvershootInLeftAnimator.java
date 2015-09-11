@@ -49,7 +49,7 @@ public class OvershootInLeftAnimator extends BaseItemAnimator {
         .translationX(0)
         .setDuration(getAddDuration())
         .setListener(new DefaultAddVpaListener(holder))
-        .setInterpolator(new OvershootInterpolator())
+        .setInterpolator(new OvershootInterpolator(mTension))
         .start();
   }
 }

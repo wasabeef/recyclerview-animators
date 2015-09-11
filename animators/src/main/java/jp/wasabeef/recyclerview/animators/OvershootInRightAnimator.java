@@ -48,8 +48,8 @@ public class OvershootInRightAnimator extends BaseItemAnimator {
     ViewCompat.animate(holder.itemView)
         .translationX(0)
         .setDuration(getAddDuration())
-        .setListener(new DefaultAddVpaListener(holder))
         .setInterpolator(new OvershootInterpolator(mTension))
+        .setListener(new DefaultAddVpaListener(holder))
         .start();
   }
 }

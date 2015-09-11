@@ -37,7 +37,7 @@ Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&
 ```groovy
 dependencies {
     // jCenter
-    compile 'jp.wasabeef:recyclerview-animators:1.2.3'
+    compile 'jp.wasabeef:recyclerview-animators:1.3.0'
 }
 ```
 
@@ -49,6 +49,11 @@ Set RecyclerView ItemAnimator.
 ```java
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
     recyclerView.setItemAnimator(new SlideInLeftAnimator());
+```
+
+```java
+    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+    recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
 ```
 
 ### Advanced Step 2

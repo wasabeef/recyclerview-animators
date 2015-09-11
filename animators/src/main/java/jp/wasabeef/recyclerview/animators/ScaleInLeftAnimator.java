@@ -18,8 +18,16 @@ package jp.wasabeef.recyclerview.animators;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.Interpolator;
 
 public class ScaleInLeftAnimator extends BaseItemAnimator {
+
+  public ScaleInLeftAnimator() {
+  }
+
+  public ScaleInLeftAnimator(Interpolator interpolator) {
+    mInterpolator = interpolator;
+  }
 
   @Override protected void preAnimateRemoveImpl(RecyclerView.ViewHolder holder) {
     ViewCompat.setPivotX(holder.itemView, 0);
@@ -30,6 +38,7 @@ public class ScaleInLeftAnimator extends BaseItemAnimator {
         .scaleX(0)
         .scaleY(0)
         .setDuration(getRemoveDuration())
+        .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
         .start();
   }
@@ -45,6 +54,7 @@ public class ScaleInLeftAnimator extends BaseItemAnimator {
         .scaleX(1)
         .scaleY(1)
         .setDuration(getAddDuration())
+        .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
         .start();
   }

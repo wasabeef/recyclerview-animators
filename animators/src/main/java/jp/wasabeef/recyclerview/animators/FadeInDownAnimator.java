@@ -18,14 +18,23 @@ package jp.wasabeef.recyclerview.animators;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.Interpolator;
 
 public class FadeInDownAnimator extends BaseItemAnimator {
+
+  public FadeInDownAnimator() {
+  }
+
+  public FadeInDownAnimator(Interpolator interpolator) {
+    mInterpolator = interpolator;
+  }
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
         .translationY(-holder.itemView.getHeight() * .25f)
         .alpha(0)
         .setDuration(getRemoveDuration())
+        .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
         .start();
   }
@@ -40,6 +49,7 @@ public class FadeInDownAnimator extends BaseItemAnimator {
         .translationY(0)
         .alpha(1)
         .setDuration(getAddDuration())
+        .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
         .start();
   }
