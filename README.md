@@ -8,6 +8,9 @@ RecyclerView Animators
 
 RecyclerView Animators is an Android library that allows developers to easily create RecyclerView with animations.
 
+<p align="center">
+  <img src="art/logo.jpg" width="80%">
+</p>
 Please feel free to use this.
 
 # Features
