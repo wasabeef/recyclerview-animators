@@ -4,7 +4,7 @@ Change Log
 Version 1.3.0 *(2015-09-11)*
 ----------------------------
 
-Added in ability to pass in interpolators to the four ItemAnimators.
+Added in ability to pass in interpolators to the four ItemAnimators.  
 Thanks to [@craya1982](https://github.com/craya1982)
 
 Version 1.2.3 *(2015-09-07)*
