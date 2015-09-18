@@ -223,12 +223,15 @@ Daichi Furiya (Wasabeef) - <dadadada.chop@gmail.com>
 src="https://raw.githubusercontent.com/wasabeef/art/master/twitter.png" width="75"/>
 </a>
 
+Contributers
+-------
+
+* [craya1982](https://github.com/craya1982)
+
 Thanks
 -------
 
 * Inspired by `AndroidViewAnimations` in [daimajia](https://github.com/daimajia).
-
-* Maintenance by [craya1982](https://github.com/craya1982)
 
 License
 -------
