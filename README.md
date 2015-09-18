@@ -209,11 +209,6 @@ Icon | Application
 ------------ | -------------
 <img src="https://lh6.ggpht.com/6zKH_uQY1bxCwXL4DLo_uoFEOXdShi3BgmN6XRHlaJ-oA1svmq6y1PZkmO50nWQn2Lg=w300-rw" width="48" height="48" /> | [Ameba Ownd](https://play.google.com/store/apps/details?id=jp.co.cyberagent.madrid)
 
-Contributions
--------
-
-Any contributions are welcome!
-
 Developed By
 -------
 Daichi Furiya (Wasabeef) - <dadadada.chop@gmail.com>
@@ -222,6 +217,11 @@ Daichi Furiya (Wasabeef) - <dadadada.chop@gmail.com>
 <img alt="Follow me on Twitter"
 src="https://raw.githubusercontent.com/wasabeef/art/master/twitter.png" width="75"/>
 </a>
+
+Contributions
+-------
+
+Any contributions are welcome!
 
 Contributers
 -------
