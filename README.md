@@ -243,6 +243,16 @@ Daichi Furiya (Wasabeef) - <dadadada.chop@gmail.com>
 src="https://raw.githubusercontent.com/wasabeef/art/master/twitter.png" width="75"/>
 </a>
 
+Contributions
+-------
+
+Any contributions are welcome!
+
+Contributers
+-------
+
+* [craya1982](https://github.com/craya1982)
+
 Thanks
 -------
 
