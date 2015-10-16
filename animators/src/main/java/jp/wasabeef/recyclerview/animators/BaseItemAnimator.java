@@ -22,6 +22,7 @@ import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
@@ -30,7 +31,7 @@ import java.util.List;
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
 
-public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
+public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   private static final boolean DEBUG = false;
 
@@ -93,6 +94,11 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
           ", toY=" + toY +
           '}';
     }
+  }
+
+  public BaseItemAnimator() {
+    super();
+    setSupportsChangeAnimations(false);
   }
 
   @Override public void runPendingAnimations() {
@@ -304,6 +310,11 @@ public abstract class BaseItemAnimator extends RecyclerView.ItemAnimator {
         dispatchFinishedWhenDone();
       }
     }).start();
+  }
+
+  @Override public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder,
+      ItemHolderInfo preLayoutInfo, ItemHolderInfo postLayoutInfo) {
+    return false;
   }
 
   @Override

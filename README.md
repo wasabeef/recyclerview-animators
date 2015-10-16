@@ -38,10 +38,20 @@ Please feel free to use this.
 Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&a=recyclerview-animators&v=LATEST) or grab via Gradle:
 
 #### Gradle
+
+**If you are using a RecyclerView 23.1.0 (released Oct 2015) or higher.**
 ```groovy
 dependencies {
-    // jCenter
-    compile 'jp.wasabeef:recyclerview-animators:1.3.0'
+  // jCenter
+  compile 'jp.wasabeef:recyclerview-animators:2.0.0'
+}
+```
+
+**If you are using a RecyclerView 23.0.1 or below.**
+```groovy
+dependencies {
+  // jCenter
+  compile 'jp.wasabeef:recyclerview-animators:1.3.0'
 }
 ```
 
@@ -51,64 +61,80 @@ dependencies {
 Set RecyclerView ItemAnimator.
 
 ```java
-    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-    recyclerView.setItemAnimator(new SlideInLeftAnimator());
+RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+recyclerView.setItemAnimator(new SlideInLeftAnimator());
 ```
 
 ```java
-    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-    recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
+RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
 ```
 
-### Advanced Step 2
+## Step 2
+
+Please use the notifyItemRemoved and notifyItemInserted.
+
+```java
+public void remove(int position) {
+  mDataSet.remove(position);
+  notifyItemRemoved(position);
+}
+
+public void add(String text, int position) {
+  mDataSet.add(position, text);
+  notifyItemInserted(position);
+}
+```
+
+### Advanced Step 3
 
 You can change the durations.
 
 ```java
-    recyclerView.getItemAnimator().setAddDuration(1000);
-    recyclerView.getItemAnimator().setRemoveDuration(1000);
-    recyclerView.getItemAnimator().setMoveDuration(1000);
-    recyclerView.getItemAnimator().setChangeDuration(1000);
+recyclerView.getItemAnimator().setAddDuration(1000);
+recyclerView.getItemAnimator().setRemoveDuration(1000);
+recyclerView.getItemAnimator().setMoveDuration(1000);
+recyclerView.getItemAnimator().setChangeDuration(1000);
 ```
 
-### Advanced Step 3
+### Advanced Step 4
 
 By extending AnimateViewHolder, you can override preset animation.   
 So, custom animation can be set depeding on view holder.
 
 ```java
-   static class MyViewHolder extends AnimateViewHolder {
+static class MyViewHolder extends AnimateViewHolder {
 
-        public MyViewHolder(View itemView) {
-            super(itemView);
-        }
+  public MyViewHolder(View itemView) {
+    super(itemView);
+  }
 
-        @Override
-        public void animateRemoveImpl(ViewPropertyAnimatorListener listener) {
-            ViewCompat.animate(itemView)
-                    .translationY(-itemView.getHeight() * 0.3f)
-                    .alpha(0)
-                    .setDuration(300)
-                    .setListener(listener)
-                    .start();
-        }
+  @Override
+  public void animateRemoveImpl(ViewPropertyAnimatorListener listener) {
+    ViewCompat.animate(itemView)
+          .translationY(-itemView.getHeight() * 0.3f)
+          .alpha(0)
+          .setDuration(300)
+          .setListener(listener)
+          .start();
+  }
 
-        @Override
-        public void preAnimateAddImpl() {
-            ViewCompat.setTranslationY(itemView, -itemView.getHeight() * 0.3f);
-            ViewCompat.setAlpha(itemView, 0);
-        }
+  @Override
+  public void preAnimateAddImpl() {
+    ViewCompat.setTranslationY(itemView, -itemView.getHeight() * 0.3f);
+    ViewCompat.setAlpha(itemView, 0);
+  }
 
-        @Override
-        public void animateAddImpl(ViewPropertyAnimatorListener listener) {
-            ViewCompat.animate(itemView)
-                    .translationY(0)
-                    .alpha(1)
-                    .setDuration(300)
-                    .setListener(listener)
-                    .start();
-        }
-    }
+  @Override
+  public void animateAddImpl(ViewPropertyAnimatorListener listener) {
+    ViewCompat.animate(itemView)
+          .translationY(0)
+          .alpha(1)
+          .setDuration(300)
+          .setListener(listener)
+          .start();
+  }
+}
 ```
 
 ### Animators
@@ -139,10 +165,9 @@ So, custom animation can be set depeding on view holder.
 Set RecyclerView ItemAnimator.
 
 ```java
-    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-    MyAdapter adapter = new MyAdapter();
-    recyclerView.setAdapter(new AlphaInAnimationAdapter(adapter));
-
+RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+MyAdapter adapter = new MyAdapter();
+recyclerView.setAdapter(new AlphaInAnimationAdapter(adapter));
 ```
 
 ### Advanced Step 2
@@ -150,10 +175,10 @@ Set RecyclerView ItemAnimator.
 Change the durations.
 
 ```java
-    MyAdapter adapter = new MyAdapter();
-    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-    alphaAdapter.setDuration(1000);
-    recyclerView.setAdapter(alphaAdapter);
+MyAdapter adapter = new MyAdapter();
+AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+alphaAdapter.setDuration(1000);
+recyclerView.setAdapter(alphaAdapter);
 ```
 
 ### Advanced Step 3
@@ -161,10 +186,10 @@ Change the durations.
 Change the interpolator.
 
 ```java
-    MyAdapter adapter = new MyAdapter();
-    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-    alphaAdapter.setInterpolator(new OvershootInterpolator());
-    recyclerView.setAdapter(alphaAdapter);
+MyAdapter adapter = new MyAdapter();
+AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+alphaAdapter.setInterpolator(new OvershootInterpolator());
+recyclerView.setAdapter(alphaAdapter);
 ```
 
 ### Advanced Step 4
@@ -172,10 +197,10 @@ Change the interpolator.
 Disable the first scroll mode.
 
 ```java
-    MyAdapter adapter = new MyAdapter();
-    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-    scaleAdapter.setFirstOnly(false);
-    recyclerView.setAdapter(alphaAdapter);
+MyAdapter adapter = new MyAdapter();
+AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+scaleAdapter.setFirstOnly(false);
+recyclerView.setAdapter(alphaAdapter);
 ```
 
 ### Advanced Step 5
@@ -183,9 +208,9 @@ Disable the first scroll mode.
 Multiple Animations
 
 ```java
-    MyAdapter adapter = new MyAdapter();
-    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-    recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
+MyAdapter adapter = new MyAdapter();
+AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
 ```
 
 ### Adapters

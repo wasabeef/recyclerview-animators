@@ -1,10 +1,16 @@
 Change Log
 ==========
+Version 2.0.0 *(2015-10-16)*
+----------------------------
+
+Support RecyclerView 23.1.0+
+
+**Use 1.3.0 If you are using a 23.0.1 or below.**
 
 Version 1.3.0 *(2015-09-11)*
 ----------------------------
 
-Added in ability to pass in interpolators to the four ItemAnimators.  
+Added in ability to pass in interpolators to the four ItemAnimators.
 Thanks to [@craya1982](https://github.com/craya1982)
 
 Version 1.2.3 *(2015-09-07)*
