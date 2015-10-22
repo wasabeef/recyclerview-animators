@@ -99,8 +99,8 @@ recyclerView.getItemAnimator().setChangeDuration(1000);
 
 ### Advanced Step 4
 
-By extending AnimateViewHolder, you can override preset animation.   
-So, custom animation can be set depeding on view holder.
+By extending AnimateViewHolder, you can override preset animation.  
+So, custom animation can be set depending on view holder.
 
 ```java
 static class MyViewHolder extends AnimateViewHolder {
