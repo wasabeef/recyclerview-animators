@@ -72,7 +72,7 @@ recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)
 
 ## Step 2
 
-Please use the notifyItemRemoved and notifyItemInserted.
+Please use the `notifyItemRemoved` and `notifyItemInserted`.
 
 ```java
 public void remove(int position) {
