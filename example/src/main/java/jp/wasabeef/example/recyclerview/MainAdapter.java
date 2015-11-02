@@ -17,15 +17,23 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
   private Context mContext;
   private List<String> mDataSet;
+  private ClickListener mClickListener;
 
   public MainAdapter(Context context, List<String> dataSet) {
     mContext = context;
     mDataSet = dataSet;
+    mClickListener = null;
+  }
+
+  public MainAdapter(Context context, List<String> dataSet, ClickListener listener) {
+    mContext = context;
+    mDataSet = dataSet;
+    mClickListener = listener;
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View v = LayoutInflater.from(mContext).inflate(R.layout.layout_list_item, parent, false);
-    return new ViewHolder(v);
+    return new ViewHolder(v, mClickListener);
   }
 
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
@@ -47,15 +55,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     notifyItemInserted(position);
   }
 
-  static class ViewHolder extends RecyclerView.ViewHolder {
+  static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public ImageView image;
     public TextView text;
+    public ClickListener clickListener;
 
-    public ViewHolder(View itemView) {
+    public ViewHolder(View itemView, ClickListener listener) {
       super(itemView);
       image = (ImageView) itemView.findViewById(R.id.image);
       text = (TextView) itemView.findViewById(R.id.text);
+      clickListener = listener;
+      if(null != clickListener)
+        itemView.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+      clickListener.onClick(getLayoutPosition());
     }
   }
 }

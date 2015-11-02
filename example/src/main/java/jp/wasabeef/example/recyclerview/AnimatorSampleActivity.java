@@ -11,8 +11,10 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
@@ -99,7 +101,13 @@ public class AnimatorSampleActivity extends AppCompatActivity {
 
     recyclerView.setItemAnimator(new SlideInLeftAnimator());
 
-    final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
+    ClickListener clickListener = new ClickListener() {
+      @Override
+      public void onClick(int position) {
+        recyclerView.getAdapter().notifyItemRangeChanged(position,1);
+      }
+    };
+    final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)), clickListener);
     recyclerView.setAdapter(adapter);
 
     Spinner spinner = (Spinner) findViewById(R.id.spinner);
