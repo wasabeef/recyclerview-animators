@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+
 import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
 
 /**
@@ -38,6 +39,16 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
 
   @Override public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     return mAdapter.onCreateViewHolder(parent, viewType);
+  }
+
+  @Override public void registerAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
+    super.registerAdapterDataObserver(observer);
+    mAdapter.registerAdapterDataObserver(observer);
+  }
+
+  @Override public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
+    super.unregisterAdapterDataObserver(observer);
+    mAdapter.unregisterAdapterDataObserver(observer);
   }
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
