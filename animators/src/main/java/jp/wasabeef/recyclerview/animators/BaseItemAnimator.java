@@ -53,6 +53,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
 
   protected Interpolator mInterpolator = new LinearInterpolator();
+
   protected AnimateChange mAnimateChange = null;
 
   private static class MoveInfo {
@@ -103,6 +104,10 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   public BaseItemAnimator() {
     super();
     setSupportsChangeAnimations(false);
+  }
+
+  public void setAnimateChange(AnimateChange animateChange) {
+    this.mAnimateChange = animateChange;
   }
 
   @Override public void runPendingAnimations() {
@@ -349,14 +354,14 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       @Override
       public void dispatchChangeStarting(ViewHolder item, boolean oldItem) {
         mChangeAnimations.add(item);
-        dispatchChangeStarting(item, oldItem);
+        BaseItemAnimator.this.dispatchChangeStarting(item, oldItem);
       }
 
       @Override
       public void dispatchChangeFinished(ViewHolder item, boolean oldItem) {
-        dispatchChangeFinished(item, oldItem);
+        BaseItemAnimator.this.dispatchChangeFinished(item, oldItem);
         mChangeAnimations.remove(item);
-        dispatchFinishedWhenDone();
+        BaseItemAnimator.this.dispatchFinishedWhenDone();
       }
     });
 
