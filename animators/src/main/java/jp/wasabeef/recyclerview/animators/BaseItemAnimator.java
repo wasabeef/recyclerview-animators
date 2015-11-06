@@ -26,9 +26,12 @@ import android.support.v7.widget.SimpleItemAnimator;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
+import jp.wasabeef.recyclerview.animators.internal.ChangeDispatcher;
 import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
 
 public abstract class BaseItemAnimator extends SimpleItemAnimator {
@@ -50,6 +53,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
 
   protected Interpolator mInterpolator = new LinearInterpolator();
+  protected AnimateChange mAnimateChange = null;
 
   private static class MoveInfo {
 
@@ -147,7 +151,10 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       Runnable changer = new Runnable() {
         @Override public void run() {
           for (ChangeInfo change : changes) {
-            animateChangeImpl(change);
+            if(null == mAnimateChange)
+              animateChangeImpl(change);
+            else
+              customAnimateChange(change);
           }
           changes.clear();
           mChangesList.remove(changes);
@@ -334,6 +341,28 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
     mPendingChanges.add(new ChangeInfo(oldHolder, newHolder, fromX, fromY, toX, toY));
     return true;
+  }
+
+  private void customAnimateChange(final ChangeInfo changeInfo) {
+    mAnimateChange.setAnimatorChangeDispatcher(new ChangeDispatcher() {
+
+      @Override
+      public void dispatchChangeStarting(ViewHolder item, boolean oldItem) {
+        mChangeAnimations.add(item);
+        dispatchChangeStarting(item, oldItem);
+      }
+
+      @Override
+      public void dispatchChangeFinished(ViewHolder item, boolean oldItem) {
+        dispatchChangeFinished(item, oldItem);
+        mChangeAnimations.remove(item);
+        dispatchFinishedWhenDone();
+      }
+    });
+
+    mAnimateChange.animateChange(changeInfo.oldHolder, changeInfo.newHolder,
+            changeInfo.fromX, changeInfo.fromY,
+            changeInfo.toX, changeInfo.toY);
   }
 
   private void animateChangeImpl(final ChangeInfo changeInfo) {
