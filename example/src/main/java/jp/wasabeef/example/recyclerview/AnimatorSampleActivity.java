@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import jp.wasabeef.recyclerview.animators.AnimateChange;
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
@@ -120,7 +121,9 @@ public class AnimatorSampleActivity extends AppCompatActivity {
     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       @Override
       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        recyclerView.setItemAnimator(Type.values()[position].getAnimator());
+        BaseItemAnimator itemAnimator = Type.values()[position].getAnimator();
+        itemAnimator.setAnimateChange(new AnimateChange());
+        recyclerView.setItemAnimator(itemAnimator);
         recyclerView.getItemAnimator().setAddDuration(500);
         recyclerView.getItemAnimator().setRemoveDuration(500);
       }
