@@ -312,11 +312,6 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }).start();
   }
 
-  @Override public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder,
-      ItemHolderInfo preLayoutInfo, ItemHolderInfo postLayoutInfo) {
-    return false;
-  }
-
   @Override
   public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY,
       int toX, int toY) {
