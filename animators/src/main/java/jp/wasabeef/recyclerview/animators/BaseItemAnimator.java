@@ -364,6 +364,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
         mChangeAnimations.remove(item);
         BaseItemAnimator.this.dispatchFinishedWhenDone();
       }
+
+      @Override
+      public long getChangeDuration() {
+        return BaseItemAnimator.this.getChangeDuration();
+      }
     });
 
     mAnimateChange.animateChange(changeInfo.oldHolder, changeInfo.newHolder,

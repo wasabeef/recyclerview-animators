@@ -126,6 +126,7 @@ public class AnimatorSampleActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(itemAnimator);
         recyclerView.getItemAnimator().setAddDuration(500);
         recyclerView.getItemAnimator().setRemoveDuration(500);
+        recyclerView.getItemAnimator().setChangeDuration(1000);
       }
 
       @Override public void onNothingSelected(AdapterView<?> parent) {

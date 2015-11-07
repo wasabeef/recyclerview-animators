@@ -18,12 +18,15 @@ public class AnimateChange {
   public void animateChange(final RecyclerView.ViewHolder oldHolder, final RecyclerView.ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
     final View view = oldHolder.itemView;
     final View newView = newHolder.itemView;
+    long oldAnimDuration = (long) (0.5f * mDispatcher.getChangeDuration());
+    long newAnimDuration = mDispatcher.getChangeDuration();
+
     if (view != null) {
       final ViewPropertyAnimatorCompat oldViewAnim = ViewCompat.animate(view);
       oldViewAnim.translationX(toX - fromX);
       oldViewAnim.translationY(toY - fromY);
 
-      oldViewAnim.setDuration(500);
+      oldViewAnim.setDuration(oldAnimDuration);
       oldViewAnim.alpha(0).setListener(new ViewPropertyAnimatorListener() {
         @Override
         public void onAnimationStart(View view) {
@@ -48,7 +51,7 @@ public class AnimateChange {
       final ViewPropertyAnimatorCompat newViewAnimation = ViewCompat.animate(newView);
       newViewAnimation.translationX(0).translationY(0);
 
-      newViewAnimation.setDuration(1500);
+      newViewAnimation.setDuration(newAnimDuration);
       newViewAnimation.alpha(1).setListener(new ViewPropertyAnimatorListener() {
         @Override public void onAnimationStart(View view) {
           mDispatcher.dispatchChangeStarting(newHolder, false);
