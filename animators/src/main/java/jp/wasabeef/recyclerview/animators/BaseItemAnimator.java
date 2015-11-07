@@ -108,6 +108,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   public void setAnimateChange(AnimateChange animateChange) {
     this.mAnimateChange = animateChange;
+    setSupportsChangeAnimations(null != animateChange);
   }
 
   @Override public void runPendingAnimations() {
@@ -337,7 +338,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     ViewCompat.setTranslationX(oldHolder.itemView, prevTranslationX);
     ViewCompat.setTranslationY(oldHolder.itemView, prevTranslationY);
     ViewCompat.setAlpha(oldHolder.itemView, prevAlpha);
-    if (newHolder != null && newHolder.itemView != null) {
+    if (newHolder != null && newHolder.itemView != null && !newHolder.equals(oldHolder) ) {
       // carry over translation values
       endAnimation(newHolder);
       ViewCompat.setTranslationX(newHolder.itemView, -deltaX);

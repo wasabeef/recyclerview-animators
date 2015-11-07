@@ -15,13 +15,41 @@ public class AnimateChange {
     this.mDispatcher = animatorChangeDispatcher;
   }
 
-  public void animateChange(RecyclerView.ViewHolder oldHolder, final RecyclerView.ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
+  public void animateChange(final RecyclerView.ViewHolder oldHolder, final RecyclerView.ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
+    final View view = oldHolder.itemView;
     final View newView = newHolder.itemView;
+    if (view != null) {
+      final ViewPropertyAnimatorCompat oldViewAnim = ViewCompat.animate(view);
+      oldViewAnim.translationX(toX - fromX);
+      oldViewAnim.translationY(toY - fromY);
+
+      oldViewAnim.setDuration(500);
+      oldViewAnim.alpha(0).setListener(new ViewPropertyAnimatorListener() {
+        @Override
+        public void onAnimationStart(View view) {
+          mDispatcher.dispatchChangeStarting(oldHolder, true);
+        }
+
+        @Override
+        public void onAnimationEnd(View view) {
+          oldViewAnim.setListener(null);
+          ViewCompat.setAlpha(view, 1);
+          ViewCompat.setTranslationX(view, 0);
+          ViewCompat.setTranslationY(view, 0);
+          mDispatcher.dispatchChangeFinished(oldHolder, true);
+        }
+
+        @Override
+        public void onAnimationCancel(View view) { }
+      }).start();
+    }
+
     if (newView != null) {
       final ViewPropertyAnimatorCompat newViewAnimation = ViewCompat.animate(newView);
-      newViewAnimation.translationX(0).translationY(0)
-              //.setDuration()
-              .alpha(1).setListener(new ViewPropertyAnimatorListener() {
+      newViewAnimation.translationX(0).translationY(0);
+
+      newViewAnimation.setDuration(1500);
+      newViewAnimation.alpha(1).setListener(new ViewPropertyAnimatorListener() {
         @Override public void onAnimationStart(View view) {
           mDispatcher.dispatchChangeStarting(newHolder, false);
         }
