@@ -103,12 +103,16 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   public BaseItemAnimator() {
     super();
-    setSupportsChangeAnimations(false);
+    super.setSupportsChangeAnimations(false);
   }
 
   public void setAnimateChange(AnimateChange animateChange) {
     this.mAnimateChange = animateChange;
-    setSupportsChangeAnimations(null != animateChange);
+    super.setSupportsChangeAnimations(null != animateChange);
+  }
+
+  public void setSupportsChangeAnimations(boolean supportsChangeAnimations) {
+    throw new UnsupportedOperationException("Use setAnimateChange() instead this method");
   }
 
   @Override public void runPendingAnimations() {
@@ -323,6 +327,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
         dispatchFinishedWhenDone();
       }
     }).start();
+  }
+
+  @Override public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder,
+      ItemHolderInfo preLayoutInfo, ItemHolderInfo postLayoutInfo) {
+    return null != mAnimateChange && super.animateChange(oldHolder, newHolder, preLayoutInfo, postLayoutInfo);
   }
 
   @Override
