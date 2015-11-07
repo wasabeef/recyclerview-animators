@@ -38,6 +38,7 @@ import jp.wasabeef.recyclerview.animators.SlideInDownAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+import jp.wasabeef.recyclerview.animators.change.TinyScaleAnimate;
 
 /**
  * Created by Wasabeef on 2015/01/03.
@@ -122,11 +123,11 @@ public class AnimatorSampleActivity extends AppCompatActivity {
       @Override
       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         BaseItemAnimator itemAnimator = Type.values()[position].getAnimator();
-        itemAnimator.setAnimateChange(new AnimateChange());
+        itemAnimator.setAnimateChange(new TinyScaleAnimate());
         recyclerView.setItemAnimator(itemAnimator);
         recyclerView.getItemAnimator().setAddDuration(500);
         recyclerView.getItemAnimator().setRemoveDuration(500);
-        recyclerView.getItemAnimator().setChangeDuration(1000);
+        recyclerView.getItemAnimator().setChangeDuration(500);
       }
 
       @Override public void onNothingSelected(AdapterView<?> parent) {
