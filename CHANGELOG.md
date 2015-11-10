@@ -1,5 +1,10 @@
 Change Log
 ==========
+Version 2.0.1 *(2015-11-10)*
+----------------------------
+
+Bug fix registerAdapterDataObserver, unregisterAdapterDataObserver
+
 Version 2.0.0 *(2015-10-16)*
 ----------------------------
 
