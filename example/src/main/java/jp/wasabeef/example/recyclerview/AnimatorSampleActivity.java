@@ -11,8 +11,11 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import jp.wasabeef.recyclerview.animators.AnimateChange;
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
@@ -35,6 +38,7 @@ import jp.wasabeef.recyclerview.animators.SlideInDownAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+import jp.wasabeef.recyclerview.animators.change.TinyScaleAnimate;
 
 /**
  * Created by Wasabeef on 2015/01/03.
@@ -99,7 +103,13 @@ public class AnimatorSampleActivity extends AppCompatActivity {
 
     recyclerView.setItemAnimator(new SlideInLeftAnimator());
 
-    final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
+    ClickListener clickListener = new ClickListener() {
+      @Override
+      public void onClick(int position) {
+        recyclerView.getAdapter().notifyItemRangeChanged(position,1);
+      }
+    };
+    final MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)), clickListener);
     recyclerView.setAdapter(adapter);
 
     Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -112,9 +122,12 @@ public class AnimatorSampleActivity extends AppCompatActivity {
     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       @Override
       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        recyclerView.setItemAnimator(Type.values()[position].getAnimator());
+        BaseItemAnimator itemAnimator = Type.values()[position].getAnimator();
+        itemAnimator.setAnimateChange(new TinyScaleAnimate());
+        recyclerView.setItemAnimator(itemAnimator);
         recyclerView.getItemAnimator().setAddDuration(500);
         recyclerView.getItemAnimator().setRemoveDuration(500);
+        recyclerView.getItemAnimator().setChangeDuration(500);
       }
 
       @Override public void onNothingSelected(AdapterView<?> parent) {

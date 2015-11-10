@@ -26,9 +26,12 @@ import android.support.v7.widget.SimpleItemAnimator;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
+import jp.wasabeef.recyclerview.animators.internal.ChangeDispatcher;
 import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
 
 public abstract class BaseItemAnimator extends SimpleItemAnimator {
@@ -50,6 +53,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
 
   protected Interpolator mInterpolator = new LinearInterpolator();
+
+  protected AnimateChange mAnimateChange = null;
 
   private static class MoveInfo {
 
@@ -98,7 +103,16 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   public BaseItemAnimator() {
     super();
-    setSupportsChangeAnimations(false);
+    super.setSupportsChangeAnimations(false);
+  }
+
+  public void setAnimateChange(AnimateChange animateChange) {
+    this.mAnimateChange = animateChange;
+    super.setSupportsChangeAnimations(null != animateChange);
+  }
+
+  public void setSupportsChangeAnimations(boolean supportsChangeAnimations) {
+    throw new UnsupportedOperationException("Use setAnimateChange() instead this method");
   }
 
   @Override public void runPendingAnimations() {
@@ -147,7 +161,10 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       Runnable changer = new Runnable() {
         @Override public void run() {
           for (ChangeInfo change : changes) {
-            animateChangeImpl(change);
+            if(null == mAnimateChange)
+              animateChangeImpl(change);
+            else
+              customAnimateChange(change);
           }
           changes.clear();
           mChangesList.remove(changes);
@@ -314,7 +331,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   @Override public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder,
       ItemHolderInfo preLayoutInfo, ItemHolderInfo postLayoutInfo) {
-    return false;
+    return null != mAnimateChange && super.animateChange(oldHolder, newHolder, preLayoutInfo, postLayoutInfo);
   }
 
   @Override
@@ -330,7 +347,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     ViewCompat.setTranslationX(oldHolder.itemView, prevTranslationX);
     ViewCompat.setTranslationY(oldHolder.itemView, prevTranslationY);
     ViewCompat.setAlpha(oldHolder.itemView, prevAlpha);
-    if (newHolder != null && newHolder.itemView != null) {
+    if (newHolder != null && newHolder.itemView != null && !newHolder.equals(oldHolder) ) {
       // carry over translation values
       endAnimation(newHolder);
       ViewCompat.setTranslationX(newHolder.itemView, -deltaX);
@@ -339,6 +356,33 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
     mPendingChanges.add(new ChangeInfo(oldHolder, newHolder, fromX, fromY, toX, toY));
     return true;
+  }
+
+  private void customAnimateChange(final ChangeInfo changeInfo) {
+    mAnimateChange.setAnimatorChangeDispatcher(new ChangeDispatcher() {
+
+      @Override
+      public void dispatchChangeStarting(ViewHolder item, boolean oldItem) {
+        mChangeAnimations.add(item);
+        BaseItemAnimator.this.dispatchChangeStarting(item, oldItem);
+      }
+
+      @Override
+      public void dispatchChangeFinished(ViewHolder item, boolean oldItem) {
+        BaseItemAnimator.this.dispatchChangeFinished(item, oldItem);
+        mChangeAnimations.remove(item);
+        BaseItemAnimator.this.dispatchFinishedWhenDone();
+      }
+
+      @Override
+      public long getChangeDuration() {
+        return BaseItemAnimator.this.getChangeDuration();
+      }
+    });
+
+    mAnimateChange.animateChange(changeInfo.oldHolder, changeInfo.newHolder,
+            changeInfo.fromX, changeInfo.fromY,
+            changeInfo.toX, changeInfo.toY);
   }
 
   private void animateChangeImpl(final ChangeInfo changeInfo) {
