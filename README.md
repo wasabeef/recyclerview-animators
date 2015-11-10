@@ -43,7 +43,7 @@ Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.0.0'
+  compile 'jp.wasabeef:recyclerview-animators:2.0.1'
 }
 ```
 
