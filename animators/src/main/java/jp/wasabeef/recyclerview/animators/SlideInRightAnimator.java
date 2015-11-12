@@ -36,6 +36,7 @@ public class SlideInRightAnimator extends BaseItemAnimator {
         .setDuration(getRemoveDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
+        .setStartDelay(holder.getAdapterPosition() * getRemoveDuration())
         .start();
   }
 
@@ -49,6 +50,7 @@ public class SlideInRightAnimator extends BaseItemAnimator {
         .setDuration(getAddDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
+        .setStartDelay(holder.getAdapterPosition() * getAddDuration())
         .start();
   }
 }

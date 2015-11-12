@@ -36,6 +36,7 @@ public class ScaleInAnimator extends BaseItemAnimator {
         .setDuration(getRemoveDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
+        .setStartDelay(holder.getAdapterPosition() * getRemoveDuration() / 4)
         .start();
   }
 
@@ -51,6 +52,7 @@ public class ScaleInAnimator extends BaseItemAnimator {
         .setDuration(getAddDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
+        .setStartDelay(holder.getAdapterPosition() * getAddDuration() / 4)
         .start();
   }
 }
