@@ -7,24 +7,21 @@ sudo: false
 
 env:
   global:
-    # Initiating clean Gradle output
-    - TERM=dumb
     # Amount of memory granted to Gradle JVM
     - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
-    # General Android settings used in builds
-    - ANDROID_TARGET=android-21
-
+  
 before_install:
     # Making sure gradlew has executable permissions
     - chmod +x gradlew
-
+    # for gradle output style
+    - export TERM=dumb
+    
 android:
   components:
-    # We are using the latest revision of Android SDK Tools
-    - platform-tools
-    - tools
     # The BuildTools version we are using for our project
-    - build-tools-21.1.2
+    - build-tools-23.0.2
+    # The SDK version used to compile your project
+    - android-23
 
     # Additional components
     - extra-google-google_play_services
