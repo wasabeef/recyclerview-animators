@@ -94,4 +94,9 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   public RecyclerView.Adapter<RecyclerView.ViewHolder> getWrappedAdapter() {
     return mAdapter;
   }
+  
+  @Override
+  public long getItemId(int position) {
+        return mAdapter.getItemId(position);
+  }
 }
