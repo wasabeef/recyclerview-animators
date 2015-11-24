@@ -29,7 +29,7 @@ import android.view.animation.LinearInterpolator;
 import java.util.ArrayList;
 import java.util.List;
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
-import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
+import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 public abstract class BaseItemAnimator extends SimpleItemAnimator {
 

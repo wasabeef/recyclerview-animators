@@ -1,4 +1,4 @@
-package jp.wasabeef.recyclerview.animators.adapters;
+package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -21,21 +21,15 @@ import android.view.View;
  * limitations under the License.
  */
 
-public class AlphaInAnimationAdapter extends AnimationAdapter {
+public class SlideInBottomAnimationAdapter extends AnimationAdapter {
 
-  private static final float DEFAULT_ALPHA_FROM = 0f;
-  private final float mFrom;
-
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter) {
-    this(adapter, DEFAULT_ALPHA_FROM);
-  }
-
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter, float from) {
+  public SlideInBottomAnimationAdapter(RecyclerView.Adapter adapter) {
     super(adapter);
-    mFrom = from;
   }
 
   @Override protected Animator[] getAnimators(View view) {
-    return new Animator[] { ObjectAnimator.ofFloat(view, "alpha", mFrom, 1f) };
+    return new Animator[] {
+        ObjectAnimator.ofFloat(view, "translationY", view.getMeasuredHeight(), 0)
+    };
   }
 }

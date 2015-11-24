@@ -1,4 +1,4 @@
-package jp.wasabeef.recyclerview.animators.internal;
+package jp.wasabeef.recyclerview.internal;
 
 import android.support.v4.view.ViewCompat;
 import android.view.View;

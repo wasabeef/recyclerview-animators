@@ -1,4 +1,4 @@
-package jp.wasabeef.recyclerview.animators.adapters;
+package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;

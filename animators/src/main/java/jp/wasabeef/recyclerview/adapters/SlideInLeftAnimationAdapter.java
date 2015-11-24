@@ -1,4 +1,4 @@
-package jp.wasabeef.recyclerview.animators.adapters;
+package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -21,15 +21,15 @@ import android.view.View;
  * limitations under the License.
  */
 
-public class SlideInRightAnimationAdapter extends AnimationAdapter {
+public class SlideInLeftAnimationAdapter extends AnimationAdapter {
 
-  public SlideInRightAnimationAdapter(RecyclerView.Adapter adapter) {
+  public SlideInLeftAnimationAdapter(RecyclerView.Adapter adapter) {
     super(adapter);
   }
 
   @Override protected Animator[] getAnimators(View view) {
     return new Animator[] {
-        ObjectAnimator.ofFloat(view, "translationX", view.getRootView().getWidth(), 0)
+        ObjectAnimator.ofFloat(view, "translationX", -view.getRootView().getWidth(), 0)
     };
   }
 }

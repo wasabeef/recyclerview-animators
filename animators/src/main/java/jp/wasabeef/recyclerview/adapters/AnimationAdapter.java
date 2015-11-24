@@ -1,4 +1,4 @@
-package jp.wasabeef.recyclerview.animators.adapters;
+package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
+import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 /**
  * Copyright (C) 2015 Wasabeef
