@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-  package="jp.wasabeef.example.recyclerview"
   xmlns:android="http://schemas.android.com/apk/res/android"
+  package="jp.wasabeef.example.recyclerview"
   >
 
   <application
