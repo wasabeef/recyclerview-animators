@@ -4,14 +4,14 @@ Change Log
 Version 2.1.0 *(2015-11-25)*
 ----------------------------
 
-Move the adapters of the package.
-Added BaseItemAnimator#setInterpolator.
+Move the adapters of the package.  
+Added BaseItemAnimator#setInterpolator.  
 
 Version 2.0.2 *(2015-11-24)*
 ----------------------------
 
-Added AnimationAdapter#getIemId
- Fixed the getItemId() to return the nested adapter item id
+Added AnimationAdapter#getIemId  
+ Fixed the getItemId() to return the nested adapter item id  
 
 Version 2.0.1 *(2015-11-10)*
 ----------------------------
