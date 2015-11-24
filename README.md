@@ -41,7 +41,7 @@ Please feel free to use this.
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.0.2'
+  compile 'jp.wasabeef:recyclerview-animators:2.1.0'
 }
 ```
 
@@ -96,6 +96,17 @@ recyclerView.getItemAnimator().setChangeDuration(1000);
 ```
 
 ### Advanced Step 4
+
+Change the interpolator.
+
+```java
+SlideInLeftAnimator animator = new SlideInLeftAnimato();
+animator.setInterpolator(new OvershootInterpolator());
+// or recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
+recyclerView.setItemAnimator(animator);
+```
+
+### Advanced Step 5
 
 By extending AnimateViewHolder, you can override preset animation.  
 So, custom animation can be set depending on view holder.
