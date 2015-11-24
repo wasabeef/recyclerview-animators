@@ -35,15 +35,13 @@ Please feel free to use this.
 
 ## Setup
 
-Download [the latest JAR](https://search.maven.org/remote_content?g=jp.wasabeef&a=recyclerview-animators&v=LATEST) or grab via Gradle:
-
 #### Gradle
 
 **If you are using a RecyclerView 23.1.0 (released Oct 2015) or higher.**
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.0.1'
+  compile 'jp.wasabeef:recyclerview-animators:2.0.2'
 }
 ```
 

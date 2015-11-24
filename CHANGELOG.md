@@ -1,5 +1,11 @@
 Change Log
 ==========
+Version 2.0.2 *(2015-11-24)*
+----------------------------
+
+Added AnimationAdapter#getIemId
+ Fixed the getItemId() to return the nested adapter item id
+
 Version 2.0.1 *(2015-11-10)*
 ----------------------------
 
