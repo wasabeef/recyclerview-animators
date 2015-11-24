@@ -101,6 +101,10 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     setSupportsChangeAnimations(false);
   }
 
+  public void setInterpolator(Interpolator mInterpolator) {
+    this.mInterpolator = mInterpolator;
+  }
+
   @Override public void runPendingAnimations() {
     boolean removalsPending = !mPendingRemovals.isEmpty();
     boolean movesPending = !mPendingMoves.isEmpty();
