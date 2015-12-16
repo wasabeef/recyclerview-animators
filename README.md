@@ -69,8 +69,16 @@ recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)
 ```
 
 ## Step 2
+Please use the following  
+`notifyItemChanged(int)`  
+`notifyItemInserted(int)`  
+`notifyItemRemoved(int)`  
+`notifyItemRangeChanged(int, int)`  
+`notifyItemRangeInserted(int, int)`  
+`notifyItemRangeRemoved(int, int)`  
 
-Please use the `notifyItemRemoved` and `notifyItemInserted`.
+> If you want your animations to work, do not rely on calling `notifyDataSetChanged()`; 
+> as it is the RecyclerView's default behavior, animations are not triggered to start inside this method.
 
 ```java
 public void remove(int position) {
