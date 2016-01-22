@@ -595,7 +595,10 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
         View view = item.itemView;
         ViewCompat.setAlpha(view, 1);
         dispatchAddFinished(item);
-        additions.remove(j);
+        //this check prevent exception when removal already happened during finishing animation
+        if (j < additions.size()) {
+          additions.remove(j);
+        }
         if (additions.isEmpty()) {
           mAdditionsList.remove(additions);
         }
