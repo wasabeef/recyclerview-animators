@@ -54,12 +54,12 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
-    if (!isFirstOnly || position > mLastPosition) {
+    if (!isFirstOnly || holder.getAdapterPosition() > mLastPosition) {
       for (Animator anim : getAnimators(holder.itemView)) {
         anim.setDuration(mDuration).start();
         anim.setInterpolator(mInterpolator);
       }
-      mLastPosition = position;
+      mLastPosition = holder.getAdapterPosition();
     } else {
       ViewHelper.clear(holder.itemView);
     }
