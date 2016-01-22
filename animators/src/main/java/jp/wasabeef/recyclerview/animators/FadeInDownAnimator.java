@@ -36,6 +36,7 @@ public class FadeInDownAnimator extends BaseItemAnimator {
         .setDuration(getRemoveDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
+        .setStartDelay(getRemoveDelay(holder))
         .start();
   }
 
@@ -51,6 +52,7 @@ public class FadeInDownAnimator extends BaseItemAnimator {
         .setDuration(getAddDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
+        .setStartDelay(getAddDelay(holder))
         .start();
   }
 }

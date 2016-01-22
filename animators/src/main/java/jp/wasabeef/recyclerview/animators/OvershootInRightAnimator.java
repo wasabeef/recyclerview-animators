@@ -37,6 +37,7 @@ public class OvershootInRightAnimator extends BaseItemAnimator {
         .translationX(holder.itemView.getRootView().getWidth())
         .setDuration(getRemoveDuration())
         .setListener(new DefaultRemoveVpaListener(holder))
+        .setStartDelay(getRemoveDelay(holder))
         .start();
   }
 
@@ -50,6 +51,7 @@ public class OvershootInRightAnimator extends BaseItemAnimator {
         .setDuration(getAddDuration())
         .setInterpolator(new OvershootInterpolator(mTension))
         .setListener(new DefaultAddVpaListener(holder))
+        .setStartDelay(getAddDelay(holder))
         .start();
   }
 }
