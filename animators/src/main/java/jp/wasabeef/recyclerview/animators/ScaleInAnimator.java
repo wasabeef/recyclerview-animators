@@ -36,8 +36,10 @@ public class ScaleInAnimator extends BaseItemAnimator {
         .setDuration(getRemoveDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultRemoveVpaListener(holder))
+        .setStartDelay(getRemoveDelay(holder))
         .start();
   }
+
 
   @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
     ViewCompat.setScaleX(holder.itemView, 0);
@@ -51,6 +53,7 @@ public class ScaleInAnimator extends BaseItemAnimator {
         .setDuration(getAddDuration())
         .setInterpolator(mInterpolator)
         .setListener(new DefaultAddVpaListener(holder))
+        .setStartDelay(getAddDelay(holder))
         .start();
   }
 }
