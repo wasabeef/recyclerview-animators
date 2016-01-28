@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 2.2.0 *(2016-01-29)*
+----------------------------
+
+Bug fix: [issue #64](https://github.com/wasabeef/recyclerview-animators/issues/64) by [@emartynov](https://github.com/wasabeef/recyclerview-animators/issues/64)
+Feature: [Motion Delay](https://github.com/wasabeef/recyclerview-animators/pull/66) by [@aphexcx](https://github.com/aphexcx)
+
 Version 2.1.0 *(2015-11-25)*
 ----------------------------
 
