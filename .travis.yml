@@ -18,6 +18,7 @@ before_install:
     
 android:
   components:
+    - tools
     # The BuildTools version we are using for our project
     - build-tools-23.0.2
     # The SDK version used to compile your project
