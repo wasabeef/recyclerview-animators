@@ -65,7 +65,7 @@ recyclerView.setItemAnimator(new SlideInLeftAnimator());
 
 ```java
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
+recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
 ```
 
 ## Step 2
