@@ -108,7 +108,7 @@ recyclerView.getItemAnimator().setChangeDuration(1000);
 Change the interpolator.
 
 ```java
-SlideInLeftAnimator animator = new SlideInLeftAnimato();
+SlideInLeftAnimator animator = new SlideInLeftAnimator();
 animator.setInterpolator(new OvershootInterpolator());
 // or recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
 recyclerView.setItemAnimator(animator);
