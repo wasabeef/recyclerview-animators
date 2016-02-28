@@ -6,9 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
-import jp.wasabeef.recyclerview.internal.ViewHelper;
-
 import java.util.WeakHashMap;
+import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 /**
  * Copyright (C) 2015 Wasabeef
@@ -57,12 +56,14 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
-    if (!isFirstOnly || position > mLastPosition || !Integer.valueOf(position).equals(mHolders.get(holder))) {
+    int adapterPosition = holder.getAdapterPosition();
+    if (!isFirstOnly || adapterPosition > mLastPosition) {
       for (Animator anim : getAnimators(holder.itemView)) {
         anim.setDuration(mDuration).start();
         anim.setInterpolator(mInterpolator);
       }
       mHolders.put(holder, position);
+      mLastPosition = adapterPosition;
     } else {
       ViewHelper.clear(holder.itemView);
     }
@@ -97,9 +98,8 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   public RecyclerView.Adapter<RecyclerView.ViewHolder> getWrappedAdapter() {
     return mAdapter;
   }
-  
-  @Override
-  public long getItemId(int position) {
-        return mAdapter.getItemId(position);
+
+  @Override public long getItemId(int position) {
+    return mAdapter.getItemId(position);
   }
 }
