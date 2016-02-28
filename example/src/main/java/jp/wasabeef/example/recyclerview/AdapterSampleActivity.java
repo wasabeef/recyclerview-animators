@@ -8,75 +8,58 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.AnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.SlideInLeftAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.SlideInRightAnimationAdapter;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 /**
  * Created by Wasabeef on 2015/01/03.
  */
 public class AdapterSampleActivity extends AppCompatActivity {
-  private interface ConstantAdapter{
-      AnimationAdapter get(Context context);
-  }
 
   enum Type {
-    AlphaIn(new ConstantAdapter() {
-      @Override
-      public AnimationAdapter get(Context context) {
+    AlphaIn {
+      @Override public AnimationAdapter get(Context context) {
         MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
         return new AlphaInAnimationAdapter(adapter);
       }
-    }),
-    ScaleIn(new ConstantAdapter() {
-        @Override
-        public AnimationAdapter get(Context context) {
-            MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
-            return new ScaleInAnimationAdapter(adapter);
-        }
-    }),
-    SlideInBottom(new ConstantAdapter() {
-        @Override
-        public AnimationAdapter get(Context context) {
-            MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
-            return new SlideInBottomAnimationAdapter(adapter);
-        }
-    }),
-    SlideInLeft(new ConstantAdapter() {
-        @Override
-        public AnimationAdapter get(Context context) {
-            MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
-            return new SlideInLeftAnimationAdapter(adapter);
-        }
-    }),
-    SlideInRight(new ConstantAdapter() {
-        @Override
-        public AnimationAdapter get(Context context) {
-            MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
-            return new SlideInRightAnimationAdapter(adapter);
-        }
-    });
+    },
+    ScaleIn {
+      @Override public AnimationAdapter get(Context context) {
+        MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
+        return new ScaleInAnimationAdapter(adapter);
+      }
+    },
+    SlideInBottom {
+      @Override public AnimationAdapter get(Context context) {
+        MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
+        return new SlideInBottomAnimationAdapter(adapter);
+      }
+    },
+    SlideInLeft {
+      @Override public AnimationAdapter get(Context context) {
+        MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
+        return new SlideInLeftAnimationAdapter(adapter);
+      }
+    },
+    SlideInRight {
+      @Override public AnimationAdapter get(Context context) {
+        MainAdapter adapter = new MainAdapter(context, new ArrayList<>(Arrays.asList(data)));
+        return new SlideInRightAnimationAdapter(adapter);
+      }
+    };
 
-    private ConstantAdapter mAdapter;
-
-    Type(ConstantAdapter adapter) {
-      mAdapter = adapter;
-    }
-
-    public AnimationAdapter getAdapter(Context context) {
-      return mAdapter.get(context);
-    }
+    public abstract AnimationAdapter get(Context context);
   }
 
   private static String[] data = new String[] {
@@ -114,17 +97,23 @@ public class AdapterSampleActivity extends AppCompatActivity {
     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       @Override
       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        recyclerView.setAdapter(Type.values()[position].getAdapter(AdapterSampleActivity.this));
+        AnimationAdapter adapter = Type.values()[position].get(AdapterSampleActivity.this);
+        adapter.setFirstOnly(true);
+        adapter.setDuration(500);
+        adapter.setInterpolator(new OvershootInterpolator(.5f));
+        recyclerView.setAdapter(adapter);
       }
 
-      @Override
-        public void onNothingSelected(AdapterView<?> parent) {
+      @Override public void onNothingSelected(AdapterView<?> parent) {
       }
     });
 
     recyclerView.setItemAnimator(new FadeInAnimator());
     MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
     AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+    alphaAdapter.setFirstOnly(true);
+    alphaAdapter.setDuration(500);
+    alphaAdapter.setInterpolator(new OvershootInterpolator(.5f));
     recyclerView.setAdapter(alphaAdapter);
   }
 }

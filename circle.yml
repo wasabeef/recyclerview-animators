@@ -1,0 +1,30 @@
+machine:
+  timezone: Asia/Tokyo
+  java:
+    version: oraclejdk8
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
+    _JAVA_OPTIONS: -Xms512m -Xmx1024m -XX:MaxMetaspaceSize=1024m
+    GRADLE_OPTS: -Xms2048m -Xmx2048m -Dorg.gradle.daemon=true -Dorg.gradle.parallel=false
+    PATH: ~/.local/bin:$PATH
+  post:
+    - sudo service mysql stop
+    - sudo service postgresql stop
+    - sudo service memcached stop
+    - sudo service redis-server stop
+
+dependencies:
+  cache_directories:
+    - ~/.gradle
+    - ~/.android
+  pre:
+    - echo y | android update sdk --no-ui --all --filter tool,platform-tools,android-23
+    - echo y | android update sdk --no-ui --all --filter extra-google-google_play_services,extra-google-m2repository,extra-android-m2repository,extra-android-support
+    - echo y | android update sdk --no-ui --all --filter build-tools-23.0.2
+  override:
+    - ./gradlew dependencies
+
+test:
+  override:
+    - ./gradlew lintRelease -PpreDexEnable=false
+    - ./gradlew assembleDebug -PpreDexEnable=false
