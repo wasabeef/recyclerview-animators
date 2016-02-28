@@ -27,4 +27,4 @@ dependencies:
 test:
   override:
     - ./gradlew lintRelease -PpreDexEnable=false
-    - ./gradlew assembleRelease -PpreDexEnable=false
+    - ./gradlew assembleDebug -PpreDexEnable=false
