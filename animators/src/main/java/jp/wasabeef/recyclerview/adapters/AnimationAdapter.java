@@ -31,8 +31,6 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   private Interpolator mInterpolator = new LinearInterpolator();
   private int mLastPosition = -1;
 
-  private WeakHashMap<RecyclerView.ViewHolder, Integer> mHolders = new WeakHashMap<>();
-
   private boolean isFirstOnly = true;
 
   public AnimationAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
@@ -62,7 +60,6 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
         anim.setDuration(mDuration).start();
         anim.setInterpolator(mInterpolator);
       }
-      mHolders.put(holder, position);
       mLastPosition = adapterPosition;
     } else {
       ViewHelper.clear(holder.itemView);
