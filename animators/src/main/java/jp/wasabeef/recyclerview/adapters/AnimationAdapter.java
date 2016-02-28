@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
-import java.util.WeakHashMap;
 import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 /**
