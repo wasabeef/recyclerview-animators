@@ -32,6 +32,8 @@ public final class ViewHelper {
     ViewCompat.setRotationX(v, 0);
     ViewCompat.setPivotY(v, v.getMeasuredHeight() / 2);
     ViewCompat.setPivotX(v, v.getMeasuredWidth() / 2);
-    ViewCompat.animate(v).setInterpolator(null);
+    ViewCompat.animate(v)
+            .setInterpolator(null)
+            .setStartDelay(0);
   }
 }
