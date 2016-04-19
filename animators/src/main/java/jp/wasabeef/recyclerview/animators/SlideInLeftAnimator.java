@@ -52,5 +52,5 @@ public class SlideInLeftAnimator extends BaseItemAnimator {
         .setListener(new DefaultAddVpaListener(holder))
         .setStartDelay(getAddDelay(holder))
         .start();
-}
+  }
 }

@@ -260,7 +260,6 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     return true;
   }
 
-
   protected long getAddDelay(final RecyclerView.ViewHolder holder) {
     return Math.abs(holder.getAdapterPosition() * getAddDuration() / 4);
   }

@@ -40,7 +40,6 @@ public class ScaleInAnimator extends BaseItemAnimator {
         .start();
   }
 
-
   @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
     ViewCompat.setScaleX(holder.itemView, 0);
     ViewCompat.setScaleY(holder.itemView, 0);
