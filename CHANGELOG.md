@@ -4,10 +4,12 @@ Change Log
 Version 2.2.3 *(2016-04-19)*
 ----------------------------
 
-Bug fix:
- [Dispatch onViewRecycled event to wrapped adapter #80](https://github.com/wasabeef/recyclerview-animators/pull/80)
- [Fix setStartDelay() is not reset by clear() #82](https://github.com/wasabeef/recyclerview-animators/pull/82)
-
+Bug fix:  
+ [Dispatch onViewRecycled event to wrapped adapter #80](https://github.com/wasabeef/recyclerview-animators/pull/80)  
+ [Fix setStartDelay() is not reset by clear() #82](https://github.com/wasabeef/recyclerview-animators/pull/82)  
+ 
+Update:  
+ Support library 23.2.1
 
 Version 2.2.2 *(2016-04-05)*
 ----------------------------
