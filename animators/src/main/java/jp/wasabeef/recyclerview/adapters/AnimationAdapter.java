@@ -65,6 +65,11 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     }
   }
 
+  @Override public void onViewRecycled(RecyclerView.ViewHolder holder) {
+    mAdapter.onViewRecycled(holder);
+    super.onViewRecycled(holder);
+  }
+
   @Override public int getItemCount() {
     return mAdapter.getItemCount();
   }
