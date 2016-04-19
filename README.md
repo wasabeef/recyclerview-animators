@@ -41,7 +41,7 @@ Please feel free to use this.
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.2.1'
+  compile 'jp.wasabeef:recyclerview-animators:2.2.3'
 }
 ```
 
