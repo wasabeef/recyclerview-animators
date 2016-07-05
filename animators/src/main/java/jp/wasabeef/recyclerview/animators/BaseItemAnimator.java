@@ -203,7 +203,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   protected abstract void animateAddImpl(final RecyclerView.ViewHolder holder);
 
   private void preAnimateRemove(final RecyclerView.ViewHolder holder) {
-    ViewHelper.clear(holder.itemView);
+    clearView(holder);
 
     if (holder instanceof AnimateViewHolder) {
       ((AnimateViewHolder) holder).preAnimateRemoveImpl();
@@ -213,7 +213,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   }
 
   private void preAnimateAdd(final RecyclerView.ViewHolder holder) {
-    ViewHelper.clear(holder.itemView);
+    clearView(holder);
 
     if (holder instanceof AnimateViewHolder) {
       ((AnimateViewHolder) holder).preAnimateAddImpl();
@@ -450,11 +450,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
     endChangeAnimation(mPendingChanges, item);
     if (mPendingRemovals.remove(item)) {
-      ViewHelper.clear(item.itemView);
+      clearView(item);
       dispatchRemoveFinished(item);
     }
     if (mPendingAdditions.remove(item)) {
-      ViewHelper.clear(item.itemView);
+      clearView(item);
       dispatchAddFinished(item);
     }
 
@@ -484,7 +484,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     for (int i = mAdditionsList.size() - 1; i >= 0; i--) {
       ArrayList<ViewHolder> additions = mAdditionsList.get(i);
       if (additions.remove(item)) {
-        ViewHelper.clear(item.itemView);
+        clearView(item);
         dispatchAddFinished(item);
         if (additions.isEmpty()) {
           mAdditionsList.remove(i);
@@ -559,7 +559,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     count = mPendingAdditions.size();
     for (int i = count - 1; i >= 0; i--) {
       ViewHolder item = mPendingAdditions.get(i);
-      ViewHelper.clear(item.itemView);
+      clearView(item);
       dispatchAddFinished(item);
       mPendingAdditions.remove(i);
     }
@@ -633,6 +633,14 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
   }
 
+  protected void clearView(ViewHolder viewHolder) {
+    if(viewHolder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) viewHolder).clearAnimation();
+    } else {
+      ViewHelper.clear(viewHolder.itemView);
+    }
+  }
+
   private static class VpaListenerAdapter implements ViewPropertyAnimatorListener {
 
     @Override public void onAnimationStart(View view) {
@@ -658,11 +666,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
 
     @Override public void onAnimationCancel(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
     }
 
     @Override public void onAnimationEnd(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
       dispatchAddFinished(mViewHolder);
       mAddAnimations.remove(mViewHolder);
       dispatchFinishedWhenDone();
@@ -682,11 +690,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
 
     @Override public void onAnimationCancel(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
     }
 
     @Override public void onAnimationEnd(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
       dispatchRemoveFinished(mViewHolder);
       mRemoveAnimations.remove(mViewHolder);
       dispatchFinishedWhenDone();
