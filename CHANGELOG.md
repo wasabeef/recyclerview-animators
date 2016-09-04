@@ -4,9 +4,9 @@ Change Log
 Version 2.2.4 *(2016-08-03)*
 ----------------------------
 
-Update:
-Build Tools 23.0.1 -> 24.0.2
-Support Library 23.0.1 -> 23.4.0
+Update:  
+- Build Tools 23.0.1 -> 24.0.2  
+- Support Library 23.0.1 -> 23.4.0  
 
 
 Version 2.2.3 *(2016-04-19)*
