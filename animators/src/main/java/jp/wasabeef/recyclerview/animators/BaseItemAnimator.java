@@ -203,7 +203,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   protected abstract void animateAddImpl(final RecyclerView.ViewHolder holder);
 
   private void preAnimateRemove(final RecyclerView.ViewHolder holder) {
-    ViewHelper.clear(holder.itemView);
+    clearView(holder);
 
     if (holder instanceof AnimateViewHolder) {
       ((AnimateViewHolder) holder).preAnimateRemoveImpl();
@@ -213,7 +213,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   }
 
   private void preAnimateAdd(final RecyclerView.ViewHolder holder) {
-    ViewHelper.clear(holder.itemView);
+    clearView(holder);
 
     if (holder instanceof AnimateViewHolder) {
       ((AnimateViewHolder) holder).preAnimateAddImpl();
@@ -437,7 +437,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   @Override public void endAnimation(ViewHolder item) {
     final View view = item.itemView;
     // this will trigger end callback which should set properties to their target values.
-    ViewCompat.animate(view).cancel();
+    cancelAnimation(item);
     // TODO if some other animations are chained to end, how do we cancel them as well?
     for (int i = mPendingMoves.size() - 1; i >= 0; i--) {
       MoveInfo moveInfo = mPendingMoves.get(i);
@@ -450,11 +450,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
     endChangeAnimation(mPendingChanges, item);
     if (mPendingRemovals.remove(item)) {
-      ViewHelper.clear(item.itemView);
+      clearView(item);
       dispatchRemoveFinished(item);
     }
     if (mPendingAdditions.remove(item)) {
-      ViewHelper.clear(item.itemView);
+      clearView(item);
       dispatchAddFinished(item);
     }
 
@@ -484,7 +484,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     for (int i = mAdditionsList.size() - 1; i >= 0; i--) {
       ArrayList<ViewHolder> additions = mAdditionsList.get(i);
       if (additions.remove(item)) {
-        ViewHelper.clear(item.itemView);
+        clearView(item);
         dispatchAddFinished(item);
         if (additions.isEmpty()) {
           mAdditionsList.remove(i);
@@ -559,7 +559,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     count = mPendingAdditions.size();
     for (int i = count - 1; i >= 0; i--) {
       ViewHolder item = mPendingAdditions.get(i);
-      ViewHelper.clear(item.itemView);
+      clearView(item);
       dispatchAddFinished(item);
       mPendingAdditions.remove(i);
     }
@@ -629,7 +629,23 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   void cancelAll(List<ViewHolder> viewHolders) {
     for (int i = viewHolders.size() - 1; i >= 0; i--) {
-      ViewCompat.animate(viewHolders.get(i).itemView).cancel();
+      cancelAnimation(viewHolders.get(i));
+    }
+  }
+
+  protected void cancelAnimation(ViewHolder viewHolder) {
+    if(viewHolder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) viewHolder).cancelAnimation();
+    } else {
+      ViewCompat.animate(viewHolder.itemView).cancel();
+    }
+  }
+
+  protected void clearView(ViewHolder viewHolder) {
+    if(viewHolder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) viewHolder).clearAnimation();
+    } else {
+      ViewHelper.clear(viewHolder.itemView);
     }
   }
 
@@ -658,11 +674,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
 
     @Override public void onAnimationCancel(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
     }
 
     @Override public void onAnimationEnd(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
       dispatchAddFinished(mViewHolder);
       mAddAnimations.remove(mViewHolder);
       dispatchFinishedWhenDone();
@@ -682,11 +698,11 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
 
     @Override public void onAnimationCancel(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
     }
 
     @Override public void onAnimationEnd(View view) {
-      ViewHelper.clear(view);
+      clearView(mViewHolder);
       dispatchRemoveFinished(mViewHolder);
       mRemoveAnimations.remove(mViewHolder);
       dispatchFinishedWhenDone();
