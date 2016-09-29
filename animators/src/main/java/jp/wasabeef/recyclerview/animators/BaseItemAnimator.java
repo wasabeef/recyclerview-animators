@@ -50,6 +50,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
 
   protected Interpolator mInterpolator = new LinearInterpolator();
+  protected float mChangeAlphaValue = 0;
 
   private static class MoveInfo {
 
@@ -103,6 +104,9 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   public void setInterpolator(Interpolator mInterpolator) {
     this.mInterpolator = mInterpolator;
+  }
+  public void setChangeAlpha(float changeAlpha) {
+    this.mChangeAlphaValue = changeAlpha;
   }
 
   @Override public void runPendingAnimations() {
@@ -342,7 +346,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       endAnimation(newHolder);
       ViewCompat.setTranslationX(newHolder.itemView, -deltaX);
       ViewCompat.setTranslationY(newHolder.itemView, -deltaY);
-      ViewCompat.setAlpha(newHolder.itemView, 0);
+      ViewCompat.setAlpha(newHolder.itemView, mChangeAlphaValue);
     }
     mPendingChanges.add(new ChangeInfo(oldHolder, newHolder, fromX, fromY, toX, toY));
     return true;
