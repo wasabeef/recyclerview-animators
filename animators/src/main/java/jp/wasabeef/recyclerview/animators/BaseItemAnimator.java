@@ -28,7 +28,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import java.util.ArrayList;
 import java.util.List;
-import jp.wasabeef.recyclerview.animators.holder.IAnimateViewHolder;
+import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 public abstract class BaseItemAnimator extends SimpleItemAnimator {
@@ -205,8 +205,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private void preAnimateRemove(final RecyclerView.ViewHolder holder) {
     ViewHelper.clear(holder.itemView);
 
-    if (holder instanceof IAnimateViewHolder) {
-      ((IAnimateViewHolder) holder).preAnimateRemoveImpl(holder);
+    if (holder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) holder).preAnimateRemoveImpl(holder);
     } else {
       preAnimateRemoveImpl(holder);
     }
@@ -215,16 +215,16 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private void preAnimateAdd(final RecyclerView.ViewHolder holder) {
     ViewHelper.clear(holder.itemView);
 
-    if (holder instanceof IAnimateViewHolder) {
-      ((IAnimateViewHolder) holder).preAnimateAddImpl(holder);
+    if (holder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) holder).preAnimateAddImpl(holder);
     } else {
       preAnimateAddImpl(holder);
     }
   }
 
   private void doAnimateRemove(final RecyclerView.ViewHolder holder) {
-    if (holder instanceof IAnimateViewHolder) {
-      ((IAnimateViewHolder) holder).animateRemoveImpl(holder, new DefaultRemoveVpaListener(holder));
+    if (holder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) holder).animateRemoveImpl(holder, new DefaultRemoveVpaListener(holder));
     } else {
       animateRemoveImpl(holder);
     }
@@ -233,8 +233,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   }
 
   private void doAnimateAdd(final RecyclerView.ViewHolder holder) {
-    if (holder instanceof IAnimateViewHolder) {
-      ((IAnimateViewHolder) holder).animateAddImpl(holder, new DefaultAddVpaListener(holder));
+    if (holder instanceof AnimateViewHolder) {
+      ((AnimateViewHolder) holder).animateAddImpl(holder, new DefaultAddVpaListener(holder));
     } else {
       animateAddImpl(holder);
     }
