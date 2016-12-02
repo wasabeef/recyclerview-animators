@@ -37,19 +37,10 @@ Please feel free to use this.
 
 #### Gradle
 
-**If you are using a RecyclerView 23.1.0 (released Oct 2015) or higher.**
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.2.4'
-}
-```
-
-**If you are using a RecyclerView 23.0.1 or below.**
-```groovy
-dependencies {
-  // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:1.3.0'
+  compile 'jp.wasabeef:recyclerview-animators:2.2.5'
 }
 ```
 
