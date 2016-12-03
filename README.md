@@ -107,18 +107,22 @@ recyclerView.setItemAnimator(animator);
 
 ### Advanced Step 5
 
-By extending AnimateViewHolder, you can override preset animation.  
+By implementing AnimateViewHolder, you can override preset animation.
 So, custom animation can be set depending on view holder.
 
 ```java
-static class MyViewHolder extends AnimateViewHolder {
-
+static class MyViewHolder extends RecyclerView.ViewHolder implements AnimateViewHolder {
   public MyViewHolder(View itemView) {
     super(itemView);
   }
 
   @Override
-  public void animateRemoveImpl(ViewPropertyAnimatorListener listener) {
+  public void preAnimateRemoveImpl(RecyclerView.ViewHolder holder) {
+
+  }
+
+  @Override
+  public void animateRemoveImpl(RecyclerView.ViewHolder holder, ViewPropertyAnimatorListener listener) {
     ViewCompat.animate(itemView)
           .translationY(-itemView.getHeight() * 0.3f)
           .alpha(0)
@@ -128,13 +132,13 @@ static class MyViewHolder extends AnimateViewHolder {
   }
 
   @Override
-  public void preAnimateAddImpl() {
+  public void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
     ViewCompat.setTranslationY(itemView, -itemView.getHeight() * 0.3f);
     ViewCompat.setAlpha(itemView, 0);
   }
 
   @Override
-  public void animateAddImpl(ViewPropertyAnimatorListener listener) {
+  public void animateAddImpl(RecyclerView.ViewHolder holder, ViewPropertyAnimatorListener listener) {
     ViewCompat.animate(itemView)
           .translationY(0)
           .alpha(1)
