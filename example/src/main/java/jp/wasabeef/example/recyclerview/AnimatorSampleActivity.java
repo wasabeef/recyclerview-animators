@@ -7,12 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInAnimator;
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
@@ -42,25 +43,25 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 public class AnimatorSampleActivity extends AppCompatActivity {
 
   enum Type {
-    FadeIn(new FadeInAnimator(new OvershootInterpolator(1f))),
-    FadeInDown(new FadeInDownAnimator(new OvershootInterpolator(1f))),
-    FadeInUp(new FadeInUpAnimator(new OvershootInterpolator(1f))),
-    FadeInLeft(new FadeInLeftAnimator(new OvershootInterpolator(1f))),
-    FadeInRight(new FadeInRightAnimator(new OvershootInterpolator(1f))),
-    Landing(new LandingAnimator(new OvershootInterpolator(1f))),
-    ScaleIn(new ScaleInAnimator(new OvershootInterpolator(1f))),
-    ScaleInTop(new ScaleInTopAnimator(new OvershootInterpolator(1f))),
-    ScaleInBottom(new ScaleInBottomAnimator(new OvershootInterpolator(1f))),
-    ScaleInLeft(new ScaleInLeftAnimator(new OvershootInterpolator(1f))),
-    ScaleInRight(new ScaleInRightAnimator(new OvershootInterpolator(1f))),
-    FlipInTopX(new FlipInTopXAnimator(new OvershootInterpolator(1f))),
-    FlipInBottomX(new FlipInBottomXAnimator(new OvershootInterpolator(1f))),
-    FlipInLeftY(new FlipInLeftYAnimator(new OvershootInterpolator(1f))),
-    FlipInRightY(new FlipInRightYAnimator(new OvershootInterpolator(1f))),
-    SlideInLeft(new SlideInLeftAnimator(new OvershootInterpolator(1f))),
-    SlideInRight(new SlideInRightAnimator(new OvershootInterpolator(1f))),
-    SlideInDown(new SlideInDownAnimator(new OvershootInterpolator(1f))),
-    SlideInUp(new SlideInUpAnimator(new OvershootInterpolator(1f))),
+    FadeIn(new FadeInAnimator()),
+    FadeInDown(new FadeInDownAnimator()),
+    FadeInUp(new FadeInUpAnimator()),
+    FadeInLeft(new FadeInLeftAnimator()),
+    FadeInRight(new FadeInRightAnimator()),
+    Landing(new LandingAnimator()),
+    ScaleIn(new ScaleInAnimator()),
+    ScaleInTop(new ScaleInTopAnimator()),
+    ScaleInBottom(new ScaleInBottomAnimator()),
+    ScaleInLeft(new ScaleInLeftAnimator()),
+    ScaleInRight(new ScaleInRightAnimator()),
+    FlipInTopX(new FlipInTopXAnimator()),
+    FlipInBottomX(new FlipInBottomXAnimator()),
+    FlipInLeftY(new FlipInLeftYAnimator()),
+    FlipInRightY(new FlipInRightYAnimator()),
+    SlideInLeft(new SlideInLeftAnimator()),
+    SlideInRight(new SlideInRightAnimator()),
+    SlideInDown(new SlideInDownAnimator()),
+    SlideInUp(new SlideInUpAnimator()),
     OvershootInRight(new OvershootInRightAnimator(1.0f)),
     OvershootInLeft(new OvershootInLeftAnimator(1.0f));
 
