@@ -127,12 +127,16 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       mPendingMoves.clear();
       Runnable mover = new Runnable() {
         @Override public void run() {
+          boolean removed = mMovesList.remove(moves);
+          if (!removed) {
+            // already canceled
+            return;
+          }
           for (MoveInfo moveInfo : moves) {
             animateMoveImpl(moveInfo.holder, moveInfo.fromX, moveInfo.fromY, moveInfo.toX,
                 moveInfo.toY);
           }
           moves.clear();
-          mMovesList.remove(moves);
         }
       };
       if (removalsPending) {
@@ -150,11 +154,15 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       mPendingChanges.clear();
       Runnable changer = new Runnable() {
         @Override public void run() {
+          boolean removed = mChangesList.remove(changes);
+          if (!removed) {
+            // already canceled
+            return;
+          }
           for (ChangeInfo change : changes) {
             animateChangeImpl(change);
           }
           changes.clear();
-          mChangesList.remove(changes);
         }
       };
       if (removalsPending) {
@@ -172,11 +180,15 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       mPendingAdditions.clear();
       Runnable adder = new Runnable() {
         public void run() {
+          boolean removed = mAdditionsList.remove(additions);
+          if (!removed) {
+            // already canceled
+            return;
+          }
           for (ViewHolder holder : additions) {
             doAnimateAdd(holder);
           }
           additions.clear();
-          mAdditionsList.remove(additions);
         }
       };
       if (removalsPending || movesPending || changesPending) {
