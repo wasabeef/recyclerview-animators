@@ -24,10 +24,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 import jp.wasabeef.recyclerview.internal.ViewHelper;
 
@@ -49,7 +51,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   protected ArrayList<ViewHolder> mRemoveAnimations = new ArrayList<>();
   private ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
 
-  protected Interpolator mInterpolator = new LinearInterpolator();
+  protected Interpolator mInterpolator = new DecelerateInterpolator();
 
   private static class MoveInfo {
 
