@@ -22,10 +22,10 @@ Please feel free to use this.
 # Demo
 
 ### ItemAnimator
-<img src="art/demo.gif" width="32%"> <img src="art/demo2.gif" width="32%"> <img src="art/demo4.gif" width="32%">
+<img src="art/demo.gif" width="32%"> <img src="art/demo2.gif" width="32%"> <img src="art/demo3.gif" width="32%">
 
 ### Adapters
-![](art/demo3.gif) ![](art/demo5.gif)
+<img src="art/demo4.gif" width="49%"> <img src="art/demo5.gif" width="49%">
 
 # Samples
 
@@ -40,7 +40,7 @@ Please feel free to use this.
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.2.5'
+  compile 'jp.wasabeef:recyclerview-animators:2.2.6'
 }
 ```
 
@@ -56,7 +56,8 @@ recyclerView.setItemAnimator(new SlideInLeftAnimator());
 
 ```java
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
+SlideInUpAnimator animator = new SlideInUpAnimator(new OvershootInterpolator(1f));
+recyclerView.setItemAnimator(animator);
 ```
 
 ## Step 2
@@ -275,7 +276,7 @@ Thanks
 License
 -------
 
-    Copyright 2015 Wasabeef
+    Copyright 2017 Wasabeef
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
