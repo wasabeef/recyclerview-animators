@@ -25,7 +25,7 @@ Please feel free to use this.
 <img src="art/demo.gif" width="32%"> <img src="art/demo2.gif" width="32%"> <img src="art/demo3.gif" width="32%">
 
 ### Adapters
-<img src="art/demo4.gif" width="49%"> <img src="art/demo5.gif" width="49%">
+<img src="art/demo4.gif" width="32%"> <img src="art/demo5.gif" width="32%">
 
 # Samples
 
