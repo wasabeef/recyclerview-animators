@@ -40,7 +40,7 @@ Please feel free to use this.
 ```groovy
 dependencies {
   // jCenter
-  compile 'jp.wasabeef:recyclerview-animators:2.2.5'
+  compile 'jp.wasabeef:recyclerview-animators:2.2.6'
 }
 ```
 
@@ -56,7 +56,8 @@ recyclerView.setItemAnimator(new SlideInLeftAnimator());
 
 ```java
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
+SlideInUpAnimator animator = new SlideInUpAnimator(new OvershootInterpolator(1f));
+recyclerView.setItemAnimator(animator);
 ```
 
 ## Step 2
