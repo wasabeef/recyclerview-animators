@@ -22,10 +22,10 @@ Please feel free to use this.
 # Demo
 
 ### ItemAnimator
-<img src="art/demo.gif" width="32%"> <img src="art/demo2.gif" width="32%"> <img src="art/demo4.gif" width="32%">
+<img src="art/demo.gif" width="32%"> <img src="art/demo2.gif" width="32%"> <img src="art/demo3.gif" width="32%">
 
 ### Adapters
-![](art/demo3.gif) ![](art/demo5.gif)
+<img src="art/demo4.gif" width="49%"> <img src="art/demo5.gif" width="49%">
 
 # Samples
 
