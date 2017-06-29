@@ -38,7 +38,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
   }
 
   public void remove(int position) {
-    if(mDataSet.isEmpty()){
+    if (mDataSet.isEmpty()) {
       return;
     }
     mDataSet.remove(position);
