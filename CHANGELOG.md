@@ -1,6 +1,16 @@
 Change Log
 ==========
 
+Version 2.2.7 *(2017-06-29)*
+----------------------------
+
+Update:
+- Support Library 25.3.0 -> 25.4.0
+
+Bugfix:  
+- [Fix error empty remove #133](https://github.com/wasabeef/recyclerview-animators/pull/133)
+
+
 Version 2.2.6 *(2017-03-17)*
 ----------------------------
 
