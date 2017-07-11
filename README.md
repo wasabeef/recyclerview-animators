@@ -37,10 +37,22 @@ Please feel free to use this.
 
 #### Gradle
 
+On your module's `build.gradle` file add this compile statement to the `dependencies` section:
+
 ```groovy
 dependencies {
-  // jCenter
   compile 'jp.wasabeef:recyclerview-animators:2.2.7'
+}
+```
+
+Also make sure that the `repositories` section includes not only jcenter but also a `maven` section with the `"https://maven.google.com"` endpoint. 
+
+```
+repositories {
+  jcenter()
+  maven {
+    url "https://maven.google.com"
+  }
 }
 ```
 
