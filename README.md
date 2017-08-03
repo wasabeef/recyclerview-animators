@@ -102,7 +102,7 @@ Change the interpolator.
 ```java
 SlideInLeftAnimator animator = new SlideInLeftAnimator();
 animator.setInterpolator(new OvershootInterpolator());
-// or recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f));
+// or recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
 recyclerView.setItemAnimator(animator);
 ```
 
