@@ -50,6 +50,26 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     mAdapter.unregisterAdapterDataObserver(observer);
   }
 
+  @Override public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    super.onAttachedToRecyclerView(recyclerView);
+    mAdapter.onAttachedToRecyclerView(recyclerView);
+  }
+
+  @Override public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+    super.onDetachedFromRecyclerView(recyclerView);
+    mAdapter.onDetachedFromRecyclerView(recyclerView);
+  }
+
+  @Override public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+    super.onViewAttachedToWindow(holder);
+    mAdapter.onViewAttachedToWindow(holder);
+  }
+
+  @Override public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
+    super.onViewDetachedFromWindow(holder);
+    mAdapter.onViewDetachedFromWindow(holder);
+  }
+
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
