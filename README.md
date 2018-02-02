@@ -224,7 +224,7 @@ Disable the first scroll mode.
 ```java
 MyAdapter adapter = new MyAdapter();
 AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-scaleAdapter.setFirstOnly(false);
+alphaAdapter.setFirstOnly(false);
 recyclerView.setAdapter(alphaAdapter);
 ```
 
