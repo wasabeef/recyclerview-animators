@@ -41,7 +41,7 @@ On your module's `build.gradle` file add this compile statement to the `dependen
 
 ```groovy
 dependencies {
-  compile 'jp.wasabeef:recyclerview-animators:2.2.7'
+  compile 'jp.wasabeef:recyclerview-animators:2.3.0'
 }
 ```
 
@@ -288,7 +288,7 @@ Thanks
 License
 -------
 
-    Copyright 2017 Wasabeef
+    Copyright 2018 Wasabeef
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

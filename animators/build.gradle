@@ -14,9 +14,9 @@ android {
 }
 
 dependencies {
-  compile "com.android.support:support-compat:${SUPPORT_PACKAGE_VERSION}"
-  compile "com.android.support:support-core-ui:${SUPPORT_PACKAGE_VERSION}"
-  compile "com.android.support:recyclerview-v7:${SUPPORT_PACKAGE_VERSION}"
+  implementation "com.android.support:support-compat:${SUPPORT_PACKAGE_VERSION}"
+  implementation "com.android.support:support-core-ui:${SUPPORT_PACKAGE_VERSION}"
+  implementation "com.android.support:recyclerview-v7:${SUPPORT_PACKAGE_VERSION}"
 }
 
 publish {

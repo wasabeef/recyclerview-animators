@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+Version 2.3.0 *(2018-02-07)*
+----------------------------
+
+Update:  
+- Compile & Target SDK Version 25 -> 27  
+- Build Tools 26.0.1 -> 27.0.3  
+- Support Library 25.3.1 -> 27.0.2  
+
 Version 2.2.7 *(2017-06-29)*
 ----------------------------
 
