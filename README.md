@@ -45,14 +45,12 @@ dependencies {
 }
 ```
 
-Also make sure that the `repositories` section includes not only jcenter but also a `maven` section with the `"https://maven.google.com"` endpoint. 
+Also make sure that the `repositories` section includes not only jcenter but also a `maven` section with the `"google()"` endpoint. 
 
 ```
 repositories {
   jcenter()
-  maven {
-    url "https://maven.google.com"
-  }
+  google()
 }
 ```
 
