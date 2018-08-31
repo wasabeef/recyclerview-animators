@@ -17,6 +17,7 @@ package jp.wasabeef.recyclerview.animators;
  *
  */
 
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -30,7 +31,9 @@ import android.view.animation.Interpolator;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
+import jp.wasabeef.recyclerview.animators.holder.AnimateAddViewHolder;
+import jp.wasabeef.recyclerview.animators.holder.AnimateChangeViewHolder;
+import jp.wasabeef.recyclerview.animators.holder.AnimateRemoveViewHolder;
 import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 public abstract class BaseItemAnimator extends SimpleItemAnimator {
@@ -107,7 +110,16 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     this.mInterpolator = mInterpolator;
   }
 
-  @Override public void runPendingAnimations() {
+    @Override
+    public boolean canReuseUpdatedViewHolder(@NonNull final ViewHolder viewHolder, @NonNull final List<Object> payloads) {
+        if (viewHolder instanceof AnimateChangeViewHolder) {
+            return ((AnimateChangeViewHolder) viewHolder).canReuseUpdatedViewHolder(payloads);
+        } else {
+            return super.canReuseUpdatedViewHolder(viewHolder, payloads);
+        }
+    }
+
+    @Override public void runPendingAnimations() {
     boolean removalsPending = !mPendingRemovals.isEmpty();
     boolean movesPending = !mPendingMoves.isEmpty();
     boolean changesPending = !mPendingChanges.isEmpty();
@@ -219,8 +231,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private void preAnimateRemove(final RecyclerView.ViewHolder holder) {
     ViewHelper.clear(holder.itemView);
 
-    if (holder instanceof AnimateViewHolder) {
-      ((AnimateViewHolder) holder).preAnimateRemoveImpl(holder);
+    if (holder instanceof AnimateRemoveViewHolder) {
+      ((AnimateRemoveViewHolder) holder).preAnimateRemoveImpl(holder);
     } else {
       preAnimateRemoveImpl(holder);
     }
@@ -229,16 +241,16 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   private void preAnimateAdd(final RecyclerView.ViewHolder holder) {
     ViewHelper.clear(holder.itemView);
 
-    if (holder instanceof AnimateViewHolder) {
-      ((AnimateViewHolder) holder).preAnimateAddImpl(holder);
+    if (holder instanceof AnimateAddViewHolder) {
+      ((AnimateAddViewHolder) holder).preAnimateAddImpl(holder);
     } else {
       preAnimateAddImpl(holder);
     }
   }
 
   private void doAnimateRemove(final RecyclerView.ViewHolder holder) {
-    if (holder instanceof AnimateViewHolder) {
-      ((AnimateViewHolder) holder).animateRemoveImpl(holder, new DefaultRemoveVpaListener(holder));
+    if (holder instanceof AnimateRemoveViewHolder) {
+      ((AnimateRemoveViewHolder) holder).animateRemoveImpl(holder, new DefaultRemoveVpaListener(holder));
     } else {
       animateRemoveImpl(holder);
     }
@@ -247,8 +259,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   }
 
   private void doAnimateAdd(final RecyclerView.ViewHolder holder) {
-    if (holder instanceof AnimateViewHolder) {
-      ((AnimateViewHolder) holder).animateAddImpl(holder, new DefaultAddVpaListener(holder));
+    if (holder instanceof AnimateAddViewHolder) {
+      ((AnimateAddViewHolder) holder).animateAddImpl(holder, new DefaultAddVpaListener(holder));
     } else {
       animateAddImpl(holder);
     }
@@ -341,6 +353,12 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   @Override
   public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY,
       int toX, int toY) {
+
+    if (oldHolder == newHolder && fromX == toX && fromY == toY) {
+        dispatchChangeFinished(newHolder, true);
+        return false;
+    }
+
     final float prevTranslationX = ViewCompat.getTranslationX(oldHolder.itemView);
     final float prevTranslationY = ViewCompat.getTranslationY(oldHolder.itemView);
     final float prevAlpha = ViewCompat.getAlpha(oldHolder.itemView);
