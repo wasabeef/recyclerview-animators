@@ -113,7 +113,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     @Override
     public boolean canReuseUpdatedViewHolder(@NonNull final ViewHolder viewHolder, @NonNull final List<Object> payloads) {
         if (viewHolder instanceof AnimateChangeViewHolder) {
-            return ((AnimateChangeViewHolder) viewHolder).canReuseUpdatedViewHolder(payloads);
+            return ((AnimateChangeViewHolder) viewHolder).canAnimateChange(payloads);
         } else {
             return super.canReuseUpdatedViewHolder(viewHolder, payloads);
         }

@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface AnimateChangeViewHolder {
 
-    boolean canReuseUpdatedViewHolder(@NonNull List<Object> payloads);
+    boolean canAnimateChange(@NonNull List<Object> payloads);
 
 }
