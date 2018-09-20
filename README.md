@@ -27,10 +27,6 @@ Please feel free to use this.
 ### Adapters
 <img src="art/demo4.gif" width="32%"> <img src="art/demo5.gif" width="32%">
 
-# Samples
-
-<a href="https://play.google.com/store/apps/details?id=jp.wasabeef.example.recyclerview"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
-
 # How do I use it?
 
 ## Setup
