@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion COMPILE_SDK_VERSION as int
-  buildToolsVersion BUILD_TOOLS_VERSION
 
   defaultConfig {
     minSdkVersion MIN_SDK_VERSION as int
@@ -50,8 +49,8 @@ def getKeyAliasPasswordProperty() {
 }
 
 dependencies {
-  //compile project(':animators')
-  implementation "com.android.support:appcompat-v7:${SUPPORT_PACKAGE_VERSION}"
-  implementation "com.android.support:recyclerview-v7:${SUPPORT_PACKAGE_VERSION}"
+  implementation project(':animators')
+  implementation "androidx.appcompat:appcompat:1.0.2"
+  implementation "androidx.recyclerview:recyclerview:1.0.0"
   implementation 'com.squareup.picasso:picasso:2.5.2'
 }
