@@ -183,35 +183,18 @@ recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter())
 
 ### Advanced Step 2
 
-Change the durations.
-
 ```kotlin
 recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter()).apply {
+  // Change the durations.
   setDuration(1000)
-}
-```
-
-### Advanced Step 3
-
-Change the interpolator.
-
-```kotlin
-recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter()).apply {
+  // Change the interpolator.
   setInterpolator(vershootInterpolator())
-}
-```
-
-### Advanced Step 4
-
-Disable the first scroll mode.
-
-```kotlin
-recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter()).apply {
+  // Disable the first scroll mode.
   setFirstOnly(false)
 }
 ```
 
-### Advanced Step 5
+### Advanced Step 3
 
 Multiple Animations
 
