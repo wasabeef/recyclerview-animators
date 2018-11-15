@@ -1,5 +1,12 @@
 Change Log
 ==========
+Version 3.0.0 *(2018-11-15)*
+----------------------------
+
+Update:
+- Migrate to AndroidX
+- Remove novoda-bintray-plugin
+- Fix a buf [#161](https://github.com/wasabeef/recyclerview-animators/pull/161)
 
 Version 2.3.0 *(2018-02-07)*
 ----------------------------
