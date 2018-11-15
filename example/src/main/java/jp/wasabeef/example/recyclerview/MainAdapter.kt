@@ -20,7 +20,7 @@ class MainAdapter(private val context: Context, private val dataSet: MutableList
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    Picasso.with(context).load(R.drawable.chip).into(holder.image)
+    Picasso.get().load(R.drawable.chip).into(holder.image)
     holder.text.text = dataSet[position]
   }
 
