@@ -1,7 +1,7 @@
 package jp.wasabeef.recyclerview.animators.holder;
 
-import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.view.ViewPropertyAnimatorListener;
+import androidx.recyclerview.widget.RecyclerView;
 
 public interface AnimateViewHolder {
 

@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="vertical"
   >
 
-  <android.support.v7.widget.Toolbar
+  <androidx.appcompat.widget.Toolbar
     android:id="@+id/tool_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -38,8 +38,8 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/del"
         android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/del"
         android:background="?attr/selectableItemBackground"
         android:padding="10dp"
         android:text="ADD"
@@ -47,9 +47,9 @@
 
     </RelativeLayout>
 
-  </android.support.v7.widget.Toolbar>
+  </androidx.appcompat.widget.Toolbar>
 
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
