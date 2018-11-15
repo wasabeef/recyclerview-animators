@@ -16,8 +16,8 @@ Please feel free to use this.
 
 # Features
 
-* Animate addition and removal of `ItemAnimator`
-* Appearance animations for items in `RecyclerView.Adapter`
+* Animate addition and removal of [`ItemAnimator`](https://github.com/wasabeef/recyclerview-animators#itemanimator)
+* Appearance animations for items in [`RecyclerView.Adapter`](https://github.com/wasabeef/recyclerview-animators#recyclerviewadapter)
 
 # Demo
 
