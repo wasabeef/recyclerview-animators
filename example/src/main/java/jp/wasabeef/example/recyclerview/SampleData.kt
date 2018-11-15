@@ -1,7 +1,7 @@
 package jp.wasabeef.example.recyclerview
 
 /**
- * Created by Daichi Furiya on 2018-11-15.
+ * Created by Wasabeef on 2018/11/15.
  */
 interface SampleData {
   companion object {
