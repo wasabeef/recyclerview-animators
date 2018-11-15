@@ -339,8 +339,12 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   }
 
   @Override
-  public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY,
-      int toX, int toY) {
+  public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
+    if (oldHolder == newHolder) {
+      // Don't know how to run change animations when the same view holder is re-used.
+      // run a move animation to handle position changes.
+      return animateMove(oldHolder, fromX, fromY, toX, toY);
+    }
     final float prevTranslationX = ViewCompat.getTranslationX(oldHolder.itemView);
     final float prevTranslationY = ViewCompat.getTranslationY(oldHolder.itemView);
     final float prevAlpha = ViewCompat.getAlpha(oldHolder.itemView);
