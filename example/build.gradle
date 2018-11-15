@@ -50,7 +50,9 @@ def getKeyAliasPasswordProperty() {
 
 dependencies {
   implementation project(':animators')
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation "androidx.appcompat:appcompat:1.0.2"
   implementation "androidx.recyclerview:recyclerview:1.0.0"
   implementation 'com.squareup.picasso:picasso:2.5.2'
+//  implementation 'com.squareup.picasso:picasso:2.71828'
 }
