@@ -1,11 +1,12 @@
 package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import jp.wasabeef.recyclerview.internal.ViewHelper;
 
 /**
@@ -36,44 +37,47 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     mAdapter = adapter;
   }
 
-  @Override public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+  @NonNull @Override
+  public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     return mAdapter.onCreateViewHolder(parent, viewType);
   }
 
-  @Override public void registerAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
+  @Override
+  public void registerAdapterDataObserver(@NonNull RecyclerView.AdapterDataObserver observer) {
     super.registerAdapterDataObserver(observer);
     mAdapter.registerAdapterDataObserver(observer);
   }
 
-  @Override public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver observer) {
+  @Override
+  public void unregisterAdapterDataObserver(@NonNull RecyclerView.AdapterDataObserver observer) {
     super.unregisterAdapterDataObserver(observer);
     mAdapter.unregisterAdapterDataObserver(observer);
   }
 
-  @Override public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+  @Override public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
     super.onAttachedToRecyclerView(recyclerView);
     mAdapter.onAttachedToRecyclerView(recyclerView);
   }
 
-  @Override public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+  @Override public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
     super.onDetachedFromRecyclerView(recyclerView);
     mAdapter.onDetachedFromRecyclerView(recyclerView);
   }
 
-  @SuppressWarnings("unchecked")
-  @Override public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+  @SuppressWarnings("unchecked") @Override
+  public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
     super.onViewAttachedToWindow(holder);
     mAdapter.onViewAttachedToWindow(holder);
   }
 
-  @SuppressWarnings("unchecked")
-  @Override public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
+  @SuppressWarnings("unchecked") @Override
+  public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
     super.onViewDetachedFromWindow(holder);
     mAdapter.onViewDetachedFromWindow(holder);
   }
 
-  @SuppressWarnings("unchecked")
-  @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+  @SuppressWarnings("unchecked") @Override
+  public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
     int adapterPosition = holder.getAdapterPosition();
@@ -88,8 +92,8 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     }
   }
 
-  @SuppressWarnings("unchecked")
-  @Override public void onViewRecycled(RecyclerView.ViewHolder holder) {
+  @SuppressWarnings("unchecked") @Override
+  public void onViewRecycled(@NonNull RecyclerView.ViewHolder holder) {
     mAdapter.onViewRecycled(holder);
     super.onViewRecycled(holder);
   }
@@ -110,7 +114,7 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     mLastPosition = start;
   }
 
-  protected abstract Animator[] getAnimators(View view);
+  protected abstract Animator[] getAnimators(@NonNull View view);
 
   public void setFirstOnly(boolean firstOnly) {
     isFirstOnly = firstOnly;

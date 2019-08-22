@@ -2,6 +2,7 @@ package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
@@ -36,7 +37,7 @@ public class ScaleInAnimationAdapter extends AnimationAdapter {
     mFrom = from;
   }
 
-  @Override protected Animator[] getAnimators(View view) {
+  @Override protected Animator[] getAnimators(@NonNull View view) {
     ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", mFrom, 1f);
     ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", mFrom, 1f);
     return new ObjectAnimator[] { scaleX, scaleY };

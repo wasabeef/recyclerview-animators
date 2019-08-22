@@ -2,6 +2,7 @@ package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
@@ -28,7 +29,7 @@ public class SlideInBottomAnimationAdapter extends AnimationAdapter {
     super(adapter);
   }
 
-  @Override protected Animator[] getAnimators(View view) {
+  @Override protected Animator[] getAnimators(@NonNull View view) {
     return new Animator[] {
       ObjectAnimator.ofFloat(view, "translationY", view.getMeasuredHeight(), 0)
     };
