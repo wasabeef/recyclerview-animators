@@ -23,13 +23,14 @@ import android.view.View;
 
 public class SlideInBottomAnimationAdapter extends AnimationAdapter {
 
-  public SlideInBottomAnimationAdapter(RecyclerView.Adapter adapter) {
+  public SlideInBottomAnimationAdapter(
+    RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     super(adapter);
   }
 
   @Override protected Animator[] getAnimators(View view) {
     return new Animator[] {
-        ObjectAnimator.ofFloat(view, "translationY", view.getMeasuredHeight(), 0)
+      ObjectAnimator.ofFloat(view, "translationY", view.getMeasuredHeight(), 0)
     };
   }
 }

@@ -26,11 +26,12 @@ public class ScaleInAnimationAdapter extends AnimationAdapter {
   private static final float DEFAULT_SCALE_FROM = .5f;
   private final float mFrom;
 
-  public ScaleInAnimationAdapter(RecyclerView.Adapter adapter) {
+  public ScaleInAnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     this(adapter, DEFAULT_SCALE_FROM);
   }
 
-  public ScaleInAnimationAdapter(RecyclerView.Adapter adapter, float from) {
+  public ScaleInAnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter,
+    float from) {
     super(adapter);
     mFrom = from;
   }

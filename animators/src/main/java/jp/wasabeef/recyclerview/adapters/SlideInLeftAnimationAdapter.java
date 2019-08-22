@@ -23,13 +23,14 @@ import android.view.View;
 
 public class SlideInLeftAnimationAdapter extends AnimationAdapter {
 
-  public SlideInLeftAnimationAdapter(RecyclerView.Adapter adapter) {
+  public SlideInLeftAnimationAdapter(
+    RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     super(adapter);
   }
 
   @Override protected Animator[] getAnimators(View view) {
     return new Animator[] {
-        ObjectAnimator.ofFloat(view, "translationX", -view.getRootView().getWidth(), 0)
+      ObjectAnimator.ofFloat(view, "translationX", -view.getRootView().getWidth(), 0)
     };
   }
 }

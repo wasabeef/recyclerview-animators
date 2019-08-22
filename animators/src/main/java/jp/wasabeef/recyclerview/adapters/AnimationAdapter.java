@@ -25,14 +25,14 @@ import jp.wasabeef.recyclerview.internal.ViewHelper;
  */
 public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-  private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
+  private RecyclerView.Adapter mAdapter;
   private int mDuration = 300;
   private Interpolator mInterpolator = new LinearInterpolator();
   private int mLastPosition = -1;
 
   private boolean isFirstOnly = true;
 
-  public AnimationAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
+  public AnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     mAdapter = adapter;
   }
 
@@ -60,16 +60,19 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     mAdapter.onDetachedFromRecyclerView(recyclerView);
   }
 
+  @SuppressWarnings("unchecked")
   @Override public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
     super.onViewAttachedToWindow(holder);
     mAdapter.onViewAttachedToWindow(holder);
   }
 
+  @SuppressWarnings("unchecked")
   @Override public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
     super.onViewDetachedFromWindow(holder);
     mAdapter.onViewDetachedFromWindow(holder);
   }
 
+  @SuppressWarnings("unchecked")
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
@@ -85,6 +88,7 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     }
   }
 
+  @SuppressWarnings("unchecked")
   @Override public void onViewRecycled(RecyclerView.ViewHolder holder) {
     mAdapter.onViewRecycled(holder);
     super.onViewRecycled(holder);
@@ -116,6 +120,7 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     return mAdapter.getItemViewType(position);
   }
 
+  @SuppressWarnings("unchecked")
   public RecyclerView.Adapter<RecyclerView.ViewHolder> getWrappedAdapter() {
     return mAdapter;
   }

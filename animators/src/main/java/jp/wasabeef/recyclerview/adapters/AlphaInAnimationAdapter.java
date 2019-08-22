@@ -26,11 +26,12 @@ public class AlphaInAnimationAdapter extends AnimationAdapter {
   private static final float DEFAULT_ALPHA_FROM = 0f;
   private final float mFrom;
 
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter) {
+  public AlphaInAnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     this(adapter, DEFAULT_ALPHA_FROM);
   }
 
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter, float from) {
+  public AlphaInAnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter,
+    float from) {
     super(adapter);
     mFrom = from;
   }
