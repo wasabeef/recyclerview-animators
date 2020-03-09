@@ -181,6 +181,12 @@ val recyclerView = findViewById<RecyclerView>(R.id.list)
 recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter())
 ```
 
+#### Java
+```java
+RecyclerView recyclerView = findViewById(R.id.list);
+recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter())
+```
+
 ### Advanced Step 2
 
 ```kotlin
@@ -194,6 +200,14 @@ recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter()).apply {
 }
 ```
 
+#### Java
+```java
+AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(new MyAdapter());
+alphaInAnimationAdapter.setDuration(1000);
+alphaInAnimationAdapter.setInterpolator(new OvershootInterpolator());
+alphaInAnimationAdapter.setFirstOnly(false);
+```
+
 ### Advanced Step 3
 
 Multiple Animations
@@ -201,6 +215,11 @@ Multiple Animations
 ```kotlin
 val alphaAdapter = AlphaInAnimationAdapter(MyAdapter())
 recyclerView.adapter = ScaleInAnimationAdapter(alphaAdapter)
+```
+
+#### Java
+```java
+recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
 ```
 
 ### Adapters
