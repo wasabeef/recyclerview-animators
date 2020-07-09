@@ -1,37 +1,43 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion COMPILE_SDK_VERSION as int
+    compileSdkVersion COMPILE_SDK_VERSION as int
 
-  defaultConfig {
-    minSdkVersion MIN_SDK_VERSION as int
-    targetSdkVersion TARGET_SDK_VERSION as int
-  }
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+    }
 }
 
 dependencies {
-  implementation "androidx.recyclerview:recyclerview:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
+    implementation "androidx.core:core-ktx:1.3.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 ext {
-  bintrayRepo = 'maven'
-  bintrayName = 'recyclerview-animators'
-  bintrayUserOrg = 'wasabeef'
-  publishedGroupId = 'jp.wasabeef'
-  libraryName = 'recyclerview-animators'
-  artifact = 'recyclerview-animators'
-  libraryDescription = 'Which provides simple Item animations to RecyclerView items'
-  siteUrl = 'https://github.com/wasabeef/recyclerview-animators'
-  gitUrl = 'https://github.com/wasabeef/recyclerview-animators.git'
-  issueUrl = 'https://github.com/wasabeef/recyclerview-animators/issues'
-  libraryVersion = VERSION_NAME
-  developerId = 'wasabeef'
-  developerName = 'Wasabeef'
-  developerEmail = 'dadadada.chop@gmail.com'
-  licenseName = 'The Apache Software License, Version 2.0'
-  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-  allLicenses = ["Apache-2.0"]
+    bintrayRepo = 'maven'
+    bintrayName = 'recyclerview-animators'
+    bintrayUserOrg = 'wasabeef'
+    publishedGroupId = 'jp.wasabeef'
+    libraryName = 'recyclerview-animators'
+    artifact = 'recyclerview-animators'
+    libraryDescription = 'Which provides simple Item animations to RecyclerView items'
+    siteUrl = 'https://github.com/wasabeef/recyclerview-animators'
+    gitUrl = 'https://github.com/wasabeef/recyclerview-animators.git'
+    issueUrl = 'https://github.com/wasabeef/recyclerview-animators/issues'
+    libraryVersion = VERSION_NAME
+    developerId = 'wasabeef'
+    developerName = 'Wasabeef'
+    developerEmail = 'dadadada.chop@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
 
 apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
 apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
+repositories {
+    mavenCentral()
+}

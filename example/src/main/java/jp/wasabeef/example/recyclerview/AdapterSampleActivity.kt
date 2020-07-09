@@ -87,6 +87,7 @@ class AdapterSampleActivity : AppCompatActivity() {
     }
 
     recyclerView.itemAnimator = FadeInAnimator()
+    (recyclerView.itemAnimator as FadeInAnimator).addDuration = 1000
     val adapter = MainAdapter(this, SampleData.LIST.toMutableList())
     recyclerView.adapter = AlphaInAnimationAdapter(adapter).apply {
       setFirstOnly(true)
