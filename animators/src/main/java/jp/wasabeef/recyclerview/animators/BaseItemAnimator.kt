@@ -41,6 +41,8 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
     private val mMoveAnimations = ArrayList<RecyclerView.ViewHolder?>()
     protected var mRemoveAnimations = ArrayList<RecyclerView.ViewHolder?>()
     private val mChangeAnimations = ArrayList<RecyclerView.ViewHolder?>()
+    private var mAddDelay: ((holder: RecyclerView.ViewHolder) -> Long)? = null
+    private var mRemoveDelay: ((holder: RecyclerView.ViewHolder) -> Long)? = null
 
     @JvmField
     protected var mInterpolator: Interpolator = DecelerateInterpolator()
@@ -78,6 +80,14 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
 
     fun setInterpolator(mInterpolator: Interpolator) {
         this.mInterpolator = mInterpolator
+    }
+
+    fun setAddDelay(customFunction: ((holder: RecyclerView.ViewHolder) -> Long)) {
+        mAddDelay = customFunction
+    }
+
+    fun setRemoveDelay(customFunction: ((holder: RecyclerView.ViewHolder) -> Long)) {
+        mRemoveDelay = customFunction
     }
 
     override fun runPendingAnimations() {
@@ -221,7 +231,8 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
     }
 
     protected fun getRemoveDelay(holder: RecyclerView.ViewHolder): Long {
-        return abs(holder.oldPosition * removeDuration / 4)
+        mRemoveDelay?.let { return it(holder) }
+                ?: return abs(holder.oldPosition * removeDuration / 4)
     }
 
     override fun animateAdd(holder: RecyclerView.ViewHolder): Boolean {
@@ -232,7 +243,8 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
     }
 
     protected fun getAddDelay(holder: RecyclerView.ViewHolder): Long {
-        return abs(holder.adapterPosition * addDuration / 4)
+        mAddDelay?.let { return it(holder) }
+                ?: return abs(holder.adapterPosition * addDuration / 4)
     }
 
     override fun animateMove(holder: RecyclerView.ViewHolder, fromX: Int, fromY: Int, toX: Int, toY: Int): Boolean {
