@@ -16,9 +16,9 @@ package jp.wasabeef.recyclerview.animators;
  * limitations under the License.
  */
 
+import android.view.animation.Interpolator;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.animation.Interpolator;
 
 public class ScaleInRightAnimator extends BaseItemAnimator {
 
@@ -35,13 +35,13 @@ public class ScaleInRightAnimator extends BaseItemAnimator {
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .scaleX(0)
-        .scaleY(0)
-        .setDuration(getRemoveDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultRemoveVpaListener(holder))
-        .setStartDelay(getRemoveDelay(holder))
-        .start();
+      .scaleX(0)
+      .scaleY(0)
+      .setDuration(getRemoveDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultRemoveVpaListener(holder))
+      .setStartDelay(getRemoveDelay(holder))
+      .start();
   }
 
   @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
@@ -52,12 +52,12 @@ public class ScaleInRightAnimator extends BaseItemAnimator {
 
   @Override protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .scaleX(1)
-        .scaleY(1)
-        .setDuration(getAddDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultAddVpaListener(holder))
-        .setStartDelay(getAddDelay(holder))
-        .start();
+      .scaleX(1)
+      .scaleY(1)
+      .setDuration(getAddDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultAddVpaListener(holder))
+      .setStartDelay(getAddDelay(holder))
+      .start();
   }
 }

@@ -16,9 +16,9 @@ package jp.wasabeef.recyclerview.animators;
  * limitations under the License.
  */
 
+import android.view.animation.Interpolator;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.animation.Interpolator;
 
 public class FlipInTopXAnimator extends BaseItemAnimator {
 
@@ -31,12 +31,12 @@ public class FlipInTopXAnimator extends BaseItemAnimator {
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .rotationX(90)
-        .setDuration(getRemoveDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultRemoveVpaListener(holder))
-        .setStartDelay(getRemoveDelay(holder))
-        .start();
+      .rotationX(90)
+      .setDuration(getRemoveDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultRemoveVpaListener(holder))
+      .setStartDelay(getRemoveDelay(holder))
+      .start();
   }
 
   @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
@@ -45,11 +45,11 @@ public class FlipInTopXAnimator extends BaseItemAnimator {
 
   @Override protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .rotationX(0)
-        .setDuration(getAddDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultAddVpaListener(holder))
-        .setStartDelay(getAddDelay(holder))
-        .start();
+      .rotationX(0)
+      .setDuration(getAddDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultAddVpaListener(holder))
+      .setStartDelay(getAddDelay(holder))
+      .start();
   }
 }

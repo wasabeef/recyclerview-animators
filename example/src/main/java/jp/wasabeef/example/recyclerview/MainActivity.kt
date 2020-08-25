@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
       })
     }
 
-    findViewById<SwitchCompat>(R.id.grid).setOnCheckedChangeListener { _, isChecked -> enabledGrid = isChecked }
+    findViewById<SwitchCompat>(R.id.grid).setOnCheckedChangeListener { _, isChecked ->
+      enabledGrid = isChecked
+    }
   }
 }

@@ -16,9 +16,9 @@ package jp.wasabeef.recyclerview.animators;
  * limitations under the License.
  */
 
+import android.view.animation.Interpolator;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.animation.Interpolator;
 
 public class SlideInDownAnimator extends BaseItemAnimator {
 
@@ -32,13 +32,13 @@ public class SlideInDownAnimator extends BaseItemAnimator {
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .translationY(-holder.itemView.getHeight())
-        .alpha(0)
-        .setDuration(getRemoveDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultRemoveVpaListener(holder))
-        .setStartDelay(getRemoveDelay(holder))
-        .start();
+      .translationY(-holder.itemView.getHeight())
+      .alpha(0)
+      .setDuration(getRemoveDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultRemoveVpaListener(holder))
+      .setStartDelay(getRemoveDelay(holder))
+      .start();
   }
 
   @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
@@ -48,12 +48,12 @@ public class SlideInDownAnimator extends BaseItemAnimator {
 
   @Override protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .translationY(0)
-        .alpha(1)
-        .setDuration(getAddDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultAddVpaListener(holder))
-        .setStartDelay(getAddDelay(holder))
-        .start();
+      .translationY(0)
+      .alpha(1)
+      .setDuration(getAddDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultAddVpaListener(holder))
+      .setStartDelay(getAddDelay(holder))
+      .start();
   }
 }

@@ -12,7 +12,8 @@ import com.squareup.picasso.Picasso
 /**
  * Created by Wasabeef on 2015/01/03.
  */
-class MainAdapter(private val context: Context, private val dataSet: MutableList<String>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(private val context: Context, private val dataSet: MutableList<String>) :
+  RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     val v = LayoutInflater.from(context).inflate(R.layout.layout_list_item, parent, false)

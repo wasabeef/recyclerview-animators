@@ -1,7 +1,7 @@
 package jp.wasabeef.recyclerview.internal;
 
-import androidx.core.view.ViewCompat;
 import android.view.View;
+import androidx.core.view.ViewCompat;
 
 /**
  * Copyright (C) 2020 Wasabeef

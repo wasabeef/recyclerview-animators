@@ -17,19 +17,17 @@ package jp.wasabeef.recyclerview.animators;
  *
  */
 
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListener;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import androidx.recyclerview.widget.SimpleItemAnimator;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 import jp.wasabeef.recyclerview.internal.ViewHelper;
 
@@ -78,7 +76,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
 
     private ChangeInfo(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY, int toX,
-        int toY) {
+      int toY) {
       this(oldHolder, newHolder);
       this.fromX = fromX;
       this.fromY = fromY;
@@ -87,14 +85,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     }
 
     @Override public String toString() {
-      return "ChangeInfo{" +
-          "oldHolder=" + oldHolder +
-          ", newHolder=" + newHolder +
-          ", fromX=" + fromX +
-          ", fromY=" + fromY +
-          ", toX=" + toX +
-          ", toY=" + toY +
-          '}';
+      return "ChangeInfo{" + "oldHolder=" + oldHolder + ", newHolder=" + newHolder + ", fromX="
+        + fromX + ", fromY=" + fromY + ", toX=" + toX + ", toY=" + toY + '}';
     }
   }
 
@@ -136,7 +128,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
           }
           for (MoveInfo moveInfo : moves) {
             animateMoveImpl(moveInfo.holder, moveInfo.fromX, moveInfo.fromY, moveInfo.toX,
-                moveInfo.toY);
+              moveInfo.toY);
           }
           moves.clear();
         }
@@ -339,7 +331,8 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
   }
 
   @Override
-  public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
+  public boolean animateChange(ViewHolder oldHolder, ViewHolder newHolder, int fromX, int fromY,
+    int toX, int toY) {
     if (oldHolder == newHolder) {
       // Don't know how to run change animations when the same view holder is re-used.
       // run a move animation to handle position changes.
@@ -374,7 +367,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     if (view != null) {
       mChangeAnimations.add(changeInfo.oldHolder);
       final ViewPropertyAnimatorCompat oldViewAnim =
-          ViewCompat.animate(view).setDuration(getChangeDuration());
+        ViewCompat.animate(view).setDuration(getChangeDuration());
       oldViewAnim.translationX(changeInfo.toX - changeInfo.fromX);
       oldViewAnim.translationY(changeInfo.toY - changeInfo.fromY);
       oldViewAnim.alpha(0).setListener(new VpaListenerAdapter() {
@@ -397,7 +390,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
       mChangeAnimations.add(changeInfo.newHolder);
       final ViewPropertyAnimatorCompat newViewAnimation = ViewCompat.animate(newView);
       newViewAnimation.translationX(0).translationY(0).setDuration(getChangeDuration()).
-          alpha(1).setListener(new VpaListenerAdapter() {
+        alpha(1).setListener(new VpaListenerAdapter() {
         @Override public void onAnimationStart(View view) {
           dispatchChangeStarting(changeInfo.newHolder, false);
         }
@@ -513,38 +506,31 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
     // animations should be ended by the cancel above.
     if (mRemoveAnimations.remove(item) && DEBUG) {
       throw new IllegalStateException(
-          "after animation is cancelled, item should not be in " + "mRemoveAnimations list");
+        "after animation is cancelled, item should not be in " + "mRemoveAnimations list");
     }
 
     if (mAddAnimations.remove(item) && DEBUG) {
       throw new IllegalStateException(
-          "after animation is cancelled, item should not be in " + "mAddAnimations list");
+        "after animation is cancelled, item should not be in " + "mAddAnimations list");
     }
 
     if (mChangeAnimations.remove(item) && DEBUG) {
       throw new IllegalStateException(
-          "after animation is cancelled, item should not be in " + "mChangeAnimations list");
+        "after animation is cancelled, item should not be in " + "mChangeAnimations list");
     }
 
     if (mMoveAnimations.remove(item) && DEBUG) {
       throw new IllegalStateException(
-          "after animation is cancelled, item should not be in " + "mMoveAnimations list");
+        "after animation is cancelled, item should not be in " + "mMoveAnimations list");
     }
     dispatchFinishedWhenDone();
   }
 
   @Override public boolean isRunning() {
-    return (!mPendingAdditions.isEmpty() ||
-        !mPendingChanges.isEmpty() ||
-        !mPendingMoves.isEmpty() ||
-        !mPendingRemovals.isEmpty() ||
-        !mMoveAnimations.isEmpty() ||
-        !mRemoveAnimations.isEmpty() ||
-        !mAddAnimations.isEmpty() ||
-        !mChangeAnimations.isEmpty() ||
-        !mMovesList.isEmpty() ||
-        !mAdditionsList.isEmpty() ||
-        !mChangesList.isEmpty());
+    return (!mPendingAdditions.isEmpty() || !mPendingChanges.isEmpty() || !mPendingMoves.isEmpty()
+      || !mPendingRemovals.isEmpty() || !mMoveAnimations.isEmpty() || !mRemoveAnimations.isEmpty()
+      || !mAddAnimations.isEmpty() || !mChangeAnimations.isEmpty() || !mMovesList.isEmpty()
+      || !mAdditionsList.isEmpty() || !mChangesList.isEmpty());
   }
 
   /**

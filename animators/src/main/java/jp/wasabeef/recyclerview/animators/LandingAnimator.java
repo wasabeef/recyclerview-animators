@@ -16,9 +16,9 @@ package jp.wasabeef.recyclerview.animators;
  * limitations under the License.
  */
 
+import android.view.animation.Interpolator;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.animation.Interpolator;
 
 public class LandingAnimator extends BaseItemAnimator {
 
@@ -31,14 +31,14 @@ public class LandingAnimator extends BaseItemAnimator {
 
   @Override protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .alpha(0)
-        .scaleX(1.5f)
-        .scaleY(1.5f)
-        .setDuration(getRemoveDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultRemoveVpaListener(holder))
-        .setStartDelay(getRemoveDelay(holder))
-        .start();
+      .alpha(0)
+      .scaleX(1.5f)
+      .scaleY(1.5f)
+      .setDuration(getRemoveDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultRemoveVpaListener(holder))
+      .setStartDelay(getRemoveDelay(holder))
+      .start();
   }
 
   @Override protected void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
@@ -49,13 +49,13 @@ public class LandingAnimator extends BaseItemAnimator {
 
   @Override protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
     ViewCompat.animate(holder.itemView)
-        .alpha(1)
-        .scaleX(1)
-        .scaleY(1)
-        .setDuration(getAddDuration())
-        .setInterpolator(mInterpolator)
-        .setListener(new DefaultAddVpaListener(holder))
-        .setStartDelay(getAddDelay(holder))
-        .start();
+      .alpha(1)
+      .scaleX(1)
+      .scaleY(1)
+      .setDuration(getAddDuration())
+      .setInterpolator(mInterpolator)
+      .setListener(new DefaultAddVpaListener(holder))
+      .setStartDelay(getAddDelay(holder))
+      .start();
   }
 }
