@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
  * limitations under the License.
  */
 class ScaleInBottomAnimator : BaseItemAnimator {
-  constructor() {}
+  constructor()
   constructor(interpolator: Interpolator) {
     this.interpolator = interpolator
   }
