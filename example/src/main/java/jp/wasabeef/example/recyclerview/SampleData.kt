@@ -11,7 +11,7 @@ interface SampleData {
       "LINE", "Haskell", "C++", "Java", "Go", "Swift", "Objective-c", "Ruby", "PHP", "Bash", "ksh",
       "C", "Groovy", "Kotlin", "Chip", "Japan", "U.S.A", "San Francisco", "Paris", "Tokyo",
       "Silicon Valley", "London", "Spain", "China", "Taiwan", "Asia", "New York", "France", "Kyoto",
-      "Android", "Google", "iPhone", "iPad", "iPod", "Wasabeef"
+      "Android", "Google", "iPhone", "iPad", "iPod", "Wasabeef",
     )
   }
 }

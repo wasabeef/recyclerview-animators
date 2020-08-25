@@ -68,7 +68,7 @@ class AnimatorSampleActivity : AppCompatActivity() {
     setContentView(R.layout.activity_animator_sample)
 
     setSupportActionBar(findViewById(R.id.tool_bar))
-    supportActionBar!!.setDisplayShowTitleEnabled(false)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     val recyclerView = findViewById<RecyclerView>(R.id.list)
     recyclerView.apply {
@@ -92,8 +92,8 @@ class AnimatorSampleActivity : AppCompatActivity() {
     spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
       override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         recyclerView.itemAnimator = Type.values()[position].animator
-        recyclerView.itemAnimator!!.addDuration = 500
-        recyclerView.itemAnimator!!.removeDuration = 500
+        recyclerView.itemAnimator?.addDuration = 500
+        recyclerView.itemAnimator?.removeDuration = 500
       }
 
       override fun onNothingSelected(parent: AdapterView<*>) {

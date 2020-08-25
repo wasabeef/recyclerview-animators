@@ -59,7 +59,7 @@ class AdapterSampleActivity : AppCompatActivity() {
     setContentView(R.layout.activity_adapter_sample)
 
     setSupportActionBar(findViewById(R.id.tool_bar))
-    supportActionBar!!.setDisplayShowTitleEnabled(false)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     val recyclerView = findViewById<RecyclerView>(R.id.list)
     recyclerView.layoutManager = if (intent.getBooleanExtra(MainActivity.KEY_GRID, true)) {
