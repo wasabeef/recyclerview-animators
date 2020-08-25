@@ -26,67 +26,67 @@ import jp.wasabeef.recyclerview.internal.ViewHelper;
  */
 public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-  private RecyclerView.Adapter mAdapter;
-  private int mDuration = 300;
-  private Interpolator mInterpolator = new LinearInterpolator();
-  private int mLastPosition = -1;
+  private final RecyclerView.Adapter adapter;
+  private int duration = 300;
+  private Interpolator interpolator = new LinearInterpolator();
+  private int lastPosition = -1;
 
   private boolean isFirstOnly = true;
 
   public AnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
-    mAdapter = adapter;
+    this.adapter = adapter;
   }
 
   @NonNull @Override
   public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    return mAdapter.onCreateViewHolder(parent, viewType);
+    return adapter.onCreateViewHolder(parent, viewType);
   }
 
   @Override
   public void registerAdapterDataObserver(@NonNull RecyclerView.AdapterDataObserver observer) {
     super.registerAdapterDataObserver(observer);
-    mAdapter.registerAdapterDataObserver(observer);
+    adapter.registerAdapterDataObserver(observer);
   }
 
   @Override
   public void unregisterAdapterDataObserver(@NonNull RecyclerView.AdapterDataObserver observer) {
     super.unregisterAdapterDataObserver(observer);
-    mAdapter.unregisterAdapterDataObserver(observer);
+    adapter.unregisterAdapterDataObserver(observer);
   }
 
   @Override public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
     super.onAttachedToRecyclerView(recyclerView);
-    mAdapter.onAttachedToRecyclerView(recyclerView);
+    adapter.onAttachedToRecyclerView(recyclerView);
   }
 
   @Override public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
     super.onDetachedFromRecyclerView(recyclerView);
-    mAdapter.onDetachedFromRecyclerView(recyclerView);
+    adapter.onDetachedFromRecyclerView(recyclerView);
   }
 
   @SuppressWarnings("unchecked") @Override
   public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
     super.onViewAttachedToWindow(holder);
-    mAdapter.onViewAttachedToWindow(holder);
+    adapter.onViewAttachedToWindow(holder);
   }
 
   @SuppressWarnings("unchecked") @Override
   public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
     super.onViewDetachedFromWindow(holder);
-    mAdapter.onViewDetachedFromWindow(holder);
+    adapter.onViewDetachedFromWindow(holder);
   }
 
   @SuppressWarnings("unchecked") @Override
   public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-    mAdapter.onBindViewHolder(holder, position);
+    adapter.onBindViewHolder(holder, position);
 
     int adapterPosition = holder.getAdapterPosition();
-    if (!isFirstOnly || adapterPosition > mLastPosition) {
+    if (!isFirstOnly || adapterPosition > lastPosition) {
       for (Animator anim : getAnimators(holder.itemView)) {
-        anim.setDuration(mDuration).start();
-        anim.setInterpolator(mInterpolator);
+        anim.setDuration(duration).start();
+        anim.setInterpolator(interpolator);
       }
-      mLastPosition = adapterPosition;
+      lastPosition = adapterPosition;
     } else {
       ViewHelper.clear(holder.itemView);
     }
@@ -94,24 +94,24 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
 
   @SuppressWarnings("unchecked") @Override
   public void onViewRecycled(@NonNull RecyclerView.ViewHolder holder) {
-    mAdapter.onViewRecycled(holder);
+    adapter.onViewRecycled(holder);
     super.onViewRecycled(holder);
   }
 
   @Override public int getItemCount() {
-    return mAdapter.getItemCount();
+    return adapter.getItemCount();
   }
 
   public void setDuration(int duration) {
-    mDuration = duration;
+    this.duration = duration;
   }
 
   public void setInterpolator(Interpolator interpolator) {
-    mInterpolator = interpolator;
+    this.interpolator = interpolator;
   }
 
   public void setStartPosition(int start) {
-    mLastPosition = start;
+    lastPosition = start;
   }
 
   protected abstract Animator[] getAnimators(@NonNull View view);
@@ -121,15 +121,15 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   }
 
   @Override public int getItemViewType(int position) {
-    return mAdapter.getItemViewType(position);
+    return adapter.getItemViewType(position);
   }
 
   @SuppressWarnings("unchecked")
   public RecyclerView.Adapter<RecyclerView.ViewHolder> getWrappedAdapter() {
-    return mAdapter;
+    return adapter;
   }
 
   @Override public long getItemId(int position) {
-    return mAdapter.getItemId(position);
+    return adapter.getItemId(position);
   }
 }
