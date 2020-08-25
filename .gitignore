@@ -48,6 +48,9 @@ captures/
 .idea/modules.xml
 .idea/navEditor.xml
 .idea/markdown*
+.idea/compiler.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jarRepositories.xml
 projectFilesBackup/
 
 # Keystore files
