@@ -2,6 +2,7 @@ package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
@@ -23,13 +24,14 @@ import android.view.View;
 
 public class SlideInRightAnimationAdapter extends AnimationAdapter {
 
-  public SlideInRightAnimationAdapter(RecyclerView.Adapter adapter) {
+  public SlideInRightAnimationAdapter(
+    RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     super(adapter);
   }
 
-  @Override protected Animator[] getAnimators(View view) {
+  @Override protected Animator[] getAnimators(@NonNull View view) {
     return new Animator[] {
-        ObjectAnimator.ofFloat(view, "translationX", view.getRootView().getWidth(), 0)
+      ObjectAnimator.ofFloat(view, "translationX", view.getRootView().getWidth(), 0)
     };
   }
 }

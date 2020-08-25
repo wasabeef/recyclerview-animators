@@ -2,6 +2,7 @@ package jp.wasabeef.recyclerview.adapters;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
@@ -26,16 +27,17 @@ public class AlphaInAnimationAdapter extends AnimationAdapter {
   private static final float DEFAULT_ALPHA_FROM = 0f;
   private final float mFrom;
 
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter) {
+  public AlphaInAnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter) {
     this(adapter, DEFAULT_ALPHA_FROM);
   }
 
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter, float from) {
+  public AlphaInAnimationAdapter(RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter,
+    float from) {
     super(adapter);
     mFrom = from;
   }
 
-  @Override protected Animator[] getAnimators(View view) {
+  @Override protected Animator[] getAnimators(@NonNull View view) {
     return new Animator[] { ObjectAnimator.ofFloat(view, "alpha", mFrom, 1f) };
   }
 }
