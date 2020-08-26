@@ -1,0 +1,14 @@
+signingConfigs {
+  debug {
+    storeFile file("debug.keystore")
+    storePassword "android"
+    keyAlias "androiddebugkey"
+    keyPassword "android"
+  }
+}
+
+// $ keytool -v -list -keystore
+// Certificate fingerprints:
+// MD5:  28:22:7C:A4:B9:2F:6E:C7:D5:58:62:48:EB:7E:82:C3
+// SHA1: 94:25:A9:50:9C:0E:AE:AA:00:37:5E:D6:71:E3:BC:ED:17:E5:0C:A3
+// SHA256: 04:92:39:09:3D:1C:B6:16:BE:55:58:A3:5F:3B:BB:CB:0B:E7:F1:DA:AA:26:C5:2D:BD:2F:44:CF:AE:47:CF:87

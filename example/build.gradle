@@ -11,42 +11,19 @@ android {
     versionName VERSION_NAME
   }
 
-  signingConfigs {
-    release {
-      storeFile file(keyStoreProperty)
-      keyAlias keyAliasProperty
-      storePassword keyStorePasswordProperty
-      keyPassword keyAliasPasswordProperty
-    }
-  }
+  // SigningConfigs
+  apply from: '../signingConfigs/debug.gradle', to: android
 
   buildTypes {
     debug {
       debuggable true
-      zipAlignEnabled true
+      signingConfig signingConfigs.debug
     }
     release {
       debuggable false
       zipAlignEnabled true
-      signingConfig signingConfigs.release
     }
   }
-}
-
-def getKeyStoreProperty() {
-  return hasProperty('WASABEEF_KEYSTORE') ? WASABEEF_KEYSTORE : "debug.keystore"
-}
-
-def getKeyAliasProperty() {
-  return hasProperty('WASABEEF_KEYALIAS') ? WASABEEF_KEYALIAS : "android"
-}
-
-def getKeyStorePasswordProperty() {
-  return hasProperty('WASABEEF_KEYSTOREPASSWORD') ? WASABEEF_KEYSTOREPASSWORD : "androiddebugkey"
-}
-
-def getKeyAliasPasswordProperty() {
-  return hasProperty('WASABEEF_KEYALIASPASSWORD') ? WASABEEF_KEYALIASPASSWORD : "android"
 }
 
 dependencies {
