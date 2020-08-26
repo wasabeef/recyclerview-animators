@@ -21,12 +21,12 @@ import androidx.recyclerview.widget.RecyclerView
  * limitations under the License.
  */
 class AlphaInAnimationAdapter @JvmOverloads constructor(
-  adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder?>?,
+  adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>,
   private val from: Float = DEFAULT_ALPHA_FROM
 ) : AnimationAdapter(adapter) {
-  override fun getAnimators(view: View): Array<Animator> {
-    return arrayOf(ObjectAnimator.ofFloat(view, "alpha", from, 1f))
-  }
+
+  override fun getAnimators(view: View): Array<Animator> =
+    arrayOf(ObjectAnimator.ofFloat(view, "alpha", from, 1f))
 
   companion object {
     private const val DEFAULT_ALPHA_FROM = 0f

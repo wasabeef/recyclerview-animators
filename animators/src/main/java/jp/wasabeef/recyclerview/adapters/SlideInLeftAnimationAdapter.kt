@@ -21,11 +21,10 @@ import androidx.recyclerview.widget.RecyclerView
  * limitations under the License.
  */
 class SlideInLeftAnimationAdapter(
-  adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder?>
+  adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>
 ) : AnimationAdapter(adapter) {
-  override fun getAnimators(view: View): Array<Animator> {
-    return arrayOf(
-      ObjectAnimator.ofFloat(view, "translationX", -view.rootView.width.toFloat(), 0f)
-    )
-  }
+
+  override fun getAnimators(view: View): Array<Animator> = arrayOf(
+    ObjectAnimator.ofFloat(view, "translationX", -view.rootView.width.toFloat(), 0f)
+  )
 }
