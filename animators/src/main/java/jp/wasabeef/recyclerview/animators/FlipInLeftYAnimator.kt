@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class FlipInLeftYAnimator : BaseItemAnimator {
+open class FlipInLeftYAnimator : BaseItemAnimator {
   constructor()
   constructor(interpolator: Interpolator) {
     this.interpolator = interpolator

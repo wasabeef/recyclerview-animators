@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class OvershootInRightAnimator : BaseItemAnimator {
+open class OvershootInRightAnimator : BaseItemAnimator {
   private val tension: Float
 
   constructor() {

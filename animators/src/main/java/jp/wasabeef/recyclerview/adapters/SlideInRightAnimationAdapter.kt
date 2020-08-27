@@ -20,9 +20,10 @@ import androidx.recyclerview.widget.RecyclerView
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class SlideInRightAnimationAdapter(
+open class SlideInRightAnimationAdapter(
   adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>
 ) : AnimationAdapter(adapter) {
+
   override fun getAnimators(view: View): Array<Animator> = arrayOf(
     ObjectAnimator.ofFloat(view, "translationX", view.rootView.width.toFloat(), 0f)
   )

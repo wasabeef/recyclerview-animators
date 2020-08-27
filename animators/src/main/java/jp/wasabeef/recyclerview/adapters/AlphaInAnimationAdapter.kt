@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class AlphaInAnimationAdapter @JvmOverloads constructor(
+open class AlphaInAnimationAdapter @JvmOverloads constructor(
   adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>,
   private val from: Float = DEFAULT_ALPHA_FROM
 ) : AnimationAdapter(adapter) {

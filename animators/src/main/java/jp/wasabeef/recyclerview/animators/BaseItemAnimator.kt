@@ -368,7 +368,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
           view.translationX = 0f
           view.translationY = 0f
           dispatchChangeFinished(changeInfo.oldHolder, true)
-          changeAnimations.remove(changeInfo.oldHolder)
+          if (changeInfo.oldHolder != null) changeAnimations.remove(changeInfo.oldHolder!!)
           dispatchFinishedWhenDone()
         }
       }).start()
@@ -388,7 +388,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
             newView.translationX = 0f
             newView.translationY = 0f
             dispatchChangeFinished(changeInfo.newHolder, false)
-            changeAnimations.remove(changeInfo.newHolder)
+            if (changeInfo.newHolder != null) changeAnimations.remove(changeInfo.newHolder!!)
             dispatchFinishedWhenDone()
           }
         }).start()

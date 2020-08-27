@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class LandingAnimator : BaseItemAnimator {
+open class LandingAnimator : BaseItemAnimator {
   constructor()
   constructor(interpolator: Interpolator) {
     this.interpolator = interpolator

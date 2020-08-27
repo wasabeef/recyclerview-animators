@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class SlideInBottomAnimationAdapter(
+open class SlideInBottomAnimationAdapter(
   adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>
 ) : AnimationAdapter(adapter) {
 
