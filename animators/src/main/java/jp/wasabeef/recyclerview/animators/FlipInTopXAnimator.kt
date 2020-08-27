@@ -25,13 +25,13 @@ open class FlipInTopXAnimator : BaseItemAnimator {
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder) {
-    holder.itemView.animate()
-      .rotationX(90f)
-      .setDuration(removeDuration)
-      .setInterpolator(interpolator)
-      .setListener(DefaultRemoveAnimatorListener(holder))
-      .setStartDelay(getRemoveDelay(holder))
-      .start()
+    holder.itemView.animate().apply {
+      rotationX(90f)
+      duration = removeDuration
+      interpolator = interpolator
+      setListener(DefaultRemoveAnimatorListener(holder))
+      startDelay = getRemoveDelay(holder)
+    }.start()
   }
 
   override fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {
@@ -39,12 +39,12 @@ open class FlipInTopXAnimator : BaseItemAnimator {
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder) {
-    holder.itemView.animate()
-      .rotationX(0f)
-      .setDuration(addDuration)
-      .setInterpolator(interpolator)
-      .setListener(DefaultAddAnimatorListener(holder))
-      .setStartDelay(getAddDelay(holder))
-      .start()
+    holder.itemView.animate().apply {
+      rotationX(0f)
+      duration = addDuration
+      interpolator = interpolator
+      setListener(DefaultAddAnimatorListener(holder))
+      startDelay = getAddDelay(holder)
+    }.start()
   }
 }

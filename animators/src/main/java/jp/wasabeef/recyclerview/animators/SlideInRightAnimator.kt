@@ -25,13 +25,13 @@ open class SlideInRightAnimator : BaseItemAnimator {
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder) {
-    holder.itemView.animate()
-      .translationX(holder.itemView.rootView.width.toFloat())
-      .setDuration(removeDuration)
-      .setInterpolator(interpolator)
-      .setListener(DefaultRemoveAnimatorListener(holder))
-      .setStartDelay(getRemoveDelay(holder))
-      .start()
+    holder.itemView.animate().apply {
+      translationX(holder.itemView.rootView.width.toFloat())
+      duration = removeDuration
+      interpolator = interpolator
+      setListener(DefaultRemoveAnimatorListener(holder))
+      startDelay = getRemoveDelay(holder)
+    }.start()
   }
 
   override fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {
@@ -39,12 +39,12 @@ open class SlideInRightAnimator : BaseItemAnimator {
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder) {
-    holder.itemView.animate()
-      .translationX(0f)
-      .setDuration(addDuration)
-      .setInterpolator(interpolator)
-      .setListener(DefaultAddAnimatorListener(holder))
-      .setStartDelay(getAddDelay(holder))
-      .start()
+    holder.itemView.animate().apply {
+      translationX(0f)
+      duration = addDuration
+      interpolator = interpolator
+      setListener(DefaultAddAnimatorListener(holder))
+      startDelay = getAddDelay(holder)
+    }.start()
   }
 }

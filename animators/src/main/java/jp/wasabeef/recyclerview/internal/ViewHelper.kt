@@ -20,16 +20,18 @@ import android.view.View
 object ViewHelper {
   @JvmStatic
   fun clear(v: View) {
-    v.alpha = 1f
-    v.scaleY = 1f
-    v.scaleX = 1f
-    v.translationY = 0f
-    v.translationX = 0f
-    v.rotation = 0f
-    v.rotationY = 0f
-    v.rotationX = 0f
-    v.pivotY = v.measuredHeight / 2f
-    v.pivotX = v.measuredWidth / 2f
-    v.animate().setInterpolator(null).startDelay = 0
+    v.apply {
+      alpha = 1f
+      scaleY = 1f
+      scaleX = 1f
+      translationY = 0f
+      translationX = 0f
+      rotation = 0f
+      rotationY = 0f
+      rotationX = 0f
+      pivotY = v.measuredHeight / 2f
+      pivotX = v.measuredWidth / 2f
+      animate().setInterpolator(null).startDelay = 0
+    }
   }
 }

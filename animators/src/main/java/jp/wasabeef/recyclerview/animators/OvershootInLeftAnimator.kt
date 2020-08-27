@@ -30,12 +30,12 @@ open class OvershootInLeftAnimator : BaseItemAnimator {
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder) {
-    holder.itemView.animate()
-      .translationX(-holder.itemView.rootView.width.toFloat())
-      .setDuration(removeDuration)
-      .setListener(DefaultRemoveAnimatorListener(holder))
-      .setStartDelay(getRemoveDelay(holder))
-      .start()
+    holder.itemView.animate().apply {
+      translationX(-holder.itemView.rootView.width.toFloat())
+      duration = removeDuration
+      setListener(DefaultRemoveAnimatorListener(holder))
+      startDelay = getRemoveDelay(holder)
+    }.start()
   }
 
   override fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {
@@ -43,12 +43,12 @@ open class OvershootInLeftAnimator : BaseItemAnimator {
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder) {
-    holder.itemView.animate()
-      .translationX(0f)
-      .setDuration(addDuration)
-      .setListener(DefaultAddAnimatorListener(holder))
-      .setInterpolator(OvershootInterpolator(tension))
-      .setStartDelay(getAddDelay(holder))
-      .start()
+    holder.itemView.animate().apply {
+      translationX(0f)
+      duration = addDuration
+      setListener(DefaultAddAnimatorListener(holder))
+      interpolator = OvershootInterpolator(tension)
+      startDelay = getAddDelay(holder)
+    }.start()
   }
 }
