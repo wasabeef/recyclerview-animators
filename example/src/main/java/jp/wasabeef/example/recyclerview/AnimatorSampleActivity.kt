@@ -33,7 +33,7 @@ import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 /**
- * Created by Wasabeef on 2020/08/26.
+ * Created by Daichi Furiya / Wasabeef on 2020/08/26.
  */
 class AnimatorSampleActivity : AppCompatActivity() {
 

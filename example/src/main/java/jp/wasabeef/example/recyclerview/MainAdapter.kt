@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 /**
- * Created by Wasabeef on 2020/08/26.
+ * Created by Daichi Furiya / Wasabeef on 2020/08/26.
  */
 class MainAdapter(private val context: Context, private val dataSet: MutableList<String>) :
   RecyclerView.Adapter<MainAdapter.ViewHolder>() {

@@ -20,7 +20,7 @@ import jp.wasabeef.recyclerview.adapters.SlideInRightAnimationAdapter
 import jp.wasabeef.recyclerview.animators.FadeInAnimator
 
 /**
- * Created by Wasabeef on 2020/08/26.
+ * Created by Daichi Furiya / Wasabeef on 2020/08/26.
  */
 class AdapterSampleActivity : AppCompatActivity() {
 

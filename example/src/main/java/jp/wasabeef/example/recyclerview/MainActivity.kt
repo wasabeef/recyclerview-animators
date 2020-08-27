@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 
 /**
- * Created by Wasabeef on 2020/08/26.
+ * Created by Daichi Furiya / Wasabeef on 2020/08/26.
  */
 class MainActivity : AppCompatActivity() {
 

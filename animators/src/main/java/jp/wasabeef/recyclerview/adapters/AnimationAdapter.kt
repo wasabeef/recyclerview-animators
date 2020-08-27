@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import jp.wasabeef.recyclerview.internal.ViewHelper.clear
 
 /**
- * Copyright (C) 2020 Wasabeef
+ * Copyright (C) 2020 Daichi Furiya / Wasabeef
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
