@@ -1,7 +1,6 @@
 package jp.wasabeef.recyclerview.animators
 
 import android.view.animation.Interpolator
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -26,11 +25,11 @@ open class SlideInLeftAnimator : BaseItemAnimator {
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.animate(holder.itemView)
+    holder.itemView.animate()
       .translationX(-holder.itemView.rootView.width.toFloat())
       .setDuration(removeDuration)
       .setInterpolator(interpolator)
-      .setListener(DefaultRemoveVpaListener(holder))
+      .setListener(DefaultRemoveAnimatorListener(holder))
       .setStartDelay(getRemoveDelay(holder))
       .start()
   }
@@ -40,11 +39,11 @@ open class SlideInLeftAnimator : BaseItemAnimator {
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.animate(holder.itemView)
+    holder.itemView.animate()
       .translationX(0f)
       .setDuration(addDuration)
       .setInterpolator(interpolator)
-      .setListener(DefaultAddVpaListener(holder))
+      .setListener(DefaultAddAnimatorListener(holder))
       .setStartDelay(getAddDelay(holder))
       .start()
   }

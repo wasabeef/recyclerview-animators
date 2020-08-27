@@ -1,7 +1,6 @@
 package jp.wasabeef.recyclerview.internal
 
 import android.view.View
-import androidx.core.view.ViewCompat
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -31,6 +30,6 @@ object ViewHelper {
     v.rotationX = 0f
     v.pivotY = v.measuredHeight / 2f
     v.pivotX = v.measuredWidth / 2f
-    ViewCompat.animate(v).setInterpolator(null).startDelay = 0
+    v.animate().setInterpolator(null).startDelay = 0
   }
 }

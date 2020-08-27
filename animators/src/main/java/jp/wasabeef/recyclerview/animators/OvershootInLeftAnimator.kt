@@ -1,7 +1,6 @@
 package jp.wasabeef.recyclerview.animators
 
 import android.view.animation.OvershootInterpolator
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -31,10 +30,10 @@ open class OvershootInLeftAnimator : BaseItemAnimator {
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.animate(holder.itemView)
+    holder.itemView.animate()
       .translationX(-holder.itemView.rootView.width.toFloat())
       .setDuration(removeDuration)
-      .setListener(DefaultRemoveVpaListener(holder))
+      .setListener(DefaultRemoveAnimatorListener(holder))
       .setStartDelay(getRemoveDelay(holder))
       .start()
   }
@@ -44,10 +43,10 @@ open class OvershootInLeftAnimator : BaseItemAnimator {
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.animate(holder.itemView)
+    holder.itemView.animate()
       .translationX(0f)
       .setDuration(addDuration)
-      .setListener(DefaultAddVpaListener(holder))
+      .setListener(DefaultAddAnimatorListener(holder))
       .setInterpolator(OvershootInterpolator(tension))
       .setStartDelay(getAddDelay(holder))
       .start()

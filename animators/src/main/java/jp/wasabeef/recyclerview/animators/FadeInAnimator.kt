@@ -1,7 +1,6 @@
 package jp.wasabeef.recyclerview.animators
 
 import android.view.animation.Interpolator
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -26,11 +25,11 @@ open class FadeInAnimator : BaseItemAnimator {
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.animate(holder.itemView)
+    holder.itemView.animate()
       .alpha(0f)
       .setDuration(removeDuration)
       .setInterpolator(interpolator)
-      .setListener(DefaultRemoveVpaListener(holder))
+      .setListener(DefaultRemoveAnimatorListener(holder))
       .setStartDelay(getRemoveDelay(holder))
       .start()
   }
@@ -40,11 +39,11 @@ open class FadeInAnimator : BaseItemAnimator {
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.animate(holder.itemView)
+    holder.itemView.animate()
       .alpha(1f)
       .setDuration(addDuration)
       .setInterpolator(interpolator)
-      .setListener(DefaultAddVpaListener(holder))
+      .setListener(DefaultAddAnimatorListener(holder))
       .setStartDelay(getAddDelay(holder))
       .start()
   }
