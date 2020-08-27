@@ -125,7 +125,7 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), AnimateV
   }
 
   override fun animateRemoveImpl(holder: RecyclerView.ViewHolder, listener: ViewPropertyAnimatorListener) {
-    ViewCompat.animate(itemView).apply {
+    itemView.animate().apply {
       translationY(-itemView.height * 0.3f)
       alpha(0f)
       duration = 300
@@ -134,12 +134,12 @@ class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), AnimateV
   }
 
   override fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {
-    ViewCompat.setTranslationY(itemView, -itemView.height * 0.3f)
-    ViewCompat.setAlpha(itemView, 0f)
+    itemView.setTranslationY(-itemView.height * 0.3f)
+    itemView.setAlpha(0f)
   }
 
   override fun animateAddImpl(holder: RecyclerView.ViewHolder, listener: ViewPropertyAnimatorListener) {
-    ViewCompat.animate(itemView).apply {
+    itemView.animate().apply {
       translationY(0f)
       alpha(1f)
       duration = 300
@@ -272,7 +272,7 @@ Thanks
 License
 -------
 
-    Copyright 2018 Wasabeef
+    Copyright 2020 Wasabeef
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

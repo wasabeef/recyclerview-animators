@@ -20,7 +20,7 @@ import jp.wasabeef.recyclerview.adapters.SlideInRightAnimationAdapter
 import jp.wasabeef.recyclerview.animators.FadeInAnimator
 
 /**
- * Created by Wasabeef on 2015/01/03.
+ * Created by Daichi Furiya / Wasabeef on 2020/08/26.
  */
 class AdapterSampleActivity : AppCompatActivity() {
 
@@ -59,7 +59,7 @@ class AdapterSampleActivity : AppCompatActivity() {
     setContentView(R.layout.activity_adapter_sample)
 
     setSupportActionBar(findViewById(R.id.tool_bar))
-    supportActionBar!!.setDisplayShowTitleEnabled(false)
+    supportActionBar?.setDisplayShowTitleEnabled(false)
 
     val recyclerView = findViewById<RecyclerView>(R.id.list)
     recyclerView.layoutManager = if (intent.getBooleanExtra(MainActivity.KEY_GRID, true)) {

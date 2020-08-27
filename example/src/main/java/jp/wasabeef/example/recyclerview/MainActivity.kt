@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 
 /**
- * Created by Wasabeef on 2015/03/08.
+ * Created by Daichi Furiya / Wasabeef on 2020/08/26.
  */
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
       })
     }
 
-    findViewById<SwitchCompat>(R.id.grid).setOnCheckedChangeListener { _, isChecked -> enabledGrid = isChecked }
+    findViewById<SwitchCompat>(R.id.grid).setOnCheckedChangeListener { _, isChecked ->
+      enabledGrid = isChecked
+    }
   }
 }
