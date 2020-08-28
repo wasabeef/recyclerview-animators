@@ -245,9 +245,10 @@ Please [ping](mailto:dadadada.chop@gmail.com) me or send a pull request if you w
 
 Icon | Application
 ------------ | -------------
-<img src="https://lh6.ggpht.com/6zKH_uQY1bxCwXL4DLo_uoFEOXdShi3BgmN6XRHlaJ-oA1svmq6y1PZkmO50nWQn2Lg=w300-rw" width="48" height="48" /> | [Ameba Ownd](https://play.google.com/store/apps/details?id=jp.co.cyberagent.madrid)
-<img src="http://quitnowapp.com/xtra/QuitNow!-114.png" width="48" height="48" /> | [QuitNow!](https://play.google.com/store/apps/details?id=com.EAGINsoftware.dejaloYa)
-<img src="https://lh3.googleusercontent.com/ZOrekp-ho-ecWG1TyvuOs0LoB5M4QYWCCLS5lFbAHhp_SklSd06544ENG3uC97zGWes=w300-rw" width="48" height="48" /> | [AbemaTV](https://play.google.com/store/apps/details?id=tv.abema)
+<img src="https://play-lh.googleusercontent.com/6zKH_uQY1bxCwXL4DLo_uoFEOXdShi3BgmN6XRHlaJ-oA1svmq6y1PZkmO50nWQn2Lg=s180-rw" width="48" height="48" /> | [Ameba Ownd](https://play.google.com/store/apps/details?id=jp.co.cyberagent.madrid)
+<img src="https://lh3.googleusercontent.com/DHtrq5MZQ6aYGbmUSB8WNiOv-Oz9R4TyMCnzzYSjIqT3earlej7eq5DUudnN0bhSOeg=s180-rw" width="48" height="48" /> | [QuitNow!](https://play.google.com/store/apps/details?id=com.EAGINsoftware.dejaloYa)
+<img src="https://lh3.googleusercontent.com/yFhps2nQ3q7QcpqZhMWYP5_ltMWJekX2eOiE0oWORUsP8CiwWkRtRlxVgiRtCZXUdQ=s180-rw" width="48" height="48" /> | [AbemaTV](https://play.google.com/store/apps/details?id=tv.abema)
+<img src="https://lh3.googleusercontent.com/S8r0TL8pJ8PGWh_IOkULOHY3MhWvv1LSAOZ3uWJXwpfRq7icS79cPrqH8R5MeXWgAOo=s180-rw" width="48" height="48" /> | [CL](https://play.google.com/store/apps/details?id=com.cllive)
 
 Developed By
 -------
