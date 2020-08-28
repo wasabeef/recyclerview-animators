@@ -181,13 +181,17 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
   }
 
   protected open fun preAnimateRemoveImpl(holder: RecyclerView.ViewHolder) {}
+
   protected open fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {}
+
   protected abstract fun animateRemoveImpl(holder: RecyclerView.ViewHolder)
+
   protected abstract fun animateAddImpl(holder: RecyclerView.ViewHolder)
+
   private fun preAnimateRemove(holder: RecyclerView.ViewHolder) {
     clear(holder.itemView)
     if (holder is AnimateViewHolder) {
-      (holder as AnimateViewHolder).preAnimateRemoveImpl(holder)
+      holder.preAnimateRemoveImpl(holder)
     } else {
       preAnimateRemoveImpl(holder)
     }
@@ -196,7 +200,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
   private fun preAnimateAdd(holder: RecyclerView.ViewHolder) {
     clear(holder.itemView)
     if (holder is AnimateViewHolder) {
-      (holder as AnimateViewHolder).preAnimateAddImpl(holder)
+      holder.preAnimateAddImpl(holder)
     } else {
       preAnimateAddImpl(holder)
     }
@@ -204,7 +208,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
 
   private fun doAnimateRemove(holder: RecyclerView.ViewHolder) {
     if (holder is AnimateViewHolder) {
-      (holder as AnimateViewHolder).animateRemoveImpl(holder, DefaultRemoveAnimatorListener(holder))
+      holder.animateRemoveImpl(holder, DefaultRemoveAnimatorListener(holder))
     } else {
       animateRemoveImpl(holder)
     }
@@ -213,7 +217,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
 
   private fun doAnimateAdd(holder: RecyclerView.ViewHolder) {
     if (holder is AnimateViewHolder) {
-      (holder as AnimateViewHolder).animateAddImpl(holder, DefaultAddAnimatorListener(holder))
+      holder.animateAddImpl(holder, DefaultAddAnimatorListener(holder))
     } else {
       animateAddImpl(holder)
     }
@@ -604,9 +608,9 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
     dispatchAnimationsFinished()
   }
 
-  private fun cancelAll(viewHolders: List<RecyclerView.ViewHolder?>) {
+  private fun cancelAll(viewHolders: List<RecyclerView.ViewHolder>) {
     for (i in viewHolders.indices.reversed()) {
-      viewHolders[i]!!.itemView.animate().cancel()
+      viewHolders[i].itemView.animate().cancel()
     }
   }
 
