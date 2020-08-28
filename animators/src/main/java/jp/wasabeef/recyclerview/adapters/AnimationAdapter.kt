@@ -37,6 +37,7 @@ abstract class AnimationAdapter(wrapped: RecyclerView.Adapter<out RecyclerView.V
   init {
     @Suppress("UNCHECKED_CAST")
     this.adapter = wrapped as RecyclerView.Adapter<RecyclerView.ViewHolder>
+    super.setHasStableIds(this.adapter.hasStableIds())
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -119,6 +120,11 @@ abstract class AnimationAdapter(wrapped: RecyclerView.Adapter<out RecyclerView.V
 
   val wrappedAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
     get() = adapter
+
+  override fun setHasStableIds(hasStableIds: Boolean) {
+    super.setHasStableIds(hasStableIds)
+    adapter.setHasStableIds(hasStableIds)
+  }
 
   override fun getItemId(position: Int): Long {
     return adapter.getItemId(position)
