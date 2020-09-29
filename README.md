@@ -37,9 +37,6 @@ On your module's `build.gradle` file add this implementation statement to the `d
 dependencies {
   // Kotlin
   implementation 'jp.wasabeef:recyclerview-animators:4.x.x'
-  // or
-  // Java
-  implementation 'jp.wasabeef:recyclerview-animators:3.x.x'
 }
 ```
 
