@@ -183,7 +183,7 @@ recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter())
 #### Java
 ```java
 RecyclerView recyclerView = findViewById(R.id.list);
-recyclerView.adapter = AlphaInAnimationAdapter(MyAdapter())
+recyclerView.setAdapter(new AlphaInAnimationAdapter(MyAdapter());
 ```
 
 ### Advanced Step 2
