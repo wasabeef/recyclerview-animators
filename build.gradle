@@ -17,6 +17,7 @@ buildscript {
 allprojects {
   repositories {
     google()
+    mavenCentral()
     jcenter()
   }
   tasks.withType(Javadoc) {
