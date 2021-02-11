@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+Version 4.0.2 *(2021-02-11)*
+----------------------------
+
+Update:
+- The minSdkVersion to 1.4.21
+- Update project settings
+  - Add Maven Central settings
+
 Version 4.0.0 *(2020-08-27)*
 ----------------------------
 
