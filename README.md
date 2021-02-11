@@ -40,7 +40,7 @@ dependencies {
 }
 ```
 
-Also make sure that the `repositories` section includes not only jcenter but also a `maven` section with the `"google()"` endpoint. 
+Also make sure that the `repositories` section includes not only `"mavenCentral()"` but also a `maven` section with the `"google()"` endpoint. 
 
 ```
 repositories {
