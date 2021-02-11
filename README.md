@@ -6,7 +6,7 @@ RecyclerView Animators
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-recyclerview--animators-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1327)
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Download](https://api.bintray.com/packages/wasabeef/maven/recyclerview-animators/images/download.svg)](https://bintray.com/wasabeef/maven/recyclerview-animators/_latestVersion)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/jp.wasabeef/recyclerview-animators/badge.svg)](https://search.maven.org/artifact/jp.wasabeef/recyclerview-animators)
 
 RecyclerView Animators is an Android library that allows developers to easily create RecyclerView with animations.
 
@@ -45,6 +45,7 @@ Also make sure that the `repositories` section includes not only jcenter but als
 ```
 repositories {
   google()
+  mavenCentral()
   jcenter()
 }
 ```
