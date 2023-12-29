@@ -231,7 +231,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
     return true
   }
 
-  protected fun getRemoveDelay(holder: RecyclerView.ViewHolder): Long {
+  protected open fun getRemoveDelay(holder: RecyclerView.ViewHolder): Long {
     return abs(holder.oldPosition * removeDuration / 4)
   }
 
@@ -242,7 +242,7 @@ abstract class BaseItemAnimator : SimpleItemAnimator() {
     return true
   }
 
-  protected fun getAddDelay(holder: RecyclerView.ViewHolder): Long {
+  protected open fun getAddDelay(holder: RecyclerView.ViewHolder): Long {
     return abs(holder.adapterPosition * addDuration / 4)
   }
 
