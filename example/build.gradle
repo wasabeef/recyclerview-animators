@@ -1,8 +1,11 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+  id('com.android.application')
+  id('org.jetbrains.kotlin.android')
+}
 
 android {
-  compileSdkVersion COMPILE_SDK_VERSION as int
+  namespace "jp.wasabeef.example.recyclerview"
+  compileSdk COMPILE_SDK_VERSION as int
 
   defaultConfig {
     minSdkVersion MIN_SDK_VERSION as int
@@ -21,19 +24,21 @@ android {
     }
     release {
       debuggable false
-      zipAlignEnabled true
     }
+  }
+
+  lint {
+    lintConfig = project.file("lint-config.xml")
   }
 }
 
-repositories {
-  // maven { url = "https://oss.sonatype.org/content/repositories/snapshots"}
+kotlin {
+  jvmToolchain(17)
 }
 
 dependencies {
   implementation project(':animators')
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation "androidx.appcompat:appcompat:1.2.0"
-  implementation "androidx.recyclerview:recyclerview:1.1.0"
+  implementation "androidx.appcompat:appcompat:1.6.1"
+  implementation "androidx.recyclerview:recyclerview:1.3.2"
   implementation 'com.squareup.picasso:picasso:2.8'
 }
