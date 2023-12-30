@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  package="jp.wasabeef.example.recyclerview"
   >
 
   <application
@@ -13,7 +12,7 @@
     >
     <activity
       android:name=".MainActivity"
-      android:label="@string/app_name"
+      android:exported="true"
       >
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -21,8 +20,14 @@
       </intent-filter>
     </activity>
 
-    <activity android:name=".AnimatorSampleActivity" />
-    <activity android:name=".AdapterSampleActivity" />
+    <activity
+      android:name=".AnimatorSampleActivity"
+      android:exported="false"
+      />
+    <activity
+      android:name=".AdapterSampleActivity"
+      android:exported="false"
+      />
 
   </application>
 

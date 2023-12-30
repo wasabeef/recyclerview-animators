@@ -85,13 +85,13 @@ class AnimatorSampleActivity : AppCompatActivity() {
 
     val spinner = findViewById<Spinner>(R.id.spinner)
     val spinnerAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
-    for (type in Type.values()) {
+    for (type in Type.entries) {
       spinnerAdapter.add(type.name)
     }
     spinner.adapter = spinnerAdapter
     spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
       override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-        recyclerView.itemAnimator = Type.values()[position].animator
+        recyclerView.itemAnimator = Type.entries[position].animator
         recyclerView.itemAnimator?.addDuration = 500
         recyclerView.itemAnimator?.removeDuration = 500
       }

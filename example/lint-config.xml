@@ -1,0 +1,6 @@
+<lint>
+  <issue id="NotificationPermission">
+    # Only required for specific not used apis.
+    <ignore regexp='.*com\.squareup\.picasso.*' />
+  </issue>
+</lint>

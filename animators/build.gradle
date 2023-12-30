@@ -1,42 +1,96 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+plugins {
+  id('com.android.library')
+  id('org.jetbrains.kotlin.android')
+  id('org.gradle.maven-publish')
+  id('signing')
+}
 
 android {
-  compileSdkVersion COMPILE_SDK_VERSION as int
+  namespace 'jp.wasabeef.recyclerview'
+  compileSdk COMPILE_SDK_VERSION as int
 
   defaultConfig {
     minSdkVersion MIN_SDK_VERSION as int
     targetSdkVersion TARGET_SDK_VERSION as int
   }
+
+  publishing {
+    singleVariant('release') {
+      withSourcesJar()
+      withJavadocJar()
+    }
+  }
+}
+
+kotlin {
+  jvmToolchain(17)
 }
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation "androidx.recyclerview:recyclerview:1.1.0"
+  implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+  implementation 'androidx.recyclerview:recyclerview:1.3.2'
 }
 
-ext {
-  bintrayRepo = 'maven'
-  bintrayName = 'recyclerview-animators'
-  bintrayUserOrg = 'wasabeef'
-  publishedGroupId = 'jp.wasabeef'
-  libraryName = 'recyclerview-animators'
-  artifact = 'recyclerview-animators'
-  libraryDescription = 'Which provides simple Item animations to RecyclerView items'
-  siteUrl = 'https://github.com/wasabeef/recyclerview-animators'
-  gitUrl = 'https://github.com/wasabeef/recyclerview-animators.git'
-  issueUrl = 'https://github.com/wasabeef/recyclerview-animators/issues'
-  libraryVersion = VERSION_NAME
-  developerId = 'wasabeef'
-  developerName = 'Wasabeef'
-  developerEmail = 'dadadada.chop@gmail.com'
-  licenseName = 'The Apache Software License, Version 2.0'
-  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-  allLicenses = ["Apache-2.0"]
+def sonatypeUsername = rootProject.hasProperty('sonatypeUsername') ? rootProject.sonatypeUsername : ''
+def sonatypePassword = rootProject.hasProperty('sonatypePassword') ? rootProject.sonatypePassword : ''
+
+group = 'jp.wasabeef'
+version = VERSION_NAME
+
+afterEvaluate {
+  publishing {
+    publications {
+      release(MavenPublication) {
+        def artifact = 'recyclerview-animators'
+        artifactId = artifact
+
+        afterEvaluate {
+          from components.release
+        }
+
+        pom {
+          def siteUrl = 'https://github.com/wasabeef/recyclerview-animators'
+          def gitUrl = 'https://github.com/wasabeef/recyclerview-animators.git'
+
+          name = artifact
+          description = 'Which provides simple Item animations to RecyclerView items'
+          url = siteUrl
+          licenses {
+            license {
+              name = 'The Apache Software License, Version 2.0'
+              url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            }
+          }
+          developers {
+            developer {
+              id = 'wasabeef'
+              name = 'Wasabeef'
+              email = 'dadadada.chop@gmail.com'
+            }
+          }
+          scm {
+            connection = gitUrl
+            developerConnection = gitUrl
+            url = siteUrl
+          }
+        }
+      }
+    }
+
+    repositories {
+      maven {
+        def releasesRepoUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+        def snapshotsRepoUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
+        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        credentials {
+          username = "${sonatypeUsername}"
+          password = "${sonatypePassword}"
+        }
+      }
+    }
+  }
 }
 
-// TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
-// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
-// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
-
-apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
+signing {
+  sign publishing.publications
+}

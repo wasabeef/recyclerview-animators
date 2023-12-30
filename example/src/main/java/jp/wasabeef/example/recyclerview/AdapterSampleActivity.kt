@@ -70,11 +70,11 @@ class AdapterSampleActivity : AppCompatActivity() {
 
     val spinner = findViewById<Spinner>(R.id.spinner)
     spinner.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1).apply {
-      for (type in Type.values()) add(type.name)
+      for (type in Type.entries) add(type.name)
     }
     spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
       override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-        recyclerView.adapter = Type.values()[position][view.context].apply {
+        recyclerView.adapter = Type.entries[position][view.context].apply {
           setFirstOnly(true)
           setDuration(500)
           setInterpolator(OvershootInterpolator(.5f))
